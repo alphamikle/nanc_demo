@@ -1,0 +1,29 @@
+name: analytics
+description: A new Flutter package project.
+version: 0.0.1
+homepage: nope
+publish_to: none
+
+environment:
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  config:
+    path: ../../nanc/config
+  tools:
+    path: ../../nanc/tools
+  amplitude_flutter: ^3.14.0
+  go_router: ^8.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../../nanc/lint
+
+flutter:

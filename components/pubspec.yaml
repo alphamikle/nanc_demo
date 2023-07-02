@@ -1,0 +1,32 @@
+name: components
+description: A new Flutter package project.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.0.1 <4.0.0'
+  flutter: ">=3.10.1"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  icons:
+    path: ../../nanc/icons
+  nanc_renderer:
+    path: ../../nanc/nanc_renderer
+  tools:
+    path: ../../nanc/tools
+  markdown: ^7.1.0
+  json_annotation: ^4.8.1
+  copy_with_extension: ^5.0.2
+  carousel_slider: ^4.2.1
+
+dev_dependencies:
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../../nanc/lint
+  json_serializable: ^6.7.0
+  copy_with_extension_gen: ^5.0.2
+  build_runner: ^2.4.4
+
+flutter:
