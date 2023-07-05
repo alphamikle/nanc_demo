@@ -28,14 +28,14 @@ packages:
   analytics:
     dependency: transitive
     description:
-      path: "../../fam/analytics"
+      path: "../../nanc/analytics"
       relative: true
     source: path
     version: "0.0.1"
   animation_debugger:
     dependency: transitive
     description:
-      path: "../../../3_open_source_projects/animation_debugger"
+      path: "../../../../3_open_source_projects/animation_debugger"
       relative: true
     source: path
     version: "1.0.0"
@@ -186,14 +186,14 @@ packages:
   cms:
     dependency: "direct main"
     description:
-      path: "../../fam/cms"
+      path: "../../nanc/cms"
       relative: true
     source: path
     version: "0.0.1"
   code_text_field:
     dependency: transitive
     description:
-      path: "../../fam/code_text_field"
+      path: "../../nanc/code_text_field"
       relative: true
     source: path
     version: "0.0.1"
@@ -208,7 +208,7 @@ packages:
   config:
     dependency: transitive
     description:
-      path: "../../fam/config"
+      path: "../../nanc/config"
       relative: true
     source: path
     version: "0.0.1"
@@ -303,7 +303,7 @@ packages:
   fields:
     dependency: "direct main"
     description:
-      path: "../../fam/fields"
+      path: "../../nanc/fields"
       relative: true
     source: path
     version: "0.0.1"
@@ -326,7 +326,7 @@ packages:
   file_syncer:
     dependency: transitive
     description:
-      path: "../../fam/file_syncer"
+      path: "../../nanc/file_syncer"
       relative: true
     source: path
     version: "0.0.1"
@@ -524,7 +524,7 @@ packages:
   fonts:
     dependency: transitive
     description:
-      path: "../../fam/fonts"
+      path: "../../nanc/fonts"
       relative: true
     source: path
     version: "0.0.1"
@@ -643,7 +643,7 @@ packages:
   icons:
     dependency: "direct main"
     description:
-      path: "../../fam/icons"
+      path: "../../nanc/icons"
       relative: true
     source: path
     version: "0.0.1"
@@ -682,7 +682,7 @@ packages:
   lint:
     dependency: "direct dev"
     description:
-      path: "../../fam/lint"
+      path: "../../nanc/lint"
       relative: true
     source: path
     version: "0.0.1"
@@ -705,7 +705,7 @@ packages:
   local_notifications:
     dependency: transitive
     description:
-      path: "../../fam/local_notifications"
+      path: "../../nanc/local_notifications"
       relative: true
     source: path
     version: "0.0.1"
@@ -784,35 +784,35 @@ packages:
   model:
     dependency: "direct main"
     description:
-      path: "../../fam/model"
+      path: "../../nanc/model"
       relative: true
     source: path
     version: "0.0.1"
   nanc_api_firebase:
     dependency: "direct main"
     description:
-      path: "../../fam/nanc_api_firebase"
+      path: "../../nanc/nanc_api_firebase"
       relative: true
     source: path
     version: "0.0.1"
   nanc_api_supabase:
     dependency: "direct main"
     description:
-      path: "../../fam/nanc_api_supabase"
+      path: "../../nanc/nanc_api_supabase"
       relative: true
     source: path
     version: "0.0.1"
   nanc_config:
     dependency: "direct main"
     description:
-      path: "../../fam/nanc_config"
+      path: "../../nanc/nanc_config"
       relative: true
     source: path
     version: "0.0.1"
   nanc_renderer:
     dependency: transitive
     description:
-      path: "../../fam/nanc_renderer"
+      path: "../../nanc/nanc_renderer"
       relative: true
     source: path
     version: "0.0.1"
@@ -1216,7 +1216,7 @@ packages:
   tools:
     dependency: transitive
     description:
-      path: "../../fam/tools"
+      path: "../../nanc/tools"
       relative: true
     source: path
     version: "0.0.1"
@@ -1231,7 +1231,7 @@ packages:
   ui_kit:
     dependency: transitive
     description:
-      path: "../../fam/ui_kit"
+      path: "../../nanc/ui_kit"
       relative: true
     source: path
     version: "0.0.1"

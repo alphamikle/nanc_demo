@@ -18,8 +18,8 @@ dependencies:
     path: ../../nanc/ui_kit
   analytics:
     path: ../../nanc/analytics
-  nanc_config:
-    path: ../../nanc/nanc_config
+  config:
+    path: ../../nanc/config
   url_launcher: ^6.1.11
   share_plus: ^7.0.1
 

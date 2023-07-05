@@ -1,6 +1,6 @@
 import 'package:analytics/analytics.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:share_plus/share_plus.dart';
 
 final RegExp _shareRegExp = RegExp(r'^share: ?(?<content>.*)$');

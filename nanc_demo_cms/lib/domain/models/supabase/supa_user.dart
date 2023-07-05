@@ -1,7 +1,7 @@
+import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
-import 'package:nanc_config/nanc_config.dart';
 
 import 'supa_color.dart';
 import 'supa_user_to_favorite_colors.dart';

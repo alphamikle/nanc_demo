@@ -1,6 +1,6 @@
 import 'package:analytics/analytics.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 final RegExp _browserRegExp = RegExp(r'^browser: ?(?<content>.*)$');

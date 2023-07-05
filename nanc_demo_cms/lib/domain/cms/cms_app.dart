@@ -1,7 +1,7 @@
 import 'package:cms/cms.dart';
+import 'package:config/config.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
-import 'package:nanc_config/nanc_config.dart';
 
 import '../models/supabase/supa_color.dart';
 import '../models/supabase/supa_user.dart';

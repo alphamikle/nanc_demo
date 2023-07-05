@@ -17,7 +17,7 @@ dependencies:
   nanc_api_firebase:
     path: ../../nanc/nanc_api_firebase
   nanc_config:
-    path: ../../nanc/nanc_config
+    path: ../../nanc/config
   icons:
     path: ../../nanc/icons
   fields:

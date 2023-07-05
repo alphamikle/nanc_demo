@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc_api_local/nanc_api_local.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
@@ -10,9 +11,9 @@ Future<void> main() async {
     await adminRunner(
       CmsConfig(
         /// ? Your should implement these APIs or use already implemented instead
-        collectionApi: ICollectionApi(),
-        pageApi: IPageApi(),
-        modelApi: IModelApi(),
+        collectionApi: LocalCollectionApi(),
+        pageApi: LocalPageApi(),
+        modelApi: LocalModelApi(),
         networkConfig: NetworkConfig(
           paginationPageNumberParameterName: 'page',
           paginationLimitParameterName: 'limit',

@@ -235,9 +235,9 @@ And play with the client app UI
                                           : () async => connectionManagerBloc.createConnection(
                                                 onClientConnected: notifyAboutConnectedClient,
                                               ),
-                                      child: Row(
+                                      child: const Row(
                                         mainAxisSize: MainAxisSize.min,
-                                        children: const [
+                                        children: [
                                           Padding(
                                             padding: EdgeInsets.only(right: 16),
                                             child: Icon(

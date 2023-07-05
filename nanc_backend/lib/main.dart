@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:additions/additions.dart';
 import 'package:cms/cms.dart';
 import 'package:components/components.dart';
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fonts/fonts.dart';
-import 'package:nanc_config/nanc_config.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 

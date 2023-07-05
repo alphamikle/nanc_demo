@@ -25,7 +25,7 @@ dependencies:
   icons:
     path: ../../nanc/icons
   animation_debugger:
-    path: ../../../3_open_source_projects/animation_debugger
+    path: ../../../../3_open_source_projects/animation_debugger
   components:
     path: ../components
   additions:
@@ -34,8 +34,8 @@ dependencies:
     path: ../../nanc/analytics
   fonts:
     path: ../../nanc/fonts
-  nanc_config:
-    path: ../../nanc/nanc_config
+  config:
+    path: ../../nanc/config
   cupertino_icons: ^1.0.5
   pretty_qr_code: ^2.0.3
   bloc: ^8.1.2

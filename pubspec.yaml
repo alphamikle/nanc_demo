@@ -1,0 +1,25 @@
+name: nanc_demo
+description: This package add you ability to easily create any md-tags and convert them into the widgets
+version: 1.0.0
+verified publisher:
+  - alphamikle@gmail.com
+homepage: client.nanc.io
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=3.10.5"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  args: ^2.3.2
+  path: ^1.8.2
+  flutter_lints: ^2.0.1
+  lint:
+    path: ../nanc/lint
+
+flutter:
