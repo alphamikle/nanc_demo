@@ -1,5 +1,5 @@
-name: introduction_cms
-description: Introduction CMS
+name: introduction_app
+description: Introduction App, built on Nanc Backend Driven UI
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,12 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  cms:
-    path: ../../nanc/cms
-  config:
-    path: ../../nanc/config
-  nanc_api_local:
-    path: ../../nanc/nanc_api_local
+  nanc_renderer:
+    path: ../../nanc/nanc_renderer
 
 dev_dependencies:
   flutter_test:

@@ -108,7 +108,6 @@ class _MainViewState extends State<MainView> {
               content: screenData,
               pageData: state.pageData,
               renderers: tagsRenderer,
-              preloader: preloader,
             ),
           );
         },

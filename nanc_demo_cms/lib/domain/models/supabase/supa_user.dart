@@ -11,6 +11,8 @@ final Model supaUser = Model(
   name: 'Users',
   id: 'users',
   icon: IconPackNames.rmx_user_3_line,
+  isCollection: true,
+  showInMenu: true,
   fields: [
     [
       IdField(),

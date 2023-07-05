@@ -8,25 +8,22 @@ class ContentPage extends StatelessWidget {
     required this.pageData,
     required this.content,
     required this.renderers,
-    required this.preloader,
     super.key,
   });
 
   final Json pageData;
   final String content;
   final List<TagRenderer> renderers;
-  final Widget preloader;
 
   @override
   Widget build(BuildContext context) {
     return XmlWidgetsSliverList(
-      markdownContent: content,
+      xmlContent: content,
       pageData: pageData,
       renderers: renderers,
       imageLoadingBuilder: imageLoadingBuilder,
       imageErrorBuilder: imageErrorBuilder,
       imageFrameBuilder: imageFrameBuilder,
-      preloader: preloader,
     );
   }
 }
