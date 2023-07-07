@@ -3,6 +3,7 @@ import 'package:config/config.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 
+import '../models/supabase/feature_toggles.dart';
 import '../models/supabase/supa_color.dart';
 import '../models/supabase/supa_user.dart';
 import '../models/supabase/supa_user_to_favorite_colors.dart';
@@ -68,6 +69,7 @@ Future<void> startCmsApp(DataProvider provider) async {
         supaColor,
         supaUserToFavoriteColors,
         supaUserToNonFavoriteColors,
+        featureToggles,
       ],
       customRenderers: [],
       clickHandlers: [],
