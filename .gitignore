@@ -1,1 +1,6 @@
 .idea
+.dart_tool
+.flutter-plugins
+.flutter-plugins-dependencies
+Podfile
+Podfile.lock
