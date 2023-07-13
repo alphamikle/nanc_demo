@@ -16,6 +16,8 @@ dependencies:
     path: ../../nanc/config
   nanc_api_local:
     path: ../../nanc/nanc_api_local
+  nanc_api_firebase:
+    path: ../../nanc/nanc_api_firebase
 
 dev_dependencies:
   flutter_test:
