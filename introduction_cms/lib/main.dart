@@ -5,11 +5,13 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 
+import 'firebase_key.dart';
+
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    final FirebaseApi firebaseApi = await FirebaseApi.create('');
+    final FirebaseApi firebaseApi = await FirebaseApi.create(firebaseBase64EncodedKey);
     final FirebaseCollectionApi firebaseCollectionApi = FirebaseCollectionApi(api: firebaseApi);
     final FirebasePageApi firebasePageApi = FirebasePageApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
     final FirebaseModelApi firebaseModelApi = FirebaseModelApi();
