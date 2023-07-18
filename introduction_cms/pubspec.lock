@@ -301,7 +301,7 @@ packages:
     source: hosted
     version: "2.0.2"
   fields:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../nanc/fields"
       relative: true
@@ -641,7 +641,7 @@ packages:
     source: hosted
     version: "4.0.2"
   icons:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../nanc/icons"
       relative: true
@@ -782,7 +782,7 @@ packages:
     source: hosted
     version: "1.0.4"
   model:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../nanc/model"
       relative: true
@@ -1214,7 +1214,7 @@ packages:
     source: hosted
     version: "0.5.1"
   tools:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../nanc/tools"
       relative: true

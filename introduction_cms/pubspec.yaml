@@ -18,6 +18,14 @@ dependencies:
     path: ../../nanc/nanc_api_local
   nanc_api_firebase:
     path: ../../nanc/nanc_api_firebase
+  model:
+    path: ../../nanc/model
+  tools:
+    path: ../../nanc/tools
+  fields:
+    path: ../../nanc/fields
+  icons:
+    path: ../../nanc/icons
 
 dev_dependencies:
   flutter_test:
