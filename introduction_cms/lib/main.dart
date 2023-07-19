@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_local/nanc_api_local.dart';
+import 'package:tools/tools.dart';
 
 import 'api/proxy_collection_api.dart';
 import 'data/age_ratings.dart';
@@ -71,39 +72,43 @@ Future<void> main() async {
       qualityRatingModel,
     ];
 
+    final Map<String, List<Json>> preloadedData = {
+      ageRatingModel.id: ageRatings,
+      countryModel.id: countries,
+      genreModel.id: genres,
+      languageModel.id: languages,
+      movieActorRelationModel.id: moviesToActors,
+      movieCountryRelationModel.id: moviesToCountries,
+      movieDirectorRelationModel.id: moviesToDirectors,
+      movieGenreRelationModel.id: moviesToGenres,
+      movieLanguageRelationModel.id: moviesToLang,
+      movieModel.id: movies,
+      movieRateRelationModel.id: moviesToRates,
+      movieWriterRelationModel.id: moviesToWriters,
+      personModel.id: persons,
+      qualityRatingModel.id: qualityRatings,
+    };
+
+    final LocalCollectionApi localCollectionApi = LocalCollectionApi(preloadedData: preloadedData);
+    final LocalPageApi localPageApi = LocalPageApi(preloadedData: preloadedData);
+    final LocalModelApi localModelApi = LocalModelApi();
+
     final ICollectionApi proxyCollectionApi = ProxyCollectionApi(
       collectionApi: firebaseCollectionApi,
       pageApi: firebasePageApi,
       modelApi: firebaseModelApi,
-      secondCollectionApi: LocalCollectionApi(
-        preloadedData: {
-          ageRatingModel.id: ageRatings,
-          countryModel.id: countries,
-          genreModel.id: genres,
-          languageModel.id: languages,
-          movieActorRelationModel.id: moviesToActors,
-          movieCountryRelationModel.id: moviesToCountries,
-          movieDirectorRelationModel.id: moviesToDirectors,
-          movieGenreRelationModel.id: moviesToGenres,
-          movieLanguageRelationModel.id: moviesToLang,
-          movieModel.id: movies,
-          movieRateRelationModel.id: moviesToRates,
-          movieWriterRelationModel.id: moviesToWriters,
-          personModel.id: persons,
-          qualityRatingModel.id: qualityRatings,
-        },
-      ),
-      secondPageApi: LocalPageApi(),
-      secondModelApi: LocalModelApi(),
+      secondCollectionApi: localCollectionApi,
+      secondPageApi: localPageApi,
+      secondModelApi: localModelApi,
       models: models,
     );
 
     await adminRunner(
       CmsConfig(
         /// ? Use them here
-        collectionApi: proxyCollectionApi,
-        pageApi: firebasePageApi,
-        modelApi: firebaseModelApi,
+        collectionApi: localCollectionApi,
+        pageApi: localPageApi,
+        modelApi: localModelApi,
         networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
