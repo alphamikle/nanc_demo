@@ -9,7 +9,7 @@ import '../models/landing_page.dart';
 import 'db_extension.dart';
 import 'tools.dart';
 
-class PageApiImplementation extends MockApi implements IPageApi {
+class PageApiImplementation extends MockApi implements IDocumentApi {
   PageApiImplementation({
     required this.dbService,
     required this.connectionManagerBloc,
@@ -86,7 +86,7 @@ class PageApiImplementation extends MockApi implements IPageApi {
     thirdTableData.removeWhere((Json row) {
       return row[thirdTable.parentEntityIdName] == parentEntityId;
     });
-    for (final ChildEntityDataId childId in childEntityIds) {
+    for (final FieldId childId in childEntityIds) {
       thirdTableData.add(<String, dynamic>{
         thirdTable.parentEntityIdName: parentEntityId,
         thirdTable.childEntityIdName: childId,

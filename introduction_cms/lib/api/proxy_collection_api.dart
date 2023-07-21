@@ -16,11 +16,11 @@ class ProxyCollectionApi implements FirebaseCollectionApi {
   });
 
   final ICollectionApi collectionApi;
-  final IPageApi pageApi;
+  final IDocumentApi pageApi;
   final IModelApi modelApi;
 
   final ICollectionApi secondCollectionApi;
-  final IPageApi secondPageApi;
+  final IDocumentApi secondPageApi;
   final IModelApi secondModelApi;
 
   final List<Model> models;

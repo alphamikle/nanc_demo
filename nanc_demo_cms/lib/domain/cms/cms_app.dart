@@ -21,7 +21,7 @@ enum DataProvider {
 
 Future<void> startCmsApp(DataProvider provider) async {
   late final ICollectionApi collectionApi;
-  late final IPageApi pageApi;
+  late final IDocumentApi pageApi;
   late final IModelApi modelApi;
 
   if (provider.isSupabase) {
