@@ -56,9 +56,19 @@ class ProxyCollectionApi implements FirebaseCollectionApi {
           ParamsDto(page: 1, limit: 9999, sort: Sort(fieldId: model.idField.id, order: Order.asc)),
         );
         for (final Json document in response.data) {
-          await pageApi.upsertPage(model, document[model.idField.id] as String, document);
-          if (kDebugMode) {
-            print('Document ${document[model.idField.id]} of model ${model.name} was saved');
+          try {
+            await pageApi.upsertPage(model, document[model.idField.id] as String, document);
+            if (kDebugMode) {
+              print('Document ${document[model.idField.id]} of model ${model.name} was saved');
+            }
+          } catch (error, stackTrace) {
+            if (kDebugMode) {
+              print('Error happened on saving document ${document[model.idField.id]} of model ${model.name}\n$error\n$stackTrace');
+            }
+            await pageApi.upsertPage(model, document[model.idField.id] as String, document);
+            if (kDebugMode) {
+              print('Document ${document[model.idField.id]} of model ${model.name} was saved on the second try');
+            }
           }
         }
       }
