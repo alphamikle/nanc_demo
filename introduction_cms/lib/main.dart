@@ -106,9 +106,9 @@ Future<void> main() async {
     await adminRunner(
       CmsConfig(
         /// ? Use them here
-        collectionApi: localCollectionApi,
-        pageApi: localPageApi,
-        modelApi: localModelApi,
+        collectionApi: proxyCollectionApi,
+        pageApi: firebasePageApi,
+        modelApi: firebaseModelApi,
         networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,

@@ -1,21 +1,68 @@
 import 'package:tools/tools.dart';
 
 const List<Json> ageRatings = [
-  {"id": "3a630f98-3da1-4d89-919a-04045f948400", "title": "R"},
-  {"id": "9f9cabfb-3e04-41e7-bffc-c688bf99f4e2", "title": "PG-13"},
-  {"id": "07793ce2-20cd-4d6e-aeb5-72795b5a5032", "title": "Approved"},
-  {"id": "1d273661-6728-44e6-950c-f42d927aad68", "title": "PG"},
-  {"id": "9c9a0b7c-5d3c-49c4-99ae-52d6141df339", "title": "TV-MA"},
-  {"id": "97d85efd-436b-4919-814c-5583c3f70060", "title": "Not Rated"},
-  {"id": "b9534513-6d1f-4b8d-bf9e-1cfd631a613b", "title": "G"},
-  {"id": "6b45894e-71a2-492a-8c2d-83f234c51346", "title": "TV-PG"},
-  {"id": "e7ddee72-0f0c-4734-a56f-ec8e3930e8e8", "title": "Passed"},
-  {"id": "46d02b18-243b-49e7-ac58-089807281acc", "title": "Unrated"},
-  {"id": "6136c7cb-ba58-4e5a-a4dc-a1eeb9cda2c9", "title": "X"},
-  {"id": "9b04fe33-8439-45eb-881b-caac3c612ead", "title": "TV-14"},
-  {"id": "da453392-0a6f-440f-a8d3-aff17f8b17c0", "title": "16+"},
-  {"id": "adb38408-378b-44ac-bd8b-9405f2f424d2", "title": "M/PG"},
-  {"id": "2607ae70-bfdd-4231-bae2-3771ba8692bf", "title": "GP"},
-  {"id": "137898ba-ada3-47b8-8301-bbdacea6526e", "title": "NC-17"},
-  {"id": "9e6dc535-ba44-475f-a6fb-8f2838d0b526", "title": "TV-G"}
+ {
+  "id": "5215bed6-f142-4e16-8856-ca9afe984cbd",
+  "title": "R"
+ },
+ {
+  "id": "489c8fb6-b8cc-4b7a-812e-e255f6313599",
+  "title": "PG-13"
+ },
+ {
+  "id": "4fc743e6-4194-4c43-8e42-5b523fda287f",
+  "title": "Approved"
+ },
+ {
+  "id": "f0145a71-e0e4-4607-a007-3e77d977b884",
+  "title": "PG"
+ },
+ {
+  "id": "901ee2bd-f719-4cc5-b85a-7b34b473134e",
+  "title": "TV-MA"
+ },
+ {
+  "id": "1fcd4f40-d829-429a-af63-6b798f09e502",
+  "title": "Not Rated"
+ },
+ {
+  "id": "2c995742-8686-4b40-a199-31ec0761302a",
+  "title": "G"
+ },
+ {
+  "id": "117a517b-2ed1-4375-840a-01fdb485b378",
+  "title": "TV-PG"
+ },
+ {
+  "id": "aa1a5fe3-566d-4e3a-9147-5551f542b7ce",
+  "title": "Passed"
+ },
+ {
+  "id": "e1e5e013-78f7-4231-be1a-a71ac42eb09b",
+  "title": "Unrated"
+ },
+ {
+  "id": "1555241a-60c2-44b3-806d-cf5982c0a316",
+  "title": "X"
+ },
+ {
+  "id": "77049d93-f3aa-49c3-a182-153befb78ca1",
+  "title": "TV-14"
+ },
+ {
+  "id": "0ec3a637-a0a5-48a8-a216-d5c556f80ef6",
+  "title": "16+"
+ },
+ {
+  "id": "41605688-fbde-4a12-9508-a7390bbc6dff",
+  "title": "M/PG"
+ },
+ {
+  "id": "9fcb5696-64c3-43e0-8a85-5fc827e4ca16",
+  "title": "GP"
+ },
+ {
+  "id": "11143516-8edd-4a45-a35d-3141957f8fda",
+  "title": "NC-17"
+ }
 ];

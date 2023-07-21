@@ -1,27 +1,92 @@
 import 'package:tools/tools.dart';
 
 const List<Json> genres = [
-  {"id": "988d2ab9-19dc-4786-9d0b-913cebdc4e76", "name": "Drama"},
-  {"id": "7c7fa5de-6a7c-42ea-b0c6-bd06bc717d9a", "name": "Crime"},
-  {"id": "8bfb7815-d67c-4dfd-a4ad-e0dfaf8fd276", "name": "Action"},
-  {"id": "325f4d12-8037-4f47-affb-4c9b24af6a5f", "name": "Biography"},
-  {"id": "7d5dab90-7153-4e6d-9325-3571e743f50c", "name": "History"},
-  {"id": "3d7008c0-ae7f-4b80-9b17-a5c8620f0c80", "name": "Adventure"},
-  {"id": "d4b8557f-0ed2-4955-b7a5-560a719c2ec3", "name": "Animation"},
-  {"id": "76e2bf3c-9b3b-4535-9b67-4469170e7cd6", "name": "Sci-Fi"},
-  {"id": "9ac53934-6c1c-49f7-87e7-db6f83f350f7", "name": "Romance"},
-  {"id": "1eacc927-7305-489b-b3e7-705a22301582", "name": "Western"},
-  {"id": "821ca9fb-b2ef-484d-b6aa-53b1b3ebe43e", "name": "Mystery"},
-  {"id": "a76ecdbb-e832-438b-864b-64a12b805342", "name": "Comedy"},
-  {"id": "be9701eb-f1fa-4afb-9582-dc4783fd1de0", "name": "Fantasy"},
-  {"id": "7f0b63e3-a21c-4aa1-a20f-92ac32bfbff7", "name": "War"},
-  {"id": "5736ea9b-e84d-4854-a179-58c1120d70c6", "name": "Thriller"},
-  {"id": "3a4e3793-8b61-4455-bbbf-17cdbe620926", "name": "Family"},
-  {"id": "ab133bfa-63ab-4735-8385-639a9ee4e7af", "name": "Horror"},
-  {"id": "39ad44ce-d1ba-4da2-b454-2513eabbdd64", "name": "Music"},
-  {"id": "a89d38b4-2f8a-4a3c-b409-9d7620fd4a90", "name": "Film-Noir"},
-  {"id": "d9f9d190-532d-4328-9334-fa00d3e64a2e", "name": "Musical"},
-  {"id": "ec22a6f0-5b5c-4a5f-8b7c-32a123f306ba", "name": "Sport"},
-  {"id": "042810cb-16f4-4412-abbc-0f3631934327", "name": "Short"},
-  {"id": "09f666db-91a1-448b-abdc-32d66a97d068", "name": "Documentary"}
+ {
+  "id": "bcc0f7e8-2185-4cac-9f9d-1b22000d3486",
+  "name": "Drama"
+ },
+ {
+  "id": "1964492d-8d3a-430c-a249-43643921c84f",
+  "name": "Crime"
+ },
+ {
+  "id": "14bedb14-3ccc-4939-b2e4-3b281bb29749",
+  "name": "Action"
+ },
+ {
+  "id": "6abd3751-79e9-4db7-b710-8a56d13ee68a",
+  "name": "Biography"
+ },
+ {
+  "id": "ff82b0cf-5b5e-4b96-81fe-613a0082577c",
+  "name": "History"
+ },
+ {
+  "id": "b040a3cc-7237-4c64-b550-ef94c68106da",
+  "name": "Adventure"
+ },
+ {
+  "id": "51a646b3-76fd-4774-9f8a-769e1ae07012",
+  "name": "Animation"
+ },
+ {
+  "id": "74364088-4c61-4832-953e-86b3ae40cdac",
+  "name": "Sci-Fi"
+ },
+ {
+  "id": "e2166b0f-6018-429c-a52f-fe3609e49394",
+  "name": "Romance"
+ },
+ {
+  "id": "8c6d46e1-cd21-4b62-aace-e6b7b573f436",
+  "name": "Western"
+ },
+ {
+  "id": "66c1acb7-4765-4ebf-8e2a-29bc78c4d376",
+  "name": "Mystery"
+ },
+ {
+  "id": "91f39cd4-241c-47f1-9e6f-e0db5c4001b6",
+  "name": "Comedy"
+ },
+ {
+  "id": "7157401e-5d80-4d99-a23a-889a1ee2d211",
+  "name": "Fantasy"
+ },
+ {
+  "id": "ff5662fc-9bc2-497c-b3f7-d96fff042181",
+  "name": "War"
+ },
+ {
+  "id": "1cfc5408-aefa-49ff-a7a5-1ed23fef058b",
+  "name": "Thriller"
+ },
+ {
+  "id": "5b0f414f-72df-4f6c-b59b-badfbd010d0d",
+  "name": "Family"
+ },
+ {
+  "id": "fbbd40ea-373d-4dca-beda-8af7e3080af0",
+  "name": "Horror"
+ },
+ {
+  "id": "93d197d4-6078-440e-a0a1-e06299579fe2",
+  "name": "Music"
+ },
+ {
+  "id": "40ae13f0-7964-4ed7-bfe5-676602f901b9",
+  "name": "Film-Noir"
+ },
+ {
+  "id": "11c72ef9-0dec-4335-8ca0-98cb4c91d14a",
+  "name": "Musical"
+ },
+ {
+  "id": "935e224d-e56d-4d47-8a04-04282c43b3a5",
+  "name": "Sport"
+ },
+ {
+  "id": "1f257b64-a3a1-485c-8d9c-438682ef2b51",
+  "name": "Short"
+ }
 ];
