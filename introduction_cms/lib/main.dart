@@ -52,7 +52,7 @@ Future<void> main() async {
     /// ? Partially-local ICollectionApi implementation
     final FirebaseLocalCollectionApi firebaseLocalCollectionApi = FirebaseLocalCollectionApi(api: firebaseApi);
 
-    final FirebasePageApi firebasePageApi = FirebasePageApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
+    final FirebaseDocumentApi firebasePageApi = FirebaseDocumentApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
     final FirebaseModelApi firebaseModelApi = FirebaseModelApi();
 
     final List<Model> models = [
@@ -90,15 +90,15 @@ Future<void> main() async {
     };
 
     final LocalCollectionApi localCollectionApi = LocalCollectionApi(preloadedData: preloadedData);
-    final LocalPageApi localPageApi = LocalPageApi(preloadedData: preloadedData);
+    final LocalDocumentApi localPageApi = LocalDocumentApi(preloadedData: preloadedData);
     final LocalModelApi localModelApi = LocalModelApi();
 
     final ICollectionApi proxyCollectionApi = ProxyCollectionApi(
       collectionApi: firebaseCollectionApi,
-      pageApi: firebasePageApi,
+      documentApi: firebasePageApi,
       modelApi: firebaseModelApi,
       secondCollectionApi: localCollectionApi,
-      secondPageApi: localPageApi,
+      secondDocumentApi: localPageApi,
       secondModelApi: localModelApi,
       models: models,
     );
@@ -107,7 +107,7 @@ Future<void> main() async {
       CmsConfig(
         /// ? Use them here
         collectionApi: firebaseLocalCollectionApi,
-        pageApi: firebasePageApi,
+        documentApi: firebasePageApi,
         modelApi: firebaseModelApi,
         networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,

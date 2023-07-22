@@ -7,20 +7,20 @@ import 'package:tools/tools.dart';
 class ProxyCollectionApi implements FirebaseCollectionApi {
   ProxyCollectionApi({
     required this.collectionApi,
-    required this.pageApi,
+    required this.documentApi,
     required this.modelApi,
     required this.secondCollectionApi,
-    required this.secondPageApi,
+    required this.secondDocumentApi,
     required this.secondModelApi,
     required this.models,
   });
 
   final ICollectionApi collectionApi;
-  final IDocumentApi pageApi;
+  final IDocumentApi documentApi;
   final IModelApi modelApi;
 
   final ICollectionApi secondCollectionApi;
-  final IDocumentApi secondPageApi;
+  final IDocumentApi secondDocumentApi;
   final IModelApi secondModelApi;
 
   final List<Model> models;
@@ -28,7 +28,7 @@ class ProxyCollectionApi implements FirebaseCollectionApi {
   bool syncingInProcess = false;
 
   @override
-  Future<CollectionResponseDto> fetchPageList(Model model, List<String> subset, QueryField query, ParamsDto params) async {
+  Future<CollectionResponseDto> fetchPageList(Model model, List<FieldId> subset, QueryField query, ParamsDto params) async {
     CollectionResponseDto response = await collectionApi.fetchPageList(model, subset, query, params);
     if (response.data.isEmpty) {
       response = await secondCollectionApi.fetchPageList(model, subset, query, params);
@@ -57,7 +57,7 @@ class ProxyCollectionApi implements FirebaseCollectionApi {
         );
         for (final Json document in response.data) {
           try {
-            await pageApi.upsertPage(model, document[model.idField.id] as String, document);
+            await documentApi.upsertPage(model, document[model.idField.id] as String, document);
             if (kDebugMode) {
               print('Document ${document[model.idField.id]} of model ${model.name} was saved');
             }
@@ -65,7 +65,7 @@ class ProxyCollectionApi implements FirebaseCollectionApi {
             if (kDebugMode) {
               print('Error happened on saving document ${document[model.idField.id]} of model ${model.name}\n$error\n$stackTrace');
             }
-            await pageApi.upsertPage(model, document[model.idField.id] as String, document);
+            await documentApi.upsertPage(model, document[model.idField.id] as String, document);
             if (kDebugMode) {
               print('Document ${document[model.idField.id]} of model ${model.name} was saved on the second try');
             }

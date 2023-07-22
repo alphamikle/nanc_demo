@@ -39,7 +39,7 @@ Future<void> main() async {
       collectionApi: PageListApiImplementation(
         dbService: dbService,
       ),
-      pageApi: PageApiImplementation(
+      documentApi: PageApiImplementation(
         dbService: dbService,
         connectionManagerBloc: connectionManagerBloc,
       ),

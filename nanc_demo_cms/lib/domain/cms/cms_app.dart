@@ -30,7 +30,7 @@ Future<void> startCmsApp(DataProvider provider) async {
       supabaseUrl: const String.fromEnvironment('SUPA_URL'),
     );
     collectionApi = SupabaseCollectionApi(api: supabaseApi);
-    pageApi = SupabasePageApi(api: supabaseApi);
+    pageApi = SupabaseDocumentApi(api: supabaseApi);
     modelApi = SupabaseModelApi(
       api: supabaseApi,
       config: const SupabaseModelApiConfig(
@@ -46,14 +46,14 @@ Future<void> startCmsApp(DataProvider provider) async {
     final IFirebaseCollectionApi firebaseCollectionApi =
         provider.isFirebaseLocal ? FirebaseLocalCollectionApi(api: firebaseApi) : FirebaseCollectionApi(api: firebaseApi);
     collectionApi = firebaseCollectionApi;
-    pageApi = FirebasePageApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
+    pageApi = FirebaseDocumentApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
     modelApi = FirebaseModelApi();
   }
 
   await adminRunner(
     CmsConfig(
       collectionApi: collectionApi,
-      pageApi: pageApi,
+      documentApi: pageApi,
       modelApi: modelApi,
       networkConfig: NetworkConfig(
         paginationPageNumberParameterName: 'page',
