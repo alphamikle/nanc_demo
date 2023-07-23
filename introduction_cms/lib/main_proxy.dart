@@ -5,7 +5,24 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
+import 'package:nanc_api_local/nanc_api_local.dart';
+import 'package:tools/tools.dart';
 
+import 'api/proxy_collection_api.dart';
+import 'data/age_ratings.dart';
+import 'data/countries.dart';
+import 'data/genres.dart';
+import 'data/languages.dart';
+import 'data/movie_actor_relations.dart';
+import 'data/movie_country_relations.dart';
+import 'data/movie_director_relations.dart';
+import 'data/movie_genre_relations.dart';
+import 'data/movie_language_relations.dart';
+import 'data/movie_quality_rating_relations.dart';
+import 'data/movie_writer_relations.dart';
+import 'data/movies.dart';
+import 'data/persons.dart';
+import 'data/quality_ratings.dart';
 import 'firebase_key.dart';
 import 'models/age_rating_model.dart';
 import 'models/country_model.dart';
@@ -30,7 +47,7 @@ Future<void> main() async {
     final FirebaseApi firebaseApi = await FirebaseApi.create(firebaseBase64EncodedKey);
 
     /// ? Backend-first ICollectionApi implementation
-    final FirebaseCollectionApi firebaseCollectionApi = FirebaseCollectionApi(api: firebaseApi, cacheTTL: const Duration(minutes: 5));
+    final FirebaseCollectionApi firebaseCollectionApi = FirebaseCollectionApi(api: firebaseApi);
 
     /// ? Partially-local ICollectionApi implementation
     final FirebaseLocalCollectionApi firebaseLocalCollectionApi = FirebaseLocalCollectionApi(api: firebaseApi);
@@ -54,6 +71,37 @@ Future<void> main() async {
       personModel,
       qualityRatingModel,
     ];
+
+    final Map<String, List<Json>> preloadedData = {
+      ageRatingModel.id: ageRatings,
+      countryModel.id: countries,
+      genreModel.id: genres,
+      languageModel.id: languages,
+      movieActorRelationModel.id: moviesToActors,
+      movieCountryRelationModel.id: moviesToCountries,
+      movieDirectorRelationModel.id: moviesToDirectors,
+      movieGenreRelationModel.id: moviesToGenres,
+      movieLanguageRelationModel.id: moviesToLang,
+      movieModel.id: movies,
+      movieRateRelationModel.id: moviesToRates,
+      movieWriterRelationModel.id: moviesToWriters,
+      personModel.id: persons,
+      qualityRatingModel.id: qualityRatings,
+    };
+
+    final LocalCollectionApi localCollectionApi = LocalCollectionApi(preloadedData: preloadedData);
+    final LocalDocumentApi localPageApi = LocalDocumentApi(preloadedData: preloadedData);
+    final LocalModelApi localModelApi = LocalModelApi();
+
+    final ICollectionApi proxyCollectionApi = ProxyCollectionApi(
+      collectionApi: firebaseCollectionApi,
+      documentApi: firebasePageApi,
+      modelApi: firebaseModelApi,
+      secondCollectionApi: localCollectionApi,
+      secondDocumentApi: localPageApi,
+      secondModelApi: localModelApi,
+      models: models,
+    );
 
     await adminRunner(
       CmsConfig(

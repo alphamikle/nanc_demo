@@ -19,6 +19,9 @@ class ProxyCollectionApi implements FirebaseCollectionApi {
   final IDocumentApi documentApi;
   final IModelApi modelApi;
 
+  @override
+  Duration get cacheTTL => Duration.zero;
+
   final ICollectionApi secondCollectionApi;
   final IDocumentApi secondDocumentApi;
   final IModelApi secondModelApi;
