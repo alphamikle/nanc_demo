@@ -20,6 +20,8 @@ dependencies:
     path: ../../nanc/nanc_api_firebase
   nanc_api_supabase:
     path: ../../nanc/nanc_api_supabase
+  additions:
+    path: ../additions
   model:
     path: ../../nanc/model
   tools:

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:additions/additions.dart';
 import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,12 @@ Future<void> main() async {
         adminWrapperBuilder: null,
         predefinedModels: [],
         customRenderers: [],
-        clickHandlers: [],
+        clickHandlers: [
+          snackbarDemoHandler,
+          browserLinksEventDemoHandler,
+          deeplinkEventDemoHandler,
+          shareDemoHandler,
+        ],
         customFonts: [],
       ),
     );
