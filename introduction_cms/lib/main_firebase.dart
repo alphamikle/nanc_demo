@@ -4,8 +4,9 @@ import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
-import 'package:nanc_api_supabase/nanc_api_supabase.dart';
+import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 
+import 'firebase_key.dart';
 import 'models/age_rating_model.dart';
 import 'models/country_model.dart';
 import 'models/genre_model.dart';
@@ -20,26 +21,22 @@ import 'models/movie_quality_rating_relation.dart';
 import 'models/movie_writer_relation_model.dart';
 import 'models/person_model.dart';
 import 'models/quality_rating_model.dart';
-import 'supabase_key.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    final SupabaseApi supabaseApi = await SupabaseApi.create(supabaseUrl: supabaseUrl, supabaseKey: supabaseServiceKey);
-    final SupabaseCollectionApi supabaseCollectionApi = SupabaseCollectionApi(api: supabaseApi);
-    final SupabaseDocumentApi supabaseDocumentApi = SupabaseDocumentApi(api: supabaseApi);
-    final SupabaseModelApi supabaseModelApi = SupabaseModelApi(
-      api: supabaseApi,
-      config: const SupabaseModelApiConfig(
-        doNothingMode: false,
-        executorFunctionName: 'executor_01h62mrtn2w1b6pyr578awhn6d',
-        executorSqlArgumentName: 'query_01h62ms2trn6qkprq0gzmw1tc4',
-        executorReturnableArgumentName: 'returnable_01h62mvaxvgh46db8ddchyvgsz',
-        changeDifferentTypes: true,
-        deleteUnnecessaryColumns: true,
-      ),
-    );
+    /// ? Creating instances of needed APIs
+    final FirebaseApi firebaseApi = await FirebaseApi.create(firebaseBase64EncodedKey);
+
+    /// ? Backend-first ICollectionApi implementation
+    final FirebaseCollectionApi firebaseCollectionApi = FirebaseCollectionApi(api: firebaseApi, cacheTTL: const Duration(minutes: 5));
+
+    /// ? Partially-local ICollectionApi implementation
+    final FirebaseLocalCollectionApi firebaseLocalCollectionApi = FirebaseLocalCollectionApi(api: firebaseApi);
+
+    final FirebaseDocumentApi firebasePageApi = FirebaseDocumentApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
+    final FirebaseModelApi firebaseModelApi = FirebaseModelApi();
 
     final List<Model> models = [
       ageRatingModel,
@@ -61,13 +58,13 @@ Future<void> main() async {
     await adminRunner(
       CmsConfig(
         /// ? Use them here
-        collectionApi: supabaseCollectionApi,
-        documentApi: supabaseDocumentApi,
-        modelApi: supabaseModelApi,
+        collectionApi: firebaseCollectionApi,
+        documentApi: firebasePageApi,
+        modelApi: firebaseModelApi,
         networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
-        predefinedModels: [],
+        predefinedModels: models,
         customRenderers: [],
         clickHandlers: [],
         customFonts: [],

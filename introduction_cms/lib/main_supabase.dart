@@ -3,23 +3,8 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:model/model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 
-import 'models/age_rating_model.dart';
-import 'models/country_model.dart';
-import 'models/genre_model.dart';
-import 'models/language_model.dart';
-import 'models/movie_actor_relation_model.dart';
-import 'models/movie_country_relation.dart';
-import 'models/movie_director_relation_model.dart';
-import 'models/movie_genre_relation.dart';
-import 'models/movie_language_relation.dart';
-import 'models/movie_model.dart';
-import 'models/movie_quality_rating_relation.dart';
-import 'models/movie_writer_relation_model.dart';
-import 'models/person_model.dart';
-import 'models/quality_rating_model.dart';
 import 'supabase_key.dart';
 
 Future<void> main() async {
@@ -33,30 +18,13 @@ Future<void> main() async {
       api: supabaseApi,
       config: const SupabaseModelApiConfig(
         doNothingMode: false,
-        executorFunctionName: 'executor_01h62mrtn2w1b6pyr578awhn6d',
-        executorSqlArgumentName: 'query_01h62ms2trn6qkprq0gzmw1tc4',
-        executorReturnableArgumentName: 'returnable_01h62mvaxvgh46db8ddchyvgsz',
+        executorFunctionName: 'executor:9074dd65-094b-494a-9018-58dcb9cdf52a',
+        executorSqlArgumentName: 'argument:c8fd0385-5a68-4072-bd33-2ef4d5a06f55',
+        executorReturnableArgumentName: 'response:2846a674-a8fb-46fe-8d15-421d9f1131bf',
         changeDifferentTypes: true,
         deleteUnnecessaryColumns: true,
       ),
     );
-
-    final List<Model> models = [
-      ageRatingModel,
-      countryModel,
-      genreModel,
-      languageModel,
-      movieActorRelationModel,
-      movieCountryRelationModel,
-      movieDirectorRelationModel,
-      movieGenreRelationModel,
-      movieLanguageRelationModel,
-      movieModel,
-      movieRateRelationModel,
-      movieWriterRelationModel,
-      personModel,
-      qualityRatingModel,
-    ];
 
     await adminRunner(
       CmsConfig(

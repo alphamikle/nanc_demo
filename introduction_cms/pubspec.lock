@@ -811,7 +811,7 @@ packages:
     source: path
     version: "0.0.1"
   nanc_api_supabase:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../nanc/nanc_api_supabase"
       relative: true

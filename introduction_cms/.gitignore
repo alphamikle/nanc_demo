@@ -43,4 +43,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 firebase_key.dart
+supabase_key.dart
+config.json
 nanc-api-project*.json

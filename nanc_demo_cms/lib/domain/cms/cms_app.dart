@@ -34,6 +34,7 @@ Future<void> startCmsApp(DataProvider provider) async {
     modelApi = SupabaseModelApi(
       api: supabaseApi,
       config: const SupabaseModelApiConfig(
+        doNothingMode: false,
         executorFunctionName: 'executor',
         executorSqlArgumentName: 'query',
         executorReturnableArgumentName: 'returnable',
