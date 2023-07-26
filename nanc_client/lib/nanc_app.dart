@@ -63,13 +63,13 @@ class _NancAppState extends State<NancApp> {
         if (width > 500) {
           return DeviceFrame(
             device: Devices.ios.iPhone13,
-            screen: ClickDelegate(
+            screen: EventDelegate(
               handlers: handlers,
               child: child,
             ),
           );
         }
-        return ClickDelegate(
+        return EventDelegate(
           handlers: handlers,
           child: child,
         );

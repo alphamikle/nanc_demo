@@ -73,7 +73,7 @@ Future<void> startCmsApp(DataProvider provider) async {
         featureToggles,
       ],
       customRenderers: [],
-      clickHandlers: [],
+      eventsHandlers: [],
       customFonts: [],
     ),
   );

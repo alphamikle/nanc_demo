@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 final RegExp _browserRegExp = RegExp(r'^browser: ?(?<content>.*)$');
 
-final ClickHandler browserLinksEventDemoHandler = ClickHandler(
+final EventHandler browserLinksEventDemoHandler = EventHandler(
   test: (BuildContext context, String event) => _browserRegExp.hasMatch(event),
   handler: (BuildContext context, String event) async {
     final String content = _browserRegExp.firstMatch(event)!.namedGroup('content')!;

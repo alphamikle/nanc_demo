@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 final RegExp _deeplinkRegExp = RegExp(r'^deeplink: ?(?<content>.*)$');
 
-final ClickHandler deeplinkEventDemoHandler = ClickHandler(
+final EventHandler deeplinkEventDemoHandler = EventHandler(
   test: (BuildContext context, String event) => _deeplinkRegExp.hasMatch(event),
   handler: (BuildContext context, String event) {
     final String content = _deeplinkRegExp.firstMatch(event)!.namedGroup('content')!;

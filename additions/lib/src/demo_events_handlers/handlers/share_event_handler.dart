@@ -5,7 +5,7 @@ import 'package:share_plus/share_plus.dart';
 
 final RegExp _shareRegExp = RegExp(r'^share: ?(?<content>.*)$');
 
-final ClickHandler shareDemoHandler = ClickHandler(
+final EventHandler shareDemoHandler = EventHandler(
   test: (BuildContext context, String event) => _shareRegExp.hasMatch(event),
   handler: (BuildContext context, String event) {
     final String content = _shareRegExp.firstMatch(event)!.namedGroup('content')!;

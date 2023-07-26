@@ -81,7 +81,7 @@ Future<void> main() async {
       customRenderers: [
         carouselSliderRenderer(),
       ],
-      clickHandlers: [
+      eventsHandlers: [
         snackbarDemoHandler,
         browserLinksEventDemoHandler,
         shareDemoHandler,
