@@ -9,6 +9,7 @@ import 'carousel_slider_arguments.dart';
 TagRenderer carouselSliderRenderer() {
   return TagRenderer(
     icon: IconPack.flu_slide_transition_regular,
+    tagType: TagType.widget,
     tag: 'carouselSlider',
     description: TagDescription(
       description: '''
