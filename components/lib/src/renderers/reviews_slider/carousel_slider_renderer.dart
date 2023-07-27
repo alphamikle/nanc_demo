@@ -20,9 +20,9 @@ A carousel slider widget, support infinite scroll and custom child widget.
 > This component is not a part of a "standard library" components of the Nanc. It is just a simplified example of how you can add any custom component with any complexity of the logic and simplicity of adding and using to the Nanc.
 ''',
       arguments: [
-        heightArg(),
-        colorArg('dotColor'),
-        doubleArg('sliderDotGap'),
+        heightArgument(),
+        colorArgument(name: 'dotColor'),
+        doubleArgument(name: 'sliderDotGap'),
       ],
       properties: [],
     ),
