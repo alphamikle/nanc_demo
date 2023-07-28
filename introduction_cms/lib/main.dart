@@ -6,6 +6,7 @@ import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
+import 'package:svg_renderer/svg_renderer.dart';
 
 import 'models/age_rating_model.dart';
 import 'models/country_model.dart';
@@ -69,7 +70,11 @@ Future<void> main() async {
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
         predefinedModels: [],
-        customRenderers: [],
+        customRenderers: [
+          svgRenderer(),
+          colorFilterProperty(),
+          headerProperty(),
+        ],
         eventsHandlers: [
           snackbarDemoHandler,
           browserLinksEventDemoHandler,
