@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 import '../../../components.dart';
@@ -71,7 +70,7 @@ A carousel slider widget, support infinite scroll and custom child widget.
   </carouselSlider>
 </safeArea>
 ''',
-    builder: (BuildContext context, md.Element element, RichRenderer richRenderer) {
+    builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final ReviewsSliderArguments arguments = ReviewsSliderArguments.fromJson(element.attributes);
       final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
