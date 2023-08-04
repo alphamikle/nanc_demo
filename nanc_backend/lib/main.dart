@@ -29,7 +29,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final PackageInfo info = await getAppInfo();
-  logg.wrap(info.toPrettyString(), prefix: 'APP INFO');
+  logInfo(info.toPrettyString());
 
   final DbService dbService = createDbService();
   final ConnectionManagerBloc connectionManagerBloc = ConnectionManagerBloc(peerServiceFactory: PeerServiceFactory());

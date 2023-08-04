@@ -7,8 +7,8 @@ final Model feature = Model(
   icon: IconPackNames.flu_ribbon_star_filled,
   fields: [
     [
-      IdField(width: 200),
-      StringField(name: 'Title', maxLines: 1, isRequired: true, width: 400),
+      IdField(),
+      StringField(name: 'Title', maxLines: 1, isRequired: true),
     ],
     [
       IconField(name: 'Image', isRequired: true),

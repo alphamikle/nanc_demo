@@ -14,8 +14,6 @@ import 'package:ui_kit/ui_kit.dart';
 import '../peer_client_service.dart';
 import 'page_state.dart';
 
-final log = logg('PAGE BLOC');
-
 class PageBloc extends Cubit<PageState> {
   PageBloc({
     required this.peerClientService,
@@ -106,9 +104,8 @@ class PageBloc extends Cubit<PageState> {
     try {
       final dynamic json = jsonDecode(serializedMessage.toString());
       await _pagesUpdatesHandler(castToJson(json['value']));
-    } catch (error, stack) {
-      // Handle error
-      logg('Error on message from the backend\n$error\n$stack');
+    } catch (error, stackTrace) {
+      logError('Error on message from the backend', error: error, stackTrace: stackTrace);
     }
   }
 

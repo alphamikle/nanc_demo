@@ -8,7 +8,7 @@ final Model image = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Title', maxLines: 1, isRequired: true, width: 250),
+      StringField(name: 'Title', maxLines: 1, isRequired: true),
     ],
     [
       StringField(name: 'Url', maxLines: 1, isRequired: true, showInList: true),

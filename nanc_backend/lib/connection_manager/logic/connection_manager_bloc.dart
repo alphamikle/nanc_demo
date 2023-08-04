@@ -42,11 +42,11 @@ class ConnectionManagerBloc extends Cubit<ConnectionManagerState> {
   }
 
   void _clientMessageHandler(dynamic serializedMessage) {
-    logg('Got a message from the client "$serializedMessage"');
+    logInfo('Got a message from the client "$serializedMessage"');
   }
 
   Future<void> _onClose(String backendPeerId) async {
-    logg('Closing connection "$backendPeerId"');
+    logInfo('Closing connection "$backendPeerId"');
     await _disposeHandler(backendPeerId);
   }
 

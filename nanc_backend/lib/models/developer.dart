@@ -10,8 +10,8 @@ final Model developer = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Name', maxLines: 1, isRequired: true, width: 150),
-      StringField(name: 'Second Name', maxLines: 1, isRequired: true, width: 180),
+      StringField(name: 'Name', maxLines: 1, isRequired: true),
+      StringField(name: 'Second Name', maxLines: 1, isRequired: true),
     ],
     [
       SelectorField(

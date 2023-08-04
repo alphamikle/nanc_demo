@@ -18,7 +18,7 @@ Future<void> main() async {
     const CustomFont(font: 'Helvetica'),
   ].forEach(registerCustomFont);
 
-  logg.wrap(info.toPrettyString(), prefix: 'APP INFO');
+  logInfo(info.toPrettyString());
 
   final RootKey rootKey = GlobalKey();
   final PeerClientService peerClientService = PeerClientService(peerServiceFactory: PeerServiceFactory());

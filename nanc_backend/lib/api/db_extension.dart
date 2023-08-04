@@ -29,14 +29,14 @@ abstract class MockApi {
           response = jsonDecode(content);
         }
       } catch (error) {
-        logg('1. Error on parsing asset with data: $error');
+        logInfo('1. Error on parsing asset with data: $error');
         try {
           final String content = await rootBundle.loadString(assetFileName);
           if (content.isNotEmpty) {
             response = jsonDecode(content);
           }
-        } catch (error) {
-          logg('2. Error on parsing asset with data: $error');
+        } catch (error, stackTrace) {
+          logError('2. Error on parsing asset with data', error: error, stackTrace: stackTrace);
         }
       }
     }
@@ -56,16 +56,16 @@ abstract class MockApi {
       }
       data = tempData;
     } else {
-      logg('No data or incorrect data type: "${response.runtimeType}" / "$response"');
+      logWarning('No data or incorrect data type: "${response.runtimeType}" / "$response"');
       return [];
     }
     if (kStreamDataIntoTheFiles && kIsWeb == false && Platform.isMacOS) {
       final Directory outputDir = kStreamingDir.isEmpty ? await pp.getApplicationDocumentsDirectory() : Directory(kStreamingDir);
-      logg('Files stream directory will be: file://${outputDir.path}');
+      logInfo('Files stream directory will be: file://${outputDir.path}');
       final String filePath = p.join(outputDir.path, assetFileName);
       final File outputFile = File(filePath);
       await outputFile.writeAsString(prettyJson(data));
-      logg('Output data was written into the file://$filePath');
+      logInfo('Output data was written into the file://$filePath');
     }
     return data;
   }
