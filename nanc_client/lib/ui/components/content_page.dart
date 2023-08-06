@@ -17,8 +17,7 @@ class ContentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NUIWidget(
-      type: NUIWidgetType.scrollable,
+    return NuiListWidget(
       xmlContent: content,
       pageData: pageData,
       renderers: renderers,
