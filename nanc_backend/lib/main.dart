@@ -90,6 +90,7 @@ Future<void> main() async {
         const CustomFont(font: 'Blazeface'),
         const CustomFont(font: 'Helvetica'),
       ],
+      sliverChecker: null,
     ),
   );
 }

@@ -75,6 +75,7 @@ Future<void> startCmsApp(DataProvider provider) async {
       customRenderers: [],
       eventsHandlers: [],
       customFonts: [],
+      sliverChecker: null,
     ),
   );
 }
