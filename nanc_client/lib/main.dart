@@ -13,10 +13,11 @@ import 'nanc_app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final PackageInfo info = await getAppInfo();
-  [
-    const CustomFont(font: 'Blazeface'),
-    const CustomFont(font: 'Helvetica'),
-  ].forEach(registerCustomFont);
+
+  FontsStorage.registerCustomFonts(const [
+    CustomFont(font: 'Blazeface'),
+    CustomFont(font: 'Helvetica'),
+  ]);
 
   logInfo(info.toPrettyString());
 

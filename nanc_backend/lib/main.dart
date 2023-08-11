@@ -91,6 +91,7 @@ Future<void> main() async {
         const CustomFont(font: 'Helvetica'),
       ],
       sliverChecker: null,
+      customIcons: null,
     ),
   );
 }

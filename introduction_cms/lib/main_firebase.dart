@@ -69,6 +69,7 @@ Future<void> main() async {
         eventsHandlers: [],
         customFonts: [],
         sliverChecker: null,
+        customIcons: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);

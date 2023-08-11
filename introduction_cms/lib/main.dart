@@ -4,6 +4,8 @@ import 'package:additions/additions.dart';
 import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:fonts/fonts.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:model/model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 import 'package:svg_renderer/svg_renderer.dart';
@@ -60,6 +62,15 @@ Future<void> main() async {
       qualityRatingModel,
     ];
 
+    final CustomIcons customIcons = ioniconsMapping.map(
+      (String key, String value) => MapEntry(
+        'ionic_${key.replaceAll('-', '_')}',
+        IoniconsData(
+          int.parse(value),
+        ),
+      ),
+    );
+
     await adminRunner(
       CmsConfig(
         /// ? Use them here
@@ -82,8 +93,12 @@ Future<void> main() async {
           shareDemoHandler,
           anyEventHandler,
         ],
-        customFonts: [],
+        customFonts: [
+          const CustomFont(font: 'Blazeface'),
+          const CustomFont(font: 'Helvetica'),
+        ],
         sliverChecker: null,
+        customIcons: customIcons,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
