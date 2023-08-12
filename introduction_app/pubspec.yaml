@@ -12,6 +12,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   nanc_renderer:
     path: ../../nanc/nanc_renderer
+  fonts:
+    path: ../../nanc/fonts
+  icons:
+    path: ../../nanc/icons
+  ionicons: ^0.2.2
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +27,24 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/fonts/
+  fonts:
+    - family: Blazeface
+      fonts:
+        - asset: assets/fonts/blazeface.ttf
+    - family: Helvetica
+      fonts:
+        - asset: assets/fonts/helvetica.ttf
+          weight: 400
+        - asset: assets/fonts/helvetica_light.ttf
+          weight: 300
+        - asset: assets/fonts/helvetica_bold.ttf
+          weight: 500
+    - family: Helvetica Neue
+      fonts:
+        - asset: assets/fonts/helvetica_neue_wide.ttf
+          weight: 400
+        - asset: assets/fonts/helvetica_neue_light.ttf
+          weight: 300

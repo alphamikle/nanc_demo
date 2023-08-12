@@ -1,7 +1,33 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fonts/fonts.dart';
+import 'package:icons/icons.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 void main() {
+  FontsStorage.registerCustomFonts(
+    [
+      const CustomFont(font: 'Blazeface'),
+      const CustomFont(font: 'Helvetica'),
+      const CustomFont(font: 'Helvetica Neue'),
+      const CustomFont(font: 'SomeAnotherFont', package: 'another_package'),
+    ],
+  );
+
+  final Map<String, IconData> customIcons = ioniconsMapping.map(
+    (String key, String value) => MapEntry(
+      'ionic_${key.replaceAll('-', '_')}',
+      IoniconsData(
+        int.parse(value),
+      ),
+    ),
+  );
+
+  IconsStorage.registerCustomIcons({
+    'cup_collections': CupertinoIcons.collections,
+    ...customIcons,
+  });
   runApp(const MyApp());
 }
 
@@ -70,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           pageData: {
             'counter': _counter,
           },
+          sliverChecker: null,
         ),
       ),
       floatingActionButton: FloatingActionButton(
