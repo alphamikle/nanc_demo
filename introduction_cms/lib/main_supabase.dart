@@ -41,6 +41,7 @@ Future<void> main() async {
         customFonts: [],
         sliverChecker: null,
         customIcons: null,
+        themeBuilder: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);

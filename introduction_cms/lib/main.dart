@@ -100,6 +100,10 @@ Future<void> main() async {
         ],
         sliverChecker: null,
         customIcons: customIcons,
+        themeBuilder: (BuildContext context) => ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+          useMaterial3: true,
+        ),
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);

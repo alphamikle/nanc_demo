@@ -60,6 +60,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final DataStorage dataStorage = DataStorage();
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -70,39 +72,61 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: NuiListWidget(
-          renderers: const [],
-          imageErrorBuilder: null,
-          imageFrameBuilder: null,
-          imageLoadingBuilder: null,
-          xmlContent: '''
-<center>
-  <column mainAxisSize="min">
-    <text size="18">
-      You have pushed the button this many times:
-    </text>
-    <text size="32">
-      {{ page.counter }}
-    </text>
-  </column>
-</center>
-''',
-          pageData: {
-            'counter': _counter,
-          },
-          sliverChecker: null,
+    return DataStorageProvider(
+      dataStorage: dataStorage,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        body: Center(
+          child: NuiListWidget(
+            renderers: const [],
+            imageErrorBuilder: null,
+            imageFrameBuilder: null,
+            imageLoadingBuilder: null,
+            xmlContent: '''
+<safeArea>
+  <padding left="8" top="8" right="8">
+      <textField onChanged="emit:test_field" initialValue="50">
+        <prop:inputDecoration label="Type some text here" errorText="There are some error" filled="true">
+          <prop:inputBorder type="outline"/>
+        </prop:inputDecoration>
+      </textField>
+  </padding>
+  
+  <sizedBox height="8"/>
+  
+  <padding left="8" right="8">
+      <storageBuilder buildWhen="test_field" onUpdate="test_field_updated">
+        <text>
+          You typed "{{ storage.test_field }}"
+        </text>
+      </storageBuilder>
+  </padding>
+  
+  <sizedBox height="8"/>
+  
+  <storageBuilder buildWhen="test_field" >
+      <for from="0" to="{{ storage.test_field }}">
+        <padding left="8" right="8" bottom="8">
+          <text text="Item #{{ cycle.index }}"/>
+        </padding>
+      </for>
+  </storageBuilder>
+</safeArea>
+''',
+            pageData: {
+              'counter': _counter,
+            },
+            sliverChecker: null,
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

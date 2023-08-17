@@ -92,6 +92,7 @@ Future<void> main() async {
       ],
       sliverChecker: null,
       customIcons: null,
+      themeBuilder: null,
     ),
   );
 }
