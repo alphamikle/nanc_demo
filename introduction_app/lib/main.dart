@@ -4,6 +4,9 @@ import 'package:fonts/fonts.dart';
 import 'package:icons/icons.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:svg_renderer/svg_renderer.dart';
+
+import 'layout.dart';
 
 void main() {
   FontsStorage.registerCustomFonts(
@@ -37,95 +40,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'NUI Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const RootView(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    required this.title,
+class RootView extends StatefulWidget {
+  const RootView({
     super.key,
   });
 
-  final String title;
-
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RootView> createState() => _RootViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RootViewState extends State<RootView> {
   final DataStorage dataStorage = DataStorage();
-
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return DataStorageProvider(
       dataStorage: dataStorage,
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: NuiListWidget(
-            renderers: const [],
-            imageErrorBuilder: null,
-            imageFrameBuilder: null,
-            imageLoadingBuilder: null,
-            xmlContent: '''
-<safeArea>
-  <padding left="8" top="8" right="8">
-      <textField onChanged="emit:test_field" initialValue="50">
-        <prop:inputDecoration label="Type some text here" errorText="There are some error" filled="true">
-          <prop:inputBorder type="outline"/>
-        </prop:inputDecoration>
-      </textField>
-  </padding>
-  
-  <sizedBox height="8"/>
-  
-  <padding left="8" right="8">
-      <storageBuilder buildWhen="test_field" onUpdate="test_field_updated">
-        <text>
-          You typed "{{ storage.test_field }}"
-        </text>
-      </storageBuilder>
-  </padding>
-  
-  <sizedBox height="8"/>
-  
-  <storageBuilder buildWhen="test_field" >
-      <for from="0" to="{{ storage.test_field }}">
-        <padding left="8" right="8" bottom="8">
-          <text text="Item #{{ cycle.index }}"/>
-        </padding>
-      </for>
-  </storageBuilder>
-</safeArea>
-''',
-            pageData: {
-              'counter': _counter,
-            },
-            sliverChecker: null,
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
+        body: NuiListWidget(
+          renderers: [
+            svgRenderer(),
+          ],
+          xmlContent: rootViewLayout,
+          pageData: {},
         ),
       ),
     );
