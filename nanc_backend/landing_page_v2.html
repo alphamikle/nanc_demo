@@ -51,7 +51,7 @@
       </prop:decoration>
       <padding left="16" top="12" right="12" bottom="12">
         <row>
-          <show show="{{ template.icon }}">
+          <show ifTrue="{{ template.icon }}">
             <padding right="12">
               <icon icon="{{ template.icon }}" color="{{ page.primary_dark_color }}"/>
             </padding>
@@ -62,7 +62,7 @@
               {{ template.title }}
             </text>
           </expanded>
-          <show show="{{ template.hasSuffix }}">
+          <show ifTrue="{{ template.hasSuffix }}">
             <icon icon="flu_chevron_right_filled" color="{{ page.primary_dark_color }}"/>
           </show>
         </row>
@@ -119,7 +119,7 @@
         <component id="text.body" text="{{ template.subtitle }}"/>
         <sizedBox height="{{ data(gap).x3 }}">
         </sizedBox>
-        <show show="{{ template.inRange }}">
+        <show ifTrue="{{ template.inRange }}">
           <padding bottom="{{ data(gap).x3 }}">
             <row>
               <component id="card.result.indicator" text="In range" backgroundColor="#FFE2EBCC" dotColor="#FF09875D"/>
@@ -129,7 +129,7 @@
             </row>
           </padding>
         </show>
-        <show show="{{ template.outOfRange }}">
+        <show ifTrue="{{ template.outOfRange }}">
           <padding bottom="{{ data(gap).x3 }}">
             <row>
               <component id="card.result.indicator" text="Out of range" backgroundColor="#FFFFE2A9"
@@ -140,7 +140,7 @@
             </row>
           </padding>
         </show>
-        <show show="{{ template.uninterpreted }}">
+        <show ifTrue="{{ template.uninterpreted }}">
           <padding bottom="{{ data(gap).x3 }}">
             <row>
               <component id="card.result.indicator" text="Uninterpreted" backgroundColor="#FFE2E0E0"
@@ -262,7 +262,7 @@
 </for>
 
 <!--? RESULTS-->
-<show show="{{ page.results_details.0 }}">
+<show ifTrue="{{ page.results_details.0 }}">
   <padding bottom="{{ data(gap).x6 }}">
     <container color="{{ page.background_color }}">
       <padding all="{{ data(gap).x4 }}">
@@ -316,7 +316,7 @@
         <sizedBox height="280">
           <listView axis="horizontal">
             <for valueName="product" indexName="productIndex" in="{{ cycle.group.products }}">
-              <show show="{{ cycle.productIndex }}">
+              <show ifTrue="{{ cycle.productIndex }}">
                 <padding right="{{ data(gap).x3 }}">
                   <component id="card.product"
                              title="{{ cycle.product.title }}"
@@ -325,7 +325,7 @@
                              deeplink="{{ cycle.product.deeplink }}"/>
                 </padding>
               </show>
-              <show notShow="{{ cycle.productIndex }}">
+              <show ifFalse="{{ cycle.productIndex }}">
                 <padding left="{{ data(gap).x3 }}" right="{{ data(gap).x3 }}">
                   <component id="card.product"
                              title="{{ cycle.product.title }}"

@@ -52,7 +52,7 @@
       <padding left="16" top="12" right="12" bottom="12">
         <row>
           <!--! We want to show the icon, only if it passed through the arguments of the template / component-->
-          <show show="{{ template.icon }}">
+          <show ifTrue="{{ template.icon }}">
             <padding right="12">
               <icon icon="{{ template.icon }}" color="{{ page.primary_dark_color }}"/>
             </padding>
@@ -64,7 +64,7 @@
             </text>
           </expanded>
           <!--! Here - we write a condition to show the suffix icon (chevron)-->
-          <show show="{{ template.hasSuffix }}">
+          <show ifTrue="{{ template.hasSuffix }}">
             <icon icon="flu_chevron_right_filled" color="{{ page.primary_dark_color }}"/>
           </show>
         </row>
@@ -256,7 +256,7 @@
 </for>
 
 <!--? RESULTS-->
-<show show="{{ page.have_results }}">
+<show ifTrue="{{ page.have_results }}">
   <padding bottom="{{ data(gap).x6 }}">
     <container color="{{ page.background_color }}">
       <padding all="{{ data(gap).x4 }}">
@@ -319,7 +319,7 @@
             <for valueName="product" indexName="productIndex" in="{{ cycle.group.products }}">
               <!--! Let's add more blablabla here-->
               <!--? For every not-first item we will add right padding-->
-              <show show="{{ cycle.productIndex }}">
+              <show ifTrue="{{ cycle.productIndex }}">
                 <padding right="{{ data(gap).x3 }}">
                   <component id="card.product"
                              title="{{ cycle.product.title }}"
@@ -329,7 +329,7 @@
                 </padding>
               </show>
               <!--? And for the first product in slider we also add left padding-->
-              <show notShow="{{ cycle.productIndex }}">
+              <show ifFalse="{{ cycle.productIndex }}">
                 <padding left="{{ data(gap).x3 }}" right="{{ data(gap).x3 }}">
                   <component id="card.product"
                              title="{{ cycle.product.title }}"

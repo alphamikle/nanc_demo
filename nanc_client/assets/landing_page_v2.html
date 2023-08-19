@@ -317,19 +317,19 @@
           <component id="text.h7" text="{{ template.description }}" color="{{ data(colors).grey }}" align="center"/>
         </padding>
         <row mainAxisAlignment="spaceEvenly">
-          <show show="{{ template.fb }}">
+          <show ifTrue="{{ template.fb }}">
             <component id="buttons.icon" icon="rmx_facebook_fill" link="{{ template.fb }}"/>
           </show>
 
-          <show show="{{ template.inst }}">
+          <show ifTrue="{{ template.inst }}">
             <component id="buttons.icon" icon="rmx_instagram_fill" link="{{ template.inst }}"/>
           </show>
 
-          <show show="{{ template.tw }}">
+          <show ifTrue="{{ template.tw }}">
             <component id="buttons.icon" icon="mdi_twitter" link="{{ template.tw }}"/>
           </show>
 
-          <show show="{{ template.ytb }}">
+          <show ifTrue="{{ template.ytb }}">
             <component id="buttons.icon" icon="rmx_youtube_fill" link="{{ template.ytb }}"/>
           </show>
         </row>
@@ -394,7 +394,7 @@
     <sizedBox size="22">
     </sizedBox>
 
-    <show show="{{ template.active }}">
+    <show ifTrue="{{ template.active }}">
       <positioned all="0">
         <align align="center">
           <container width="22" height="22" color="{{ data(colors).royalBlue }}">
