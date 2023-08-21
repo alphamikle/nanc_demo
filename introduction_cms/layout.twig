@@ -1,7 +1,7 @@
 <data namespace="colors" primary="#FF0B59D5" primaryDarken="#FF0A50C0" primaryDarkest="#FF0948AD"
       secondary="#FFFFFFFF" secondaryDarken="#FFCDDEF7" secondaryAccent="#FFE9F2F9"
       tertiary="#FFFCB61A"
-      quaternary="#FF999999" quaternaryDarken="#FF696E70"
+      quaternary="#FF999999" quaternaryDarken="#FF696E70" quaternaryLighten="#FFEEEEEE"
       text.basic="#FF000000" text.light="#FFDCDCDC"
 />
 <data namespace="header" height="215"/>
@@ -26,7 +26,7 @@
             <clipRRect topLeft="8" topRight="8">
               <image ref="{{ template.image }}" fit="cover" blurHash="{{ template.blurHash }}"/>
             </clipRRect>
-            <padding all="{{ data.gap.x2 }}">
+            <padding left="{{ data.gap.x2 }}" top="14" right="{{ data.gap.x2 }}" bottom="{{ data.gap.x1 }}">
               <row>
                 <sizedBox width="{{ data.gap.x2 }}"/>
                 <column crossAxisAlignment="start">
@@ -54,7 +54,20 @@
 </template>
 
 <template id="smallBody">
-  <text text="{{ template.text }}" size="12" color="{{ data.colors.quaternary }}">
+  <show ifTrue="{{ template.color }}">
+    <text text="{{ template.text }}" size="12" color="{{ template.color }}">
+      <prop:textStyle font="{{ data.font.main }}"/>
+    </text>
+  </show>
+  <show ifFalse="{{ template.color }}" nullAsFalse="true">
+    <text text="{{ template.text }}" size="12" color="{{ data.colors.quaternary }}">
+      <prop:textStyle font="{{ data.font.main }}"/>
+    </text>
+  </show>
+</template>
+
+<template id="middleBody">
+  <text text="{{ template.text }}" size="14" color="{{ data.colors.text.basic }}" maxLines="2" overflow="ellipsis">
     <prop:textStyle font="{{ data.font.main }}"/>
   </text>
 </template>
@@ -69,7 +82,7 @@
       <padding left="6" top="6" right="6" bottom="6">
         <row mainAxisSize="min">
           <show ifTrue="{{ template.prefix }}">
-            <padding right="4">
+            <padding left="2" right="4">
               <svg ref="{{ template.prefix }}"/>
             </padding>
           </show>
@@ -264,12 +277,96 @@
   </sizedBox>
 </template>
 
-<template id="productCard">
+<template id="groceryCard">
   <aspectRatio ratio="0.65">
-    <container color="yellow">
-
-    </container>
+    <stack>
+      <container>
+        <prop:decoration>
+          <prop:border color="{{ data.colors.quaternaryLighten }}" width="1.6"/>
+          <prop:borderRadius all="8"/>
+        </prop:decoration>
+        <column crossAxisAlignment="start">
+          <expanded>
+            <center>
+              <padding top="4" bottom="4">
+                <image ref="{{ template.image }}" blurHash="{{ template.blurHash }}"/>
+              </padding>
+            </center>
+          </expanded>
+          <expanded>
+            <column crossAxisAlignment="start">
+              <padding left="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}" bottom="{{ data.gap.x2 }}">
+                <column crossAxisAlignment="start">
+                  <component id="smallBody" text="{{ template.subtitle }}"/>
+                  <component id="middleBody" text="{{ template.title }}"/>
+                  <sizedBox height="{{ data.gap.x2 }}"/>
+                  <richText>
+                    <textSpan text="{{ template.price }}">
+                      <prop:textStyle color="{{ data.colors.text.basic }}" size="14"/>
+                    </textSpan>
+                    <textSpan text="  {{ template.pricePerUnit }}">
+                      <prop:textStyle color="{{ data.colors.text.light }}" size="14"/>
+                    </textSpan>
+                  </richText>
+                </column>
+              </padding>
+              <container height="1.6" width="500" color="{{ data.colors.quaternaryLighten }}"/>
+              <expanded>
+                <center>
+                  <padding left="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}">
+                    <row>
+                      <show ifTrue="{{ template.inStock }}">
+                        <component id="smallBody" text="In stock" color="{{ data.colors.text.basic }}"/>
+                      </show>
+                      <show ifFalse="{{ template.inStock }}" nullAsFalse="true">
+                        <component id="smallBody" text="Out of stock" color="{{ data.colors.text.basic }}"/>
+                      </show>
+                      <padding left="8" right="8">
+                        <container width="1" height="14" color="{{ data.colors.text.basic }}"/>
+                      </padding>
+                      <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location_dark.svg"/>
+                      <sizedBox width="2"/>
+                      <component id="smallBody" text="S23" color="{{ data.colors.text.basic }}"/>
+                    </row>
+                  </padding>
+                </center>
+              </expanded>
+            </column>
+          </expanded>
+        </column>
+      </container>
+      <positioned all="0">
+        <material type="transparency">
+          <prop:borderRadius all="8"/>
+          <inkWell onPressed="{{ template.onPressed }}" splashColor="{{ template.splashColor }}" highlightColor="#00FFFFFF">
+            <prop:borderRadius all="8"/>
+            <container color="#00FFFFFF"/>
+          </inkWell>
+        </material>
+      </positioned>
+      <positioned top="8" right="8">
+        <component id="roundButton" text="Add" color="{{ data.colors.primary }}" textColor="{{ data.colors.secondary }}"
+                   prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg" onPressed="snackbar: Add product!"/>
+      </positioned>
+    </stack>
   </aspectRatio>
+</template>
+
+<template id="brand">
+  <padding right="{{ data.gap.x3 }}">
+    <stack>
+      <svg ref="{{ template.image }}"/>
+      <positioned all="0">
+        <material type="transparency">
+          <prop:borderRadius all="100"/>
+          <inkWell onPressed="snackbar: Brand!">
+            <prop:borderRadius all="100"/>
+            <container color="#00FFFFFF"/>
+          </inkWell>
+        </material>
+      </positioned>
+    </stack>
+  </padding>
 </template>
 
 <!-- # HEADER-->
@@ -474,6 +571,54 @@
 
 <sizedBox height="252">
   <listView axis="horizontal">
-    <component id="productCard"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/apple.png" subtitle="Final cost by weight" title="Gala Apples, 3lb Bag" price="$4.62"
+               pricePerUnit="$2.27/lb" inStock="true" onPressed="snackbar: Apple!" splashColor="#1FCF011F"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/bread.png" subtitle="Wonder" title="Wonder Bread Classic" price="$2.39"
+               pricePerUnit="11.9 ¢/oz" inStock="true" onPressed="snackbar: Bread!" splashColor="#1FD38B4E"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/milk.png" subtitle="Fairlife 2%" title="Ultra-Filtered Milk" price="$3.98"
+               pricePerUnit="7.7 ¢/fl oz" inStock="true" onPressed="snackbar: Milk!" splashColor="#1F66BEEC"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/bananas.png" subtitle="Fresh Produce" title="Bananas, Each" price="$0.21"
+               pricePerUnit="each" inStock="true" onPressed="snackbar: Bananas!" splashColor="#1FF5E673"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/peanut_cream.png" subtitle="18 oz, Great Value" title="Creamy Peanut Butter" price="$1.72"
+               pricePerUnit="9.6 ¢/oz" inStock="true" onPressed="snackbar: Butter!" splashColor="#1F35221F"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/ice_cream.png" subtitle="Strawberry Cheesecake" title="Ben & Jerry's" price="$4.62"
+               pricePerUnit="28.0 ¢/oz" inStock="false" onPressed="snackbar: Ice cream!" splashColor="#1F2A388F"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/avocados.png" subtitle="Fresh Produce" title="Hass Avocados" price="$3.78"
+               pricePerUnit="$2.27/lb" inStock="true" onPressed="snackbar: Avocados!" splashColor="#1F5D7428"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="groceryCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/spinach.png" subtitle="Marketside" title="Fresh Spinach, 10 oz" price="$2.18"
+               pricePerUnit="21.8 ¢/oz" inStock="true" onPressed="snackbar: Spinach!" splashColor="#1F2E4006"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
   </listView>
 </sizedBox>
+
+<sizedBox height="{{ data.gap.x5 }}"/>
+
+<padding left="{{ data.gap.x3 }}" right="{{ data.gap.x3 }}" bottom="{{ data.gap.x4 }}">
+  <component id="subtitle" text="Brands"/>
+</padding>
+
+<sizedBox height="72">
+  <listView axis="horizontal">
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/gap_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/apple_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/tommy_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/boss_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/levis_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/nautica_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/boots_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/ikea_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/crocodile_logo.svg"/>
+    <component id="brand" image="https://raw.githubusercontent.com/alphamikle/assets/master/svg/nike_logo.svg"/>
+  </listView>
+</sizedBox>
+
+<sizedBox height="100"/>
