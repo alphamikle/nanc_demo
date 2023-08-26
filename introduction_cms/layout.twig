@@ -5,8 +5,13 @@
       text.basic="#FF000000" text.light="#FFDCDCDC"
 />
 <data namespace="header" height="215"/>
-<data namespace="gap" x1="4" x2="8" x3="16" x4="24" x5="32"/>
+<data namespace="gap" x1="4" x2="8" x3="16" x4="24" x5="32" x6="48"/>
 <data namespace="font" main="DM Sans"/>
+<data namespace="star"
+      empty="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_empty.svg"
+      half="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_half.svg"
+      full="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_filled.svg"
+/>
 
 <!-- # TEMPLATES-->
 <template id="adCard">
@@ -352,6 +357,192 @@
   </aspectRatio>
 </template>
 
+<template id="star">
+  <padding right="{{ data.gap.x1 }}">
+    <svg ref="{{ template.ref }}"/>
+  </padding>
+</template>
+
+<template id="rating">
+  <show ifTrue="{{ template.rate00 }}">
+    <row mainAxisSize="min">
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate05 }}">
+    <row>
+      <component id="star" ref="{{ data.star.half }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate10 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate15 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.half }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate20 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate25 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.half }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate30 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate35 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.half }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate40 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.empty }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate45 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.half }}"/>
+    </row>
+  </show>
+  <show ifTrue="{{ template.rate50 }}">
+    <row>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+      <component id="star" ref="{{ data.star.full }}"/>
+    </row>
+  </show>
+</template>
+
+<template id="electronicsCard">
+  <aspectRatio ratio="0.65">
+    <stack>
+      <container>
+        <prop:decoration>
+          <prop:border color="{{ data.colors.quaternaryLighten }}" width="1.6"/>
+          <prop:borderRadius all="8"/>
+        </prop:decoration>
+        <column crossAxisAlignment="start">
+          <expanded>
+            <center>
+              <padding top="4" bottom="4">
+                <image ref="{{ template.image }}" blurHash="{{ template.blurHash }}"/>
+              </padding>
+            </center>
+          </expanded>
+          <expanded>
+            <column crossAxisAlignment="start">
+              <padding left="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}" bottom="{{ data.gap.x2 }}">
+                <column crossAxisAlignment="start">
+                  <component id="smallBody" text="{{ template.subtitle }}"/>
+                  <component id="middleBody" text="{{ template.title }}"/>
+                  <sizedBox height="{{ data.gap.x2 }}"/>
+                  <richText>
+                    <textSpan text="{{ template.pricePerMonth }}">
+                      <prop:textStyle color="{{ data.colors.text.basic }}" size="14"/>
+                    </textSpan>
+                    <textSpan text="  {{ template.price }}">
+                      <prop:textStyle color="{{ data.colors.text.light }}" size="14"/>
+                    </textSpan>
+                  </richText>
+                </column>
+              </padding>
+              <container height="1.6" width="500" color="{{ data.colors.quaternaryLighten }}"/>
+              <expanded>
+                <center>
+                  <padding left="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}">
+                    <row>
+                      <component id="rating"
+                                 rate00="{{ template.rate00 }}"
+                                 rate05="{{ template.rate05 }}"
+                                 rate10="{{ template.rate10 }}"
+                                 rate15="{{ template.rate15 }}"
+                                 rate20="{{ template.rate20 }}"
+                                 rate25="{{ template.rate25 }}"
+                                 rate30="{{ template.rate30 }}"
+                                 rate35="{{ template.rate35 }}"
+                                 rate40="{{ template.rate40 }}"
+                                 rate45="{{ template.rate45 }}"
+                                 rate50="{{ template.rate50 }}"
+                      />
+                      <sizedBox width="{{ data.gap.x1 }}"/>
+                      <component id="smallBody" text="({{ template.count }})" color="{{ data.colors.text.light }}"/>
+                    </row>
+                  </padding>
+                </center>
+              </expanded>
+            </column>
+          </expanded>
+        </column>
+      </container>
+      <positioned all="0">
+        <material type="transparency">
+          <prop:borderRadius all="8"/>
+          <inkWell onPressed="{{ template.onPressed }}" splashColor="{{ template.splashColor }}" highlightColor="#00FFFFFF">
+            <prop:borderRadius all="8"/>
+            <container color="#00FFFFFF"/>
+          </inkWell>
+        </material>
+      </positioned>
+      <positioned top="8" right="8">
+        <component id="roundButton" text="Add" color="{{ data.colors.primary }}" textColor="{{ data.colors.secondary }}"
+                   prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg" onPressed="snackbar: Add electronic!"/>
+      </positioned>
+    </stack>
+  </aspectRatio>
+</template>
+
 <template id="brand">
   <padding right="{{ data.gap.x3 }}">
     <stack>
@@ -527,7 +718,7 @@
 
 <sizedBox height="{{ data.gap.x4 }}"/>
 
-<!-- # FILTER CHIPS 123 -->
+<!-- # FILTER CHIPS -->
 <sizedBox height="34">
   <listView axis="horizontal">
     <sizedBox width="{{ data.gap.x3 }}"/>
@@ -556,6 +747,7 @@
 
 <sizedBox height="{{ data.gap.x4 }}"/>
 
+<!-- # GROCERIES -->
 <padding left="{{ data.gap.x3 }}" right="{{ data.gap.x3 }}">
   <richText>
     <textSpan text="Groceries" size="18" color="{{ data.colors.text.basic }}">
@@ -601,6 +793,7 @@
 
 <sizedBox height="{{ data.gap.x5 }}"/>
 
+<!-- # BRANDS -->
 <padding left="{{ data.gap.x3 }}" right="{{ data.gap.x3 }}" bottom="{{ data.gap.x4 }}">
   <component id="subtitle" text="Brands"/>
 </padding>
@@ -621,4 +814,47 @@
   </listView>
 </sizedBox>
 
+<sizedBox height="{{ data.gap.x6 }}"/>
+
+<!-- # ELECTRONICS -->
+<padding left="{{ data.gap.x3 }}" right="{{ data.gap.x3 }}">
+  <richText>
+    <textSpan text="Electronics" size="18" color="{{ data.colors.text.basic }}">
+      <prop:textStyle weight="w500" height="1.25" font="{{ data.font.main }}"/>
+    </textSpan>
+    <textSpan text=" (3.5k)" size="18" color="{{ data.colors.text.light }}">
+      <prop:textStyle weight="w500" height="1.25" font="{{ data.font.main }}"/>
+    </textSpan>
+  </richText>
+</padding>
+
+<sizedBox height="{{ data.gap.x3 }}"/>
+
+<sizedBox height="252">
+  <listView axis="horizontal">
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/watch.png" subtitle="Apple" title="Apple Watch SE GPS" price="$279.00"
+               pricePerMonth="$26/mo" onPressed="snackbar: Apple!" splashColor="#1FCABEB4" rate45="true" count="135"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/camera.png" subtitle="Canon" title="Canon EOS Rebel T100" price="$379.00"
+               pricePerMonth="$36/mo" onPressed="snackbar: Canon!" splashColor="#1F612E65" rate30="true" count="1.4k"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/oneplus.png" subtitle="OnePlus" title="OnePlus Nord N200" price="$220.00"
+               pricePerMonth="$21/mo" onPressed="snackbar: OnePlus!" splashColor="#1F0C2BBA" rate35="true" count="70"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/projector.png" subtitle="Bomaker" title="Bomaker Projector" price="$320.00"
+               pricePerMonth="$18/mo" onPressed="snackbar: Projector!" splashColor="#1F30AFF3" rate30="true" count="80"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/headphones.png" subtitle="Bose" title="QuietComfort 45" price="$279.00"
+               pricePerMonth="$24/mo" onPressed="snackbar: Headphones!" splashColor="#1F363636" rate40="true" count="250"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+    <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/drone.png" subtitle="Contixo" title="Contixo F16 FPV" price="$180.00"
+               pricePerMonth="$10/mo" onPressed="snackbar: Headphones!" splashColor="#1F4F565D" rate50="true" count="49"/>
+    <sizedBox width="{{ data.gap.x3 }}"/>
+  </listView>
+</sizedBox>
+
+<sizedBox height="{{ data.gap.x5 }}"/>
+
 <sizedBox height="100"/>
+
