@@ -378,105 +378,62 @@
 </template>
 
 <template id="rating">
-  <show ifTrue="{{ template.rate00 }}">
-    <row mainAxisSize="min">
+  <row>
+    <!-- # FIRST STAR -->
+    <show ifTrue="{{ template.rating < 0.5 }}">
       <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate05 }}">
-    <row>
+    </show>
+    <show ifTrue="{{ template.rating >= 0.5 and template.rating < 1 }}">
       <component id="star" ref="{{ data.star.half }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate10 }}">
-    <row>
+    </show>
+    <show ifTrue="{{ template.rating >= 1 }}">
       <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+
+    <!-- # SECOND STAR -->
+    <show ifTrue="{{ template.rating < 1.5 }}">
       <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate15 }}">
-    <row>
-      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+    <show ifTrue="{{ template.rating >= 1.5 and template.rating < 2 }}">
       <component id="star" ref="{{ data.star.half }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate20 }}">
-    <row>
+    </show>
+    <show ifTrue="{{ template.rating >= 2 }}">
       <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+
+    <!-- # THIRD STAR -->
+    <show ifTrue="{{ template.rating < 2.5 }}">
       <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate25 }}">
-    <row>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+    <show ifTrue="{{ template.rating >= 2.5 and template.rating < 3 }}">
       <component id="star" ref="{{ data.star.half }}"/>
+    </show>
+    <show ifTrue="{{ template.rating >= 3 }}">
+      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+
+    <!-- # FOURTH STAR -->
+    <show ifTrue="{{ template.rating < 3.5 }}">
       <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate30 }}">
-    <row>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate35 }}">
-    <row>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+    <show ifTrue="{{ template.rating >= 3.5 and template.rating < 4 }}">
       <component id="star" ref="{{ data.star.half }}"/>
+    </show>
+    <show ifTrue="{{ template.rating >= 4 }}">
+      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+
+    <!-- # FIFTH STAR -->
+    <show ifTrue="{{ template.rating < 4.5 }}">
       <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate40 }}">
-    <row>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.empty }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate45 }}">
-    <row>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
+    </show>
+    <show ifTrue="{{ template.rating >= 4.5 and template.rating < 5 }}">
       <component id="star" ref="{{ data.star.half }}"/>
-    </row>
-  </show>
-  <show ifTrue="{{ template.rate50 }}">
-    <row>
+    </show>
+    <show ifTrue="{{ template.rating >= 5 }}">
       <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-      <component id="star" ref="{{ data.star.full }}"/>
-    </row>
-  </show>
+    </show>
+  </row>
 </template>
 
 <template id="electronicsCard">
@@ -517,19 +474,7 @@
                 <center>
                   <padding left="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}">
                     <row>
-                      <component id="rating"
-                                 rate00="{{ template.rate00 }}"
-                                 rate05="{{ template.rate05 }}"
-                                 rate10="{{ template.rate10 }}"
-                                 rate15="{{ template.rate15 }}"
-                                 rate20="{{ template.rate20 }}"
-                                 rate25="{{ template.rate25 }}"
-                                 rate30="{{ template.rate30 }}"
-                                 rate35="{{ template.rate35 }}"
-                                 rate40="{{ template.rate40 }}"
-                                 rate45="{{ template.rate45 }}"
-                                 rate50="{{ template.rate50 }}"
-                      />
+                      <component id="rating" rating="{{ template.rating }}"/>
                       <sizedBox width="{{ data.gap.x1 }}"/>
                       <component id="smallBody" text="({{ template.count }})" color="{{ data.colors.text.light }}"/>
                     </row>
@@ -560,7 +505,9 @@
 <template id="brand">
   <padding right="{{ data.gap.x3 }}">
     <stack>
-      <svg ref="{{ template.image }}"/>
+      <sizedBox size="72">
+        <svg ref="{{ template.image }}"/>
+      </sizedBox>
       <positioned all="0">
         <material type="transparency">
           <prop:borderRadius all="100"/>
@@ -575,7 +522,7 @@
 </template>
 
 <!-- # HEADER-->
-<sliverPersistentHeader maxExtent="{{ data.header.height }}" minExtent="{{ data.header.height }}">
+<sliverPersistentHeader maxExtent="{{ data.header.height }}" minExtent="{{ data.header.height }}" floating="true">
   <container color="{{ data.colors.primary }}" height="{{ data.header.height }}">
     <column>
       <sizedBox height="44"/>
@@ -593,7 +540,9 @@
             </row>
           </expanded>
           <expanded>
-            <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/logo.svg"/>
+            <sizedBox size="39">
+              <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/logo.svg"/>
+            </sizedBox>
           </expanded>
           <expanded>
             <row mainAxisAlignment="end">
@@ -854,22 +803,22 @@
   <listView axis="horizontal">
     <sizedBox width="{{ data.gap.x3 }}"/>
     <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/watch.png" subtitle="Apple" title="Apple Watch SE GPS" price="$279.00"
-               pricePerMonth="$26/mo" onPressed="snackbar: Apple!" splashColor="#1FCABEB4" rate45="true" count="135"/>
+               pricePerMonth="$26/mo" onPressed="snackbar: Apple!" splashColor="#1FCABEB4" rating="4.5" count="135"/>
     <sizedBox width="{{ data.gap.x3 }}"/>
     <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/camera.png" subtitle="Canon" title="Canon EOS Rebel T100" price="$379.00"
-               pricePerMonth="$36/mo" onPressed="snackbar: Canon!" splashColor="#1F612E65" rate30="true" count="1.4k"/>
+               pricePerMonth="$36/mo" onPressed="snackbar: Canon!" splashColor="#1F612E65" rating="3.1" count="1.4k"/>
     <sizedBox width="{{ data.gap.x3 }}"/>
     <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/oneplus.png" subtitle="OnePlus" title="OnePlus Nord N200" price="$220.00"
-               pricePerMonth="$21/mo" onPressed="snackbar: OnePlus!" splashColor="#1F0C2BBA" rate35="true" count="70"/>
+               pricePerMonth="$21/mo" onPressed="snackbar: OnePlus!" splashColor="#1F0C2BBA" rating="3.6" count="70"/>
     <sizedBox width="{{ data.gap.x3 }}"/>
     <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/projector.png" subtitle="Bomaker" title="Bomaker Projector" price="$320.00"
-               pricePerMonth="$18/mo" onPressed="snackbar: Projector!" splashColor="#1F30AFF3" rate30="true" count="80"/>
+               pricePerMonth="$18/mo" onPressed="snackbar: Projector!" splashColor="#1F30AFF3" rating="3.2" count="80"/>
     <sizedBox width="{{ data.gap.x3 }}"/>
     <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/headphones.png" subtitle="Bose" title="QuietComfort 45" price="$279.00"
-               pricePerMonth="$24/mo" onPressed="snackbar: Headphones!" splashColor="#1F363636" rate40="true" count="250"/>
+               pricePerMonth="$24/mo" onPressed="snackbar: Headphones!" splashColor="#1F363636" rating="4.15" count="250"/>
     <sizedBox width="{{ data.gap.x3 }}"/>
     <component id="electronicsCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/drone.png" subtitle="Contixo" title="Contixo F16 FPV" price="$180.00"
-               pricePerMonth="$10/mo" onPressed="snackbar: Headphones!" splashColor="#1F4F565D" rate50="true" count="49"/>
+               pricePerMonth="$10/mo" onPressed="snackbar: Drone!" splashColor="#1F4F565D" rating="5.0" count="49"/>
     <sizedBox width="{{ data.gap.x3 }}"/>
   </listView>
 </sizedBox>
