@@ -28,10 +28,12 @@
           </prop:decoration>
 
           <column crossAxisAlignment="start">
-            <clipRRect topLeft="8" topRight="8">
-              <image ref="{{ template.image }}" fit="cover" blurHash="{{ template.blurHash }}"/>
-            </clipRRect>
-            <padding left="{{ data.gap.x2 }}" top="14" right="{{ data.gap.x2 }}" bottom="{{ data.gap.x1 }}">
+            <expanded>
+              <clipRRect topLeft="8" topRight="8">
+                <image ref="{{ template.image }}" fit="cover" blurHash="{{ template.blurHash }}"/>
+              </clipRRect>
+            </expanded>
+            <padding all="{{ data.gap.x2 }}">
               <row>
                 <sizedBox width="{{ data.gap.x2 }}"/>
                 <column crossAxisAlignment="start">
@@ -40,7 +42,9 @@
                 </column>
                 <spacer/>
                 <padding top="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}">
-                  <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/circle_chevron_right.svg"/>
+                  <sizedBox size="24">
+                    <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/circle_chevron_right.svg"/>
+                  </sizedBox>
                 </padding>
               </row>
             </padding>
@@ -88,7 +92,11 @@
         <row mainAxisSize="min">
           <show ifTrue="{{ template.prefix }}">
             <padding left="2" right="4">
-              <svg ref="{{ template.prefix }}"/>
+              <sizedBox size="20">
+                <center>
+                  <svg ref="{{ template.prefix }}"/>
+                </center>
+              </sizedBox>
             </padding>
           </show>
           <show ifFalse="{{ template.prefix }}" nullAsFalse="true">
@@ -99,7 +107,9 @@
           </text>
           <show ifTrue="{{ template.suffix }}">
             <padding left="6" right="6">
-              <svg ref="{{ template.suffix }}"/>
+              <sizedBox size="10">
+                <svg ref="{{ template.suffix }}"/>
+              </sizedBox>
             </padding>
           </show>
           <show ifFalse="{{ template.suffix }}" nullAsFalse="true">
@@ -329,7 +339,9 @@
                       <padding left="8" right="8">
                         <container width="1" height="14" color="{{ data.colors.text.basic }}"/>
                       </padding>
-                      <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location_dark.svg"/>
+                      <sizedBox size="20">
+                        <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location_dark.svg"/>
+                      </sizedBox>
                       <sizedBox width="2"/>
                       <component id="smallBody" text="S23" color="{{ data.colors.text.basic }}"/>
                     </row>
@@ -359,7 +371,9 @@
 
 <template id="star">
   <padding right="{{ data.gap.x1 }}">
-    <svg ref="{{ template.ref }}"/>
+    <sizedBox size="16">
+      <svg ref="{{ template.ref }}"/>
+    </sizedBox>
   </padding>
 </template>
 
@@ -589,7 +603,9 @@
               <sizedBox width="{{ data.gap.x2 }}"/>
               <stack>
                 <padding top="4" right="4">
-                  <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/cart.svg"/>
+                  <sizedBox size="24">
+                    <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/cart.svg"/>
+                  </sizedBox>
                 </padding>
                 <positioned top="0" right="0">
                   <container size="14">
@@ -617,7 +633,7 @@
             <prop:contentPadding left="30"/>
             <alias name="prefixIcon">
               <padding left="8" top="3">
-                <sizedBox size="24">
+                <sizedBox size="21">
                   <center>
                     <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/search.svg" size="21"/>
                   </center>
@@ -627,7 +643,7 @@
             <prop:hintStyle color="{{ data.colors.quaternary }}" size="14" font="{{ data.font.main }}"/>
             <alias name="suffixIcon">
               <padding right="8">
-                <sizedBox size="24">
+                <sizedBox size="21">
                   <center>
                     <material type="transparent">
                       <prop:borderRadius all="3"/>
@@ -648,9 +664,11 @@
           <container height="36" color="{{ data.colors.primaryDarken }}">
             <row mainAxisSize="min">
               <padding left="{{ data.gap.x3 }}" right="{{ data.gap.x1 }}">
-                <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/home.svg"/>
+                <sizedBox size="20">
+                  <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/home.svg"/>
+                </sizedBox>
               </padding>
-              <text text="Carrollton Supercenter" color="{{ data.colors.secondary }}" overflow="elipsis" maxLines="1">
+              <text text="Carrollton Supercenter" color="{{ data.colors.secondary }}" overflow="ellipsis" maxLines="1">
                 <prop:textStyle color="{{ data.colors.secondary }}" size="12" font="{{ data.font.main }}"/>
               </text>
             </row>
@@ -660,7 +678,9 @@
           <container height="36" color="{{ data.colors.primaryDarkest }}">
             <row mainAxisSize="min">
               <padding left="{{ data.gap.x3 }}" right="{{ data.gap.x1 }}">
-                <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location.svg"/>
+                <sizedBox size="20">
+                  <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location.svg"/>
+                </sizedBox>
               </padding>
               <text text="Dallas 75220" color="{{ data.colors.secondary }}">
                 <prop:textStyle color="{{ data.colors.secondary }}" size="12" font="{{ data.font.main }}"/>
