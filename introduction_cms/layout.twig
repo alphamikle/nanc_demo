@@ -12,6 +12,7 @@
       half="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_half.svg"
       full="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_filled.svg"
 />
+<data cart.count="2"/>
 
 <!-- # TEMPLATES-->
 <template id="adCard">
@@ -363,7 +364,7 @@
       </positioned>
       <positioned top="8" right="8">
         <component id="roundButton" text="Add" color="{{ data.colors.primary }}" textColor="{{ data.colors.secondary }}"
-                   prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg" onPressed="snackbar: Add product!"/>
+                   prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg" onPressed="addToCart"/>
       </positioned>
     </stack>
   </aspectRatio>
@@ -496,7 +497,7 @@
       </positioned>
       <positioned top="8" right="8">
         <component id="roundButton" text="Add" color="{{ data.colors.primary }}" textColor="{{ data.colors.secondary }}"
-                   prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg" onPressed="snackbar: Add electronic!"/>
+                   prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg" onPressed="addToCart"/>
       </positioned>
     </stack>
   </aspectRatio>
@@ -562,7 +563,9 @@
                       <prop:borderRadius all="14"/>
                     </prop:decoration>
                     <center>
-                      <text text="2" size="9"/>
+                      <dataBuilder buildWhen="cart.count">
+                        <text text="{{ data.cart.count }}" size="9"/>
+                      </dataBuilder>
                     </center>
                   </container>
                 </positioned>

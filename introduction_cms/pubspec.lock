@@ -857,7 +857,7 @@ packages:
     source: path
     version: "0.0.1"
   nanc_renderer:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../../nanc/nanc_renderer"
       relative: true

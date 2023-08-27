@@ -10,6 +10,7 @@ import 'package:model/model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 import 'package:svg_renderer/svg_renderer.dart';
 
+import 'logic/add_to_cart_event_handler.dart';
 import 'models/age_rating_model.dart';
 import 'models/country_model.dart';
 import 'models/genre_model.dart';
@@ -92,6 +93,7 @@ Future<void> main() async {
           deeplinkEventDemoHandler,
           shareDemoHandler,
           anyEventHandler,
+          addToCartEventHandler,
         ],
         customFonts: [
           const CustomFont(font: 'Blazeface'),
