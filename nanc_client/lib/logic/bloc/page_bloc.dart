@@ -5,12 +5,12 @@ import 'package:analytics/analytics.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:icons/icons.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../data/default_page_data.dart';
 import '../peer_client_service.dart';
 import 'page_state.dart';
 
@@ -59,34 +59,29 @@ class PageBloc extends Cubit<PageState> {
     ));
   }
 
+  bool get useNetwork => false;
+
   Future<Json> preloadDefaultPageData() async {
     Json? page;
     try {
-      final Dio dio = Dio();
-      final Response<String> json = await dio.get<String>('https://raw.githubusercontent.com/alphamikle/client.nanc.io/master/page_data.json');
+      if (useNetwork) {
+        final Dio dio = Dio();
+        final Response<String> json = await dio.get<String>('https://raw.githubusercontent.com/alphamikle/client.nanc.io/master/page_data.json');
 
-      /// ? We will parse JSON String now
-      if (json.data != null && json.data is String) {
-        final dynamic result = jsonDecode(json.data!);
-        if (result is List && result.isNotEmpty) {
-          page = castToJson(result.first);
+        /// ? We will parse JSON String now
+        if (json.data != null && json.data is String) {
+          final dynamic result = jsonDecode(json.data!);
+          if (result is List && result.isNotEmpty) {
+            page = castToJson(result.first);
+          }
         }
       }
       if (page == null) {
-        final String assetPage = await rootBundle.loadString('assets/page_data.json');
-        final dynamic result = jsonDecode(assetPage);
-        if (result is List && result.isNotEmpty) {
-          page = castToJson(result.first);
-        }
+        return defaultPageData;
       }
-      return page!;
+      return page;
     } catch (error) {
-      final String assetPage = await rootBundle.loadString('assets/page_data.json');
-      final dynamic result = jsonDecode(assetPage);
-      if (result is List && result.isNotEmpty) {
-        page = castToJson(result.first);
-      }
-      return page!;
+      return defaultPageData;
     }
   }
 

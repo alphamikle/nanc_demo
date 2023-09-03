@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:svg_renderer/svg_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../data/default_screen_nodes.dart';
 import '../../logic/bloc/page_bloc.dart';
 import '../../logic/bloc/page_state.dart';
 import '../components/connection_modal.dart';
@@ -44,6 +46,7 @@ class _MainViewState extends State<MainView> {
   List<TagRenderer> _prepareTagsRenderer() {
     return [
       carouselSliderRenderer(),
+      svgRenderer(),
     ];
   }
 
@@ -79,6 +82,7 @@ class _MainViewState extends State<MainView> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocBuilder<PageBloc, PageState>(
+        buildWhen: (PageState previous, PageState current) => previous.screenData != current.screenData,
         builder: (BuildContext context, PageState state) {
           final Widget preloader = Center(
             child: StreamBuilder<String>(
@@ -106,6 +110,8 @@ class _MainViewState extends State<MainView> {
             loader: preloader,
             builder: (_) => ContentPage(
               content: screenData,
+              nodes: defaultScreenNodes,
+              binary: null,
               pageData: state.pageData,
               renderers: tagsRenderer,
             ),

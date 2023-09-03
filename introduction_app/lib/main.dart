@@ -72,6 +72,8 @@ class _RootViewState extends State<RootView> {
             svgRenderer(),
           ],
           xmlContent: rootViewLayout,
+          nodes: null,
+          binary: null,
           pageData: {},
         ),
       ),

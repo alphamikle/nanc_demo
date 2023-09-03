@@ -1,12 +1,16 @@
 import 'dart:async';
 
+import 'package:additions/additions.dart';
 import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:fonts/fonts.dart';
 import 'package:model/model.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
+import 'package:svg_renderer/svg_renderer.dart';
 
 import 'firebase_key.dart';
+import 'logic/add_to_cart_event_handler.dart';
 import 'models/age_rating_model.dart';
 import 'models/country_model.dart';
 import 'models/genre_model.dart';
@@ -65,12 +69,30 @@ Future<void> main() async {
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
         predefinedModels: models,
-        customRenderers: [],
-        eventsHandlers: [],
-        customFonts: [],
+        customRenderers: [
+          svgRenderer(),
+          colorFilterProperty(),
+          headerProperty(),
+        ],
+        eventsHandlers: [
+          snackbarDemoHandler,
+          browserLinksEventDemoHandler,
+          deeplinkEventDemoHandler,
+          shareDemoHandler,
+          anyEventHandler,
+          addToCartEventHandler,
+        ],
+        customFonts: [
+          const CustomFont(font: 'Blazeface'),
+          const CustomFont(font: 'Helvetica'),
+          const CustomFont(font: 'Helvetica Neue'),
+        ],
         sliverChecker: null,
         customIcons: null,
-        themeBuilder: null,
+        themeBuilder: (BuildContext context) => ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+          useMaterial3: true,
+        ),
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
