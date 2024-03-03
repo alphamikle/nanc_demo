@@ -9,7 +9,7 @@ final Model ageRatingModel = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Title', id: 'title', isRequired: true, showInList: true),
+      StringField(name: 'Title', id: 'title', isRequired: true, showInList: true, maxLines: 1),
     ],
   ],
 );

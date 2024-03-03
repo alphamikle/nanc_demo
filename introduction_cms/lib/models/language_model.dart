@@ -9,7 +9,7 @@ final Model languageModel = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Name', id: 'name', isRequired: true, showInList: true),
+      StringField(name: 'Name', id: 'name', isRequired: true, showInList: true, maxLines: 1),
     ]
   ],
 );

@@ -11,7 +11,7 @@ final Model movieModel = Model(
   fields: [
     [
       IdField(),
-      StringField(name: 'Title', id: 'title', isRequired: true, showInList: true),
+      StringField(name: 'Title', id: 'title', isRequired: true, showInList: true, maxLines: 1),
       SelectorField(
         name: 'Age Rating',
         id: 'age_rating_id',
@@ -24,8 +24,8 @@ final Model movieModel = Model(
     ],
     [
       NumberField(name: 'Year', id: 'year', isRequired: true, showInList: true),
-      StringField(name: 'Release Date', id: 'release_date', isRequired: true),
-      StringField(name: 'DVD Release Date', id: 'dvd_release_date'),
+      StringField(name: 'Release Date', id: 'release_date', isRequired: true, maxLines: 1),
+      StringField(name: 'DVD Release Date', id: 'dvd_release_date', maxLines: 1),
     ],
     [
       NumberField(name: 'Duration (min)', id: 'duration', isRequired: true, showInList: true),
@@ -35,11 +35,11 @@ final Model movieModel = Model(
       StringField(name: 'Description', id: 'description', isRequired: true),
     ],
     [
-      StringField(name: 'Poster Url', id: 'poster_url', isRequired: true),
+      StringField(name: 'Poster Url', id: 'poster_url', isRequired: true, maxLines: 1),
     ],
     [
-      StringField(name: 'Website', id: 'website'),
-      StringField(name: 'Production', id: 'production'),
+      StringField(name: 'Website', id: 'website', maxLines: 1),
+      StringField(name: 'Production', id: 'production', maxLines: 1),
       EnumField(
         name: 'Type',
         id: 'movie_type',
@@ -51,7 +51,7 @@ final Model movieModel = Model(
     ],
     [
       NumberField(name: 'IMDB Votes', id: 'imdb_votes'),
-      StringField(name: 'IMDB ID', id: 'imdb_id'),
+      StringField(name: 'IMDB ID', id: 'imdb_id', maxLines: 1),
     ],
   ],
 );

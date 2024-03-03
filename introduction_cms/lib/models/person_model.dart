@@ -11,9 +11,9 @@ final Model personModel = Model(
       IdField(),
     ],
     [
-      StringField(name: 'Name', id: 'name', isRequired: true, showInList: true),
-      StringField(name: 'Lastname', id: 'lastname', isRequired: true, showInList: true),
-      StringField(name: 'Middle Name', id: 'middle_name', showInList: true),
+      StringField(name: 'Name', id: 'name', isRequired: true, showInList: true, maxLines: 1),
+      StringField(name: 'Lastname', id: 'lastname', isRequired: true, showInList: true, maxLines: 1),
+      StringField(name: 'Middle Name', id: 'middle_name', showInList: true, maxLines: 1),
     ],
   ],
 );
