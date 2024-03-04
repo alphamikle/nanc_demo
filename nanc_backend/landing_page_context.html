@@ -1,3 +1,4 @@
+<!--TODO: REPLACE COLORS-->
 <data namespace="colors" primary="#FF0B59D5" primaryDarken="#FF0A50C0" primaryDarkest="#FF0948AD"
       secondary="#FFFFFFFF" secondaryDarken="#FFCDDEF7" secondaryAccent="#FFE9F2F9"
       tertiary="#FFFCB61A"
@@ -6,13 +7,15 @@
 />
 <data namespace="header" height="215"/>
 <data namespace="gap" x1="4" x2="8" x3="16" x4="24" x5="32" x6="48"/>
+
+<!--TODO: REPLACE FONT-->
 <data namespace="font" main="DM Sans"/>
 <data namespace="star"
-      empty="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_empty.svg"
-      half="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_half.svg"
-      full="https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_filled.svg"
+      empty="{{ page.icons.star.empty }}"
+      half="{{ page.icons.star.half }}"
+      full="{{ page.icons.star.full }}"
 />
-<data cart.count="2"/>
+<data cart.count="{{ page.header.items_in_cart }}"/>
 
 <!-- # TEMPLATES-->
 <template id="adCard">
@@ -44,6 +47,7 @@
                 <spacer/>
                 <padding top="{{ data.gap.x2 }}" right="{{ data.gap.x2 }}">
                   <sizedBox size="24">
+                    <!--TODO: REPLACE ICON-->
                     <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/circle_chevron_right.svg"/>
                   </sizedBox>
                 </padding>
@@ -532,29 +536,29 @@
           <expanded>
             <row mainAxisSize="min">
               <sizedBox size="32">
-                <image ref="https://raw.githubusercontent.com/alphamikle/assets/master/images/avatar.png"/>
+                <image ref="{{ page.header.avatar_image }}"/>
               </sizedBox>
               <sizedBox width="{{ data.gap.x2 }}"/>
-              <text text="Hi, John">
+              <text text="{{ page.header.greetings }}">
                 <prop:textStyle color="{{ data.colors.secondary }}" size="14" font="{{ data.font.main }}"/>
               </text>
             </row>
           </expanded>
           <expanded>
             <sizedBox size="39">
-              <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/logo.svg"/>
+              <svg ref="{{ page.header.logo_image }}"/>
             </sizedBox>
           </expanded>
           <expanded>
             <row mainAxisAlignment="end">
-              <text text="$499.60">
+              <text text="{{ page.header.cart_amount }}">
                 <prop:textStyle color="{{ data.colors.secondaryDarken }}"/>
               </text>
               <sizedBox width="{{ data.gap.x2 }}"/>
               <stack>
                 <padding top="4" right="4">
                   <sizedBox size="24">
-                    <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/cart.svg"/>
+                    <svg ref="{{ page.icons.cart }}"/>
                   </sizedBox>
                 </padding>
                 <positioned top="0" right="0">
@@ -577,7 +581,7 @@
       <padding all="{{ data.gap.x3 }}">
         <textField maxLines="1" onChanged="emit:search">
           <prop:inputDecoration filled="true" simpleBorders="true" fillColor="{{ data.colors.secondary }}" dense="false"
-                                hint="Search everything at Walmart">
+                                hint="{{ page.search.search_field_hint }}">
             <prop:inputBorder type="outline">
               <prop:borderRadius all="60"/>
               <prop:borderSide color="#00FFFFFF" width="0"/>
@@ -587,7 +591,7 @@
               <padding left="8" top="3">
                 <sizedBox size="21">
                   <center>
-                    <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/search.svg" size="21"/>
+                    <svg ref="{{ page.icons.search }}" size="21"/>
                   </center>
                 </sizedBox>
               </padding>
@@ -601,7 +605,7 @@
                       <prop:borderRadius all="3"/>
                       <inkWell onPressed="snackbar: Let's go scan!">
                         <prop:borderRadius all="3"/>
-                        <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/barcode.svg" size="21"/>
+                        <svg ref="{{ page.icons.barcode }}" size="21"/>
                       </inkWell>
                     </material>
                   </center>
@@ -617,10 +621,10 @@
             <row mainAxisSize="min">
               <padding left="{{ data.gap.x3 }}" right="{{ data.gap.x1 }}">
                 <sizedBox size="20">
-                  <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/home.svg"/>
+                  <svg ref="{{ page.icons.home }}"/>
                 </sizedBox>
               </padding>
-              <text text="Carrollton Supercenter" color="{{ data.colors.secondary }}" overflow="ellipsis" maxLines="1">
+              <text text="{{ page.address.shop_name }}" color="{{ data.colors.secondary }}" overflow="ellipsis" maxLines="1">
                 <prop:textStyle color="{{ data.colors.secondary }}" size="12" font="{{ data.font.main }}"/>
               </text>
             </row>
@@ -631,10 +635,10 @@
             <row mainAxisSize="min">
               <padding left="{{ data.gap.x3 }}" right="{{ data.gap.x1 }}">
                 <sizedBox size="20">
-                  <svg ref="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location.svg"/>
+                  <svg ref="{{ page.icons.geo }}"/>
                 </sizedBox>
               </padding>
-              <text text="Dallas 75220" color="{{ data.colors.secondary }}">
+              <text text="{{ page.address.shop_address }}" color="{{ data.colors.secondary }}">
                 <prop:textStyle color="{{ data.colors.secondary }}" size="12" font="{{ data.font.main }}"/>
               </text>
             </row>
@@ -650,9 +654,9 @@
 <!-- # AD CARDS-->
 <sizedBox height="280">
   <listView axis="horizontal">
-    <for from="1" to="4">
-      <component id="adCard" image="https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_{{ cycle.value }}.jpeg"
-                 title="Free Assembly" noPrefix="{{ cycle.index }}" subtitle="A new brand that looks good." blurHash="LQK^scRP%%%0pe%LnMSj.8W=Rkxt"/>
+    <for in="{{ page.ads }}">
+      <component id="adCard" image="{{ cycle.value.image }}"
+                 title="{{ cycle.value.title }}" noPrefix="{{ cycle.index }}" subtitle="{{ cycle.value.description }}" blurHash="{{ cycle.value.blur_hash }}"/>
     </for>
   </listView>
 </sizedBox>
@@ -662,28 +666,47 @@
   <column mainAxisSize="min" crossAxisAlignment="start">
     <row>
       <column mainAxisSize="min" crossAxisAlignment="start">
-        <component id="subtitle" text="Your order is on the way"/>
-        <component id="smallBody" text="Arrives today, 3pm – 4pm"/>
+        <component id="subtitle" text="{{ page.order.title }}"/>
+        <component id="smallBody" text="{{ page.order.arrival_time }}"/>
       </column>
       <spacer/>
-      <component id="roundButton" text="Track" prefix="https://raw.githubusercontent.com/alphamikle/assets/master/svg/location.svg"
+      <component id="roundButton" text="{{ page.buttons.track.title }}" prefix="{{ page.icons.geo }}"
                  color="{{ data.colors.primary }}" textColor="{{ data.colors.secondary }}" onPressed="snackbar: Go to track!"/>
     </row>
     <sizedBox height="{{ data.gap.x4 }}"/>
     <row>
-      <component id="leftDot" active="true" title="Placed"/>
+      <component id="leftDot"
+                 active="{{ page.order.statuses.placed.is_active }}"
+                 current="{{ page.order.statuses.placed.is_current }}"
+                 title="{{ page.order.statuses.placed.title }}"/>
       <expanded>
-        <component id="lineSpacer" active="true"/>
+        <component id="lineSpacer" active="{{ page.order.statuses.preparing.is_active }}"/>
       </expanded>
-      <component id="dot" leftActive="true" active="true" rightActive="true" title="Preparing"/>
+
+      <component id="dot"
+                 leftActive="{{ page.order.statuses.placed.is_active }}"
+                 active="{{ page.order.statuses.preparing.is_active }}"
+                 current="{{ page.order.statuses.preparing.is_current }}"
+                 rightActive="{{ page.order.statuses.on_the_way.is_active }}"
+                 title="{{ page.order.statuses.preparing.title }}"/>
       <expanded>
-        <component id="lineSpacer" active="true"/>
+        <component id="lineSpacer" active="{{ page.order.statuses.on_the_way.is_active }}"/>
       </expanded>
-      <component id="dot" leftActive="true" active="true" rightActive="false" current="true" title="On the way"/>
+
+      <component id="dot"
+                 leftActive="{{ page.order.statuses.placed.is_active }}"
+                 active="{{ page.order.statuses.on_the_way.is_active }}"
+                 current="{{ page.order.statuses.on_the_way.is_current }}"
+                 rightActive="{{ page.order.statuses.delivered.is_active }}"
+                 title="{{ page.order.statuses.on_the_way.title }}"/>
       <expanded>
-        <component id="lineSpacer" active="false"/>
+        <component id="lineSpacer" active="{{ page.order.statuses.delivered.is_active }}"/>
       </expanded>
-      <component id="rightDot" active="false" title="Delivered"/>
+
+      <component id="rightDot"
+                 active="{{ page.order.statuses.delivered.is_active }}"
+                 current="{{ page.order.statuses.delivered.is_current }}"
+                 title="{{ page.order.statuses.delivered.title }}"/>
     </row>
   </column>
 </padding>

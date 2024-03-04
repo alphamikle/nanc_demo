@@ -1,10 +1,6 @@
 import 'package:fields/fields.dart';
-import 'package:flutter/material.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
-
-import 'developer.dart';
-import 'image.dart';
 
 final Model landingPage = Model(
   name: 'Landing page',
@@ -26,165 +22,289 @@ final Model landingPage = Model(
       ScreenField(name: 'Screen', screenContentType: ScreenContentType.scrollable),
     ],
 
-    /// ? COLORS AND FONTS
+    /// ? FONTS
     [
-      HeaderField(name: 'Colors Header', content: 'Colors / Fonts', contentIcon: 'flu_color_regular'),
-    ],
-    [
-      ColorField(name: 'Royal Blue Color', isRequired: true),
-      ColorField(name: 'Grey Color', isRequired: true),
-      ColorField(name: 'White Color', isRequired: true),
-    ],
-    [
-      ColorField(name: 'Black Color', isRequired: true),
-      StringField(name: 'Font Family', isRequired: true, maxLines: 1),
-    ],
-
-    /// ? STORES
-    [
-      HeaderField(name: 'App Stores Header', content: 'Google Play / App Store', contentIcon: 'mdi_google_play'),
-    ],
-    [
-      StringField(name: 'Google Play Badge', isRequired: true, maxLines: 1),
-      StringField(name: 'App Store Badge', isRequired: true, maxLines: 1),
-    ],
-    [
-      StringField(name: 'Google Play Link', isRequired: true, maxLines: 1),
-      StringField(name: 'App Store Link', isRequired: true, maxLines: 1),
-    ],
-
-    /// ? HEADERS
-    [
-      HeaderField(name: 'Headers Header', content: 'Headers', contentIcon: 'flu_document_header_regular'),
-    ],
-    [
-      StringField(name: 'Main Header', isRequired: true, maxLines: 1),
-      StringField(name: 'Download Apps Header', isRequired: true, maxLines: 1),
-      StringField(name: 'About Header', isRequired: true, maxLines: 1),
-    ],
-    [
-      StringField(name: 'Features Header', isRequired: true, maxLines: 1),
-      StringField(name: 'Interface Header', isRequired: true, maxLines: 1),
-      StringField(name: 'How To Use Header', isRequired: true, maxLines: 1),
-    ],
-    [
-      StringField(name: 'Team Header', isRequired: true, maxLines: 1),
-      StringField(name: 'Customers Header', isRequired: true, maxLines: 1),
-    ],
-
-    /// ? LARGE TEXT CONTENT
-    [
-      HeaderField(name: 'Large Text Header', content: 'Text Content', contentIcon: 'flu_slide_text_regular'),
-    ],
-    [
-      StringField(name: 'Top Block Text', isRequired: true, maxLines: 4),
-      StringField(name: 'About Text', isRequired: true, maxLines: 4),
-    ],
-    [
-      StringField(name: 'Features Text', isRequired: true, maxLines: 4),
-      StringField(name: 'Interface Text', isRequired: true, maxLines: 4),
-    ],
-    [
-      StringField(name: 'Middle Download Block Text', isRequired: true, maxLines: 4),
-      StringField(name: 'How To Use Text', isRequired: true, maxLines: 4),
-    ],
-    [
-      StringField(name: 'Team Text', isRequired: true, maxLines: 4),
-      StringField(name: 'Customers Text', isRequired: true, maxLines: 4),
-    ],
-
-    /// ? IMAGES
-    [
-      HeaderField(name: 'Images Header', content: 'Images', contentIcon: 'flu_image_multiple_regular'),
+      HeaderField(name: 'Fonts Header', content: 'Fonts', contentIcon: 'mdi_format_font'),
     ],
     [
       StructuredField(
-        name: 'Images',
+        name: 'Fonts',
+        singleObject: true,
         structure: [
-          SelectorField(
-            name: 'Image',
-            model: image,
-            titleFields: const [
-              ExternalField.id('title'),
+          FontField(name: 'Primary Font'),
+        ],
+      ),
+    ],
+
+    /// ? COLORS
+    [
+      HeaderField(name: 'Colors Header', content: 'Colors', contentIcon: 'flu_color_regular'),
+    ],
+    [
+      StructuredField(
+        name: 'Colors',
+        singleObject: true,
+        structure: [
+          ColorField(name: 'Primary Color', isRequired: true),
+        ],
+      ),
+    ],
+
+    /// ? ICONS
+    [
+      HeaderField(name: 'Icons Header', content: 'Icons', contentIcon: 'flu_protocol_handler_filled'),
+    ],
+    [
+      StructuredField(
+        name: 'Icons',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Cart', maxLines: 1, isRequired: true),
+          StringField(name: 'Search', maxLines: 1, isRequired: true),
+          StringField(name: 'Barcode', maxLines: 1, isRequired: true),
+          StringField(name: 'Home', maxLines: 1, isRequired: true),
+          StringField(name: 'Geo', maxLines: 1, isRequired: true),
+          StringField(name: 'Sort', maxLines: 1, isRequired: true),
+          StringField(name: 'Chevron Down', maxLines: 1, isRequired: true),
+          StringField(name: 'Add', maxLines: 1, isRequired: true),
+          StructuredField(
+            name: 'Star',
+            singleObject: true,
+            structure: [
+              StringField(name: 'Empty', maxLines: 1, isRequired: true),
+              StringField(name: 'Half', maxLines: 1, isRequired: true),
+              StringField(name: 'Full', maxLines: 1, isRequired: true),
             ],
           ),
         ],
       ),
     ],
 
-    /// ? BULLETS
+    /// ? BUTTONS
     [
-      HeaderField(name: 'Bullets Header', content: 'Bullets', contentIcon: 'flu_text_bullet_list_ltr_filled'),
-    ],
-    // TODO(alphamikle): Fix it
-    // [
-    //   MultiSelectorField(
-    //     name: 'Bullets',
-    //     model: bullet,
-    //     titleFields: const [
-    //       ExternalField.id('title'),
-    //     ],
-    //     structure: MultiSelectorFieldStructure.arrayOfObjects,
-    //   ),
-    // ],
-
-    /// ? FEATURES
-    [
-      HeaderField(name: 'Features Header', content: 'Features', contentIcon: 'flu_text_bullet_list_ltr_filled'),
-    ],
-    // TODO(alphamikle): Fix it
-    // [
-    //   MultiSelectorField(
-    //     name: 'Features',
-    //     model: feature,
-    //     titleFields: const [
-    //       ExternalField.id('title'),
-    //     ],
-    //     structure: MultiSelectorFieldStructure.arrayOfObjects,
-    //   ),
-    // ],
-
-    /// ? DEVELOPERS
-    [
-      HeaderField(name: 'Team Header', content: 'Team Members', contentIcon: 'flu_people_team_regular'),
+      HeaderField(name: 'Buttons Header', content: 'Buttons', contentIcon: 'mdi_button_pointer'),
     ],
     [
       StructuredField(
-        name: 'Team Members',
+        name: 'Buttons',
+        singleObject: true,
         structure: [
-          SelectorField(
-            name: 'Team Member',
-            model: developer,
-            titleFields: const [
-              ExternalField.id('name'),
-              ExternalField.id('second_name'),
+          StructuredField(
+            name: 'Track',
+            singleObject: true,
+            structure: [
+              StringField(name: 'Title', maxLines: 1, isRequired: true),
+            ],
+          ),
+          StructuredField(
+            name: 'Add',
+            singleObject: true,
+            structure: [
+              StringField(name: 'Title', maxLines: 1, isRequired: true),
             ],
           ),
         ],
       ),
     ],
 
-    /// ? REVIEWS
+    /// ? CONTENT
     [
-      HeaderField(name: 'Reviews Header', content: 'Reviews', contentIcon: 'flu_checkmark_starburst_filled'),
+      HeaderField(name: 'Content Header', content: 'Content', contentIcon: 'flu_book_database_filled'),
     ],
-    // TODO(alphamikle): Fix it
-    // [
-    //   MultiSelectorField(
-    //     name: 'Reviews',
-    //     model: review,
-    //     titleFields: const [
-    //       ExternalField.id('customer_name'),
-    //       ExternalField.id('customer_lastname'),
-    //     ],
-    //     structure: MultiSelectorFieldStructure.arrayOfObjects,
-    //   ),
-    // ],
+
+    /// ? SCREEN HEADER
     [
-      HeaderField(name: 'Divider', content: '', useAsDivider: true, contentColor: const Color.fromRGBO(0, 0, 0, 0.497)),
+      StructuredField(
+        name: 'Header',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Avatar Image', maxLines: 1),
+          StringField(name: 'Greetings', maxLines: 1, isRequired: true),
+          StringField(name: 'Logo Image', maxLines: 1, isRequired: true),
+          StringField(name: 'Cart Amount', maxLines: 1),
+          NumberField(name: 'Items in cart'),
+        ],
+      ),
+    ],
+
+    /// ? SEARCH BOX
+    [
+      StructuredField(
+        name: 'Search',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Search Field Hint', maxLines: 1, isRequired: true),
+          StringField(name: 'Search Prefix Icon', maxLines: 1, isRequired: true),
+          StringField(name: 'Search Postfix Icon', maxLines: 1, isRequired: true),
+        ],
+      ),
+    ],
+
+    /// ? ADDRESS
+    [
+      StructuredField(
+        name: 'Address',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Shop Name', maxLines: 1, isRequired: true),
+          StringField(name: 'Shop Address', maxLines: 1, isRequired: true),
+        ],
+      ),
+    ],
+
+    /// ? ADS
+    [
+      StructuredField(
+        name: 'Ads',
+        structure: [
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+          StringField(name: 'Description', maxLines: 1, isRequired: true),
+          StringField(name: 'Image', maxLines: 1, isRequired: true),
+          StringField(name: 'Blur Hash', maxLines: 1),
+          StringField(name: 'Action', maxLines: 1),
+        ],
+      ),
+    ],
+
+    /// ? ORDER
+    [
+      StructuredField(
+        name: 'Order',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Title', maxLines: 1),
+          StringField(name: 'Arrival time', maxLines: 1),
+          StringField(name: 'Track Button Icon', maxLines: 1),
+          StringField(name: 'Track Button Title', maxLines: 1),
+          StructuredField(
+            name: 'Statuses',
+            singleObject: true,
+            structure: [
+              StructuredField(
+                name: 'Placed',
+                singleObject: true,
+                structure: [
+                  StringField(name: 'Title', maxLines: 1, isRequired: true),
+                  BoolField(name: 'Is Active', isRequired: true),
+                  BoolField(name: 'Is Current', isRequired: true),
+                ],
+              ),
+              StructuredField(
+                name: 'Preparing',
+                singleObject: true,
+                structure: [
+                  StringField(name: 'Title', maxLines: 1, isRequired: true),
+                  BoolField(name: 'Is Active', isRequired: true),
+                  BoolField(name: 'Is Current', isRequired: true),
+                ],
+              ),
+              StructuredField(
+                name: 'On The Way',
+                singleObject: true,
+                structure: [
+                  StringField(name: 'Title', maxLines: 1, isRequired: true),
+                  BoolField(name: 'Is Active', isRequired: true),
+                  BoolField(name: 'Is Current', isRequired: true),
+                ],
+              ),
+              StructuredField(
+                name: 'Delivered',
+                singleObject: true,
+                structure: [
+                  StringField(name: 'Title', maxLines: 1, isRequired: true),
+                  BoolField(name: 'Is Active', isRequired: true),
+                  BoolField(name: 'Is Current', isRequired: true),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+
+    /// ? FILTERS
+    [
+      StructuredField(
+        name: 'Filter Buttons',
+        structure: [
+          StringField(name: 'Prefix Icon', maxLines: 1),
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+          StringField(name: 'Postfix Icon', maxLines: 1),
+          StringField(name: 'Action', maxLines: 1),
+        ],
+      ),
+    ],
+
+    /// ? GROCERIES
+    [
+      StructuredField(
+        name: 'Groceries Header',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+          StringField(name: 'Amount', maxLines: 1, isRequired: true),
+        ],
+      ),
     ],
     [
-      DateTimeField(name: 'Updated At', isUpdatedAtField: true),
+      StructuredField(
+        name: 'Groceries List',
+        structure: [
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+          StringField(name: 'Subtitle', maxLines: 1, isRequired: true),
+          StringField(name: 'Price', maxLines: 1, isRequired: true),
+          StringField(name: 'Price Per Unit', maxLines: 1, isRequired: true),
+          BoolField(name: 'Is in Stock', isRequired: true),
+          StringField(name: 'Image', maxLines: 1, isRequired: true),
+          ColorField(name: 'Color', isRequired: true),
+        ],
+      ),
+    ],
+
+    /// ? BRANDS
+    [
+      StructuredField(
+        name: 'Brands Header',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+        ],
+      ),
+    ],
+    [
+      StructuredField(
+        name: 'Brands List',
+        structure: [
+          StringField(name: 'Image', maxLines: 1, isRequired: true),
+        ],
+      ),
+    ],
+
+    /// ? ELECTRONICS
+    [
+      StructuredField(
+        name: 'Electronics Header',
+        singleObject: true,
+        structure: [
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+          StringField(name: 'Amount', maxLines: 1, isRequired: true),
+        ],
+      ),
+    ],
+    [
+      StructuredField(
+        name: 'Electronics List',
+        structure: [
+          StringField(name: 'Title', maxLines: 1, isRequired: true),
+          StringField(name: 'Subtitle', maxLines: 1, isRequired: true),
+          StringField(name: 'Price', maxLines: 1, isRequired: true),
+          StringField(name: 'Price Per Month', maxLines: 1, isRequired: true),
+          NumberField(name: 'Rating', isRequired: true, signType: SignType.unsigned),
+          NumberField(name: 'Reviews Count', isRequired: true, signType: SignType.unsigned, numberType: NumberType.integer),
+          StringField(name: 'Image', maxLines: 1, isRequired: true),
+          ColorField(name: 'Color', isRequired: true),
+        ],
+      ),
     ],
   ],
 );

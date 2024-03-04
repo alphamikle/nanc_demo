@@ -16,12 +16,12 @@ abstract class MockApi {
   DbService get dbService;
 
   @protected
-  Future<List<Json>> fetchFullList(Model entity) async {
+  Future<List<Json>> fetchFullList(Model model) async {
     late List<Json> data;
     dynamic response;
-    final String assetFileName = '${entity.id}.json';
-    if (await dbService.has(entity.id)) {
-      response = await dbService.get(entity.id);
+    final String assetFileName = '${model.id}.json';
+    if (await dbService.has(model.id)) {
+      response = await dbService.get(model.id);
     } else {
       try {
         final String content = await rootBundle.loadString('assets/$assetFileName');
@@ -56,7 +56,7 @@ abstract class MockApi {
       }
       data = tempData;
     } else {
-      logWarning('No data or incorrect data type: "${response.runtimeType}" / "$response"');
+      logWarning('No data or incorrect data type for model "${model.id}": "${response.runtimeType}" / "$response"');
       return [];
     }
     if (kStreamDataIntoTheFiles && kIsWeb == false && Platform.isMacOS) {
