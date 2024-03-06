@@ -18,8 +18,6 @@ List<VRouteElement> generateRoutes(BuildContext context) {
 
   return [
     VGuard(
-      // beforeEnter: analyticsObserver('BEFORE_ENTER'),
-      // beforeUpdate: analyticsObserver('BEFORE_UPDATE'),
       stackedRoutes: [
         VGuard(
           beforeEnter: initPage(pageBloc),

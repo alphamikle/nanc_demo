@@ -10,7 +10,6 @@ import 'package:svg_renderer/svg_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../data/default_screen_nodes.dart';
 import '../../logic/bloc/page_bloc.dart';
 import '../../logic/bloc/page_state.dart';
 import '../components/connection_modal.dart';
@@ -82,7 +81,7 @@ class _MainViewState extends State<MainView> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocBuilder<PageBloc, PageState>(
-        buildWhen: (PageState previous, PageState current) => previous.screenData != current.screenData,
+        // buildWhen: (PageState previous, PageState current) => previous.screenData != current.screenData,
         builder: (BuildContext context, PageState state) {
           final Widget preloader = Center(
             child: StreamBuilder<String>(
@@ -110,7 +109,7 @@ class _MainViewState extends State<MainView> {
             loader: preloader,
             builder: (_) => ContentPage(
               content: screenData,
-              nodes: defaultScreenNodes,
+              nodes: null,
               binary: null,
               pageData: state.pageData,
               renderers: tagsRenderer,

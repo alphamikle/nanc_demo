@@ -1,0 +1,328 @@
+[
+ {
+  "id": "landing_page",
+  "screen": {
+   "content": "<!--TODO: REPLACE COLORS-->\n<data namespace=\"colors\" primary=\"#FF0B59D5\" primaryDarken=\"#FF0A50C0\" primaryDarkest=\"#FF0948AD\"\n      secondary=\"#FFFFFFFF\" secondaryDarken=\"#FFCDDEF7\" secondaryAccent=\"#FFE9F2F9\"\n      tertiary=\"#FFFCB61A\"\n      quaternary=\"#FF999999\" quaternaryDarken=\"#FF696E70\" quaternaryLighten=\"#FFEEEEEE\"\n      text.basic=\"#FF000000\" text.light=\"#FFDCDCDC\"\n/>\n<data namespace=\"header\" height=\"215\"/>\n<data namespace=\"gap\" x1=\"4\" x2=\"8\" x3=\"16\" x4=\"24\" x5=\"32\" x6=\"48\"/>\n\n<!--TODO: REPLACE FONT-->\n<data namespace=\"font\" main=\"DM Sans\"/>\n<data namespace=\"star\"\n      empty=\"{{ page.icons.star.empty }}\"\n      half=\"{{ page.icons.star.half }}\"\n      full=\"{{ page.icons.star.full }}\"\n/>\n<data cart.count=\"{{ page.header.items_in_cart }}\"/>\n\n<!-- # TEMPLATES-->\n<template id=\"adCard\">\n  <padding top=\"12\" bottom=\"12\">\n    <row mainAxisSize=\"min\">\n      <show ifFalse=\"{{ template.noPrefix }}\">\n        <sizedBox width=\"{{ data.gap.x3 }}\"/>\n      </show>\n      <aspectRatio ratio=\"1.3\">\n        <container color=\"{{ data.colors.secondary }}\">\n          <prop:decoration>\n            <prop:borderRadius all=\"8\"/>\n            <prop:shadow color=\"#0F000000\" blurRadius=\"8\" offsetY=\"4\"/>\n          </prop:decoration>\n\n          <column crossAxisAlignment=\"start\">\n            <expanded>\n              <clipRRect topLeft=\"8\" topRight=\"8\">\n                <image ref=\"{{ template.image }}\" fit=\"cover\" blurHash=\"{{ template.blurHash }}\"/>\n              </clipRRect>\n            </expanded>\n            <padding all=\"{{ data.gap.x2 }}\">\n              <row>\n                <sizedBox width=\"{{ data.gap.x2 }}\"/>\n                <column crossAxisAlignment=\"start\">\n                  <component id=\"subtitle\" text=\"{{ template.title }}\"/>\n                  <component id=\"smallBody\" text=\"{{ template.subtitle }}\"/>\n                </column>\n                <spacer/>\n                <padding top=\"{{ data.gap.x2 }}\" right=\"{{ data.gap.x2 }}\">\n                  <sizedBox size=\"24\">\n                    <!--TODO: REPLACE ICON-->\n                    <svg ref=\"https://raw.githubusercontent.com/alphamikle/assets/master/svg/circle_chevron_right.svg\"/>\n                  </sizedBox>\n                </padding>\n              </row>\n            </padding>\n          </column>\n        </container>\n      </aspectRatio>\n      <sizedBox width=\"{{ data.gap.x3 }}\"/>\n    </row>\n  </padding>\n</template>\n\n<template id=\"subtitle\">\n  <text text=\"{{ template.text }}\" size=\"18\">\n    <prop:textStyle weight=\"w500\" height=\"1.25\" font=\"{{ data.font.main }}\"/>\n  </text>\n</template>\n\n<template id=\"smallBody\">\n  <show ifTrue=\"{{ template.color }}\">\n    <text text=\"{{ template.text }}\" size=\"12\" color=\"{{ template.color }}\">\n      <prop:textStyle font=\"{{ data.font.main }}\"/>\n    </text>\n  </show>\n  <show ifFalse=\"{{ template.color }}\" nullAsFalse=\"true\">\n    <text text=\"{{ template.text }}\" size=\"12\" color=\"{{ data.colors.quaternary }}\">\n      <prop:textStyle font=\"{{ data.font.main }}\"/>\n    </text>\n  </show>\n</template>\n\n<template id=\"middleBody\">\n  <text text=\"{{ template.text }}\" size=\"14\" color=\"{{ data.colors.text.basic }}\" maxLines=\"2\" overflow=\"ellipsis\">\n    <prop:textStyle font=\"{{ data.font.main }}\"/>\n  </text>\n</template>\n\n<template id=\"roundButton\">\n  <stack>\n    <container>\n      <prop:decoration color=\"{{ template.color }}\">\n        <prop:borderRadius all=\"30\"/>\n      </prop:decoration>\n\n      <padding left=\"6\" top=\"6\" right=\"6\" bottom=\"6\">\n        <row mainAxisSize=\"min\">\n          <show ifTrue=\"{{ template.prefix }}\">\n            <padding left=\"2\" right=\"4\">\n              <sizedBox size=\"20\">\n                <center>\n                  <svg ref=\"{{ template.prefix }}\"/>\n                </center>\n              </sizedBox>\n            </padding>\n          </show>\n          <show ifFalse=\"{{ template.prefix }}\" nullAsFalse=\"true\">\n            <sizedBox width=\"6\"/>\n          </show>\n          <text text=\"{{ template.text }}\" size=\"14\">\n            <prop:textStyle font=\"{{ data.font.main }}\" color=\"{{ template.textColor }}\" weight=\"w600\"/>\n          </text>\n          <show ifTrue=\"{{ template.suffix }}\">\n            <padding left=\"6\" right=\"6\">\n              <sizedBox size=\"10\">\n                <svg ref=\"{{ template.suffix }}\"/>\n              </sizedBox>\n            </padding>\n          </show>\n          <show ifFalse=\"{{ template.suffix }}\" nullAsFalse=\"true\">\n            <sizedBox width=\"6\"/>\n          </show>\n        </row>\n      </padding>\n    </container>\n    <show ifTrue=\"{{ template.onPressed }}\">\n      <positioned all=\"0\">\n        <material type=\"transparency\">\n          <prop:borderRadius all=\"30\"/>\n          <inkWell onPressed=\"{{ template.onPressed }}\">\n            <prop:borderRadius all=\"30\"/>\n          </inkWell>\n        </material>\n      </positioned>\n    </show>\n  </stack>\n</template>\n\n<template id=\"point\">\n  <show ifTrue=\"{{ template.active }}\">\n    <show ifTrue=\"{{ template.current }}\">\n      <container size=\"20\">\n        <prop:decoration color=\"{{ data.colors.primary }}\">\n          <prop:borderRadius all=\"20\"/>\n        </prop:decoration>\n        <center>\n          <container size=\"16\">\n            <prop:decoration color=\"{{ data.colors.secondary }}\">\n              <prop:borderRadius all=\"16\"/>\n            </prop:decoration>\n            <center>\n              <container size=\"12\">\n                <prop:decoration color=\"{{ data.colors.primary }}\">\n                  <prop:borderRadius all=\"12\"/>\n                </prop:decoration>\n              </container>\n            </center>\n          </container>\n        </center>\n      </container>\n    </show>\n    <show ifFalse=\"{{ template.current }}\" nullAsFalse=\"true\">\n      <sizedBox height=\"20\">\n        <center>\n          <container size=\"12\">\n            <prop:decoration color=\"{{ data.colors.primary }}\">\n              <prop:borderRadius all=\"12\"/>\n            </prop:decoration>\n          </container>\n        </center>\n      </sizedBox>\n    </show>\n  </show>\n  <show ifFalse=\"{{ template.active }}\">\n    <sizedBox height=\"20\">\n      <center>\n        <container size=\"12\">\n          <prop:decoration color=\"{{ data.colors.quaternaryDarken }}\">\n            <prop:borderRadius all=\"12\"/>\n          </prop:decoration>\n        </container>\n      </center>\n    </sizedBox>\n  </show>\n</template>\n\n<template id=\"leftDot\">\n  <stack>\n    <positioned left=\"11\" top=\"10\" right=\"0\">\n      <component id=\"line\" active=\"{{ template.active }}\"/>\n    </positioned>\n\n    <positioned left=\"0\" top=\"1\">\n      <component id=\"point\" active=\"{{ template.active }}\"/>\n    </positioned>\n\n    <sizedBox height=\"50\">\n      <align align=\"bottomLeft\">\n        <show ifTrue=\"{{ template.active }}\">\n          <text text=\"{{ template.title }}\">\n            <prop:textStyle color=\"{{ data.colors.primary }}\" size=\"12\"/>\n          </text>\n        </show>\n        <show ifFalse=\"{{ template.active }}\">\n          <text text=\"{{ template.title }}\">\n            <prop:textStyle color=\"{{ data.colors.quaternaryDarken }}\" size=\"12\"/>\n          </text>\n        </show>\n      </align>\n    </sizedBox>\n  </stack>\n</template>\n\n<template id=\"dot\">\n  <stack>\n    <positioned left=\"0\" top=\"10\" right=\"0\">\n      <row>\n        <expanded>\n          <component id=\"line\" active=\"{{ template.leftActive }}\"/>\n        </expanded>\n        <expanded>\n          <component id=\"line\" active=\"{{ template.rightActive }}\"/>\n        </expanded>\n      </row>\n    </positioned>\n\n    <positioned left=\"0\" top=\"1\" right=\"0\">\n      <align align=\"topCenter\">\n        <component id=\"point\" active=\"{{ template.active }}\" current=\"{{ template.current }}\"/>\n      </align>\n    </positioned>\n\n    <sizedBox height=\"50\">\n      <align align=\"bottomLeft\">\n        <show ifTrue=\"{{ template.active }}\">\n          <text text=\"{{ template.title }}\">\n            <prop:textStyle color=\"{{ data.colors.primary }}\" size=\"12\"/>\n          </text>\n        </show>\n        <show ifFalse=\"{{ template.active }}\">\n          <text text=\"{{ template.title }}\">\n            <prop:textStyle color=\"{{ data.colors.quaternaryDarken }}\" size=\"12\"/>\n          </text>\n        </show>\n      </align>\n    </sizedBox>\n  </stack>\n</template>\n\n<template id=\"rightDot\">\n  <stack>\n    <positioned left=\"0\" top=\"10\" right=\"11\">\n      <component id=\"line\" active=\"{{ template.active }}\"/>\n    </positioned>\n\n    <positioned top=\"1\" right=\"0\">\n      <component id=\"point\" active=\"{{ template.active }}\"/>\n    </positioned>\n\n    <sizedBox height=\"50\">\n      <align align=\"bottomLeft\">\n        <show ifTrue=\"{{ template.active }}\">\n          <text text=\"{{ template.title }}\">\n            <prop:textStyle color=\"{{ data.colors.primary }}\" size=\"12\"/>\n          </text>\n        </show>\n        <show ifFalse=\"{{ template.active }}\">\n          <text text=\"{{ template.title }}\">\n            <prop:textStyle color=\"{{ data.colors.quaternaryDarken }}\" size=\"12\"/>\n          </text>\n        </show>\n      </align>\n    </sizedBox>\n  </stack>\n</template>\n\n<template id=\"line\">\n  <show ifTrue=\"{{ template.active }}\">\n    <container height=\"2\" width=\"100\">\n      <prop:decoration color=\"{{ data.colors.primary }}\"/>\n    </container>\n  </show>\n  <show ifFalse=\"{{ template.active }}\">\n    <container height=\"2\" width=\"100\">\n      <prop:decoration color=\"{{ data.colors.quaternaryDarken }}\"/>\n    </container>\n  </show>\n</template>\n\n<template id=\"lineSpacer\">\n  <sizedBox height=\"50\">\n    <stack fix=\"expand\">\n      <positioned left=\"0\" top=\"10\" right=\"0\">\n        <component id=\"line\" active=\"{{ template.active }}\"/>\n      </positioned>\n    </stack>\n  </sizedBox>\n</template>\n\n<template id=\"groceryCard\">\n  <aspectRatio ratio=\"0.65\">\n    <stack>\n      <container>\n        <prop:decoration>\n          <prop:border color=\"{{ data.colors.quaternaryLighten }}\" width=\"1.6\"/>\n          <prop:borderRadius all=\"8\"/>\n        </prop:decoration>\n        <column crossAxisAlignment=\"start\">\n          <expanded>\n            <center>\n              <padding top=\"4\" bottom=\"4\">\n                <image ref=\"{{ template.image }}\" blurHash=\"{{ template.blurHash }}\"/>\n              </padding>\n            </center>\n          </expanded>\n          <expanded>\n            <column crossAxisAlignment=\"start\">\n              <padding left=\"{{ data.gap.x2 }}\" right=\"{{ data.gap.x2 }}\" bottom=\"{{ data.gap.x2 }}\">\n                <column crossAxisAlignment=\"start\">\n                  <component id=\"smallBody\" text=\"{{ template.subtitle }}\"/>\n                  <component id=\"middleBody\" text=\"{{ template.title }}\"/>\n                  <sizedBox height=\"{{ data.gap.x2 }}\"/>\n                  <richText>\n                    <textSpan text=\"{{ template.price }}\">\n                      <prop:textStyle color=\"{{ data.colors.text.basic }}\" size=\"14\"/>\n                    </textSpan>\n                    <textSpan text=\"  {{ template.pricePerUnit }}\">\n                      <prop:textStyle color=\"{{ data.colors.text.light }}\" size=\"14\"/>\n                    </textSpan>\n                  </richText>\n                </column>\n              </padding>\n              <container height=\"1.6\" width=\"500\" color=\"{{ data.colors.quaternaryLighten }}\"/>\n              <expanded>\n                <center>\n                  <padding left=\"{{ data.gap.x2 }}\" right=\"{{ data.gap.x2 }}\">\n                    <row>\n                      <show ifTrue=\"{{ template.inStock }}\">\n                        <component id=\"smallBody\" text=\"In stock\" color=\"{{ data.colors.text.basic }}\"/>\n                      </show>\n                      <show ifFalse=\"{{ template.inStock }}\" nullAsFalse=\"true\">\n                        <component id=\"smallBody\" text=\"Out of stock\" color=\"{{ data.colors.text.basic }}\"/>\n                      </show>\n                      <padding left=\"8\" right=\"8\">\n                        <container width=\"1\" height=\"14\" color=\"{{ data.colors.text.basic }}\"/>\n                      </padding>\n                      <sizedBox size=\"20\">\n                        <svg ref=\"https://raw.githubusercontent.com/alphamikle/assets/master/svg/location_dark.svg\"/>\n                      </sizedBox>\n                      <sizedBox width=\"2\"/>\n                      <component id=\"smallBody\" text=\"S23\" color=\"{{ data.colors.text.basic }}\"/>\n                    </row>\n                  </padding>\n                </center>\n              </expanded>\n            </column>\n          </expanded>\n        </column>\n      </container>\n      <positioned all=\"0\">\n        <material type=\"transparency\">\n          <prop:borderRadius all=\"8\"/>\n          <inkWell onPressed=\"{{ template.onPressed }}\" splashColor=\"{{ template.splashColor }}\" highlightColor=\"#00FFFFFF\">\n            <prop:borderRadius all=\"8\"/>\n            <container color=\"#00FFFFFF\"/>\n          </inkWell>\n        </material>\n      </positioned>\n      <positioned top=\"8\" right=\"8\">\n        <component id=\"roundButton\" text=\"Add\" color=\"{{ data.colors.primary }}\" textColor=\"{{ data.colors.secondary }}\"\n                   prefix=\"https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg\" onPressed=\"addToCart\"/>\n      </positioned>\n    </stack>\n  </aspectRatio>\n</template>\n\n<template id=\"star\">\n  <padding right=\"{{ data.gap.x1 }}\">\n    <sizedBox size=\"16\">\n      <svg ref=\"{{ template.ref }}\"/>\n    </sizedBox>\n  </padding>\n</template>\n\n<template id=\"rating\">\n  <row>\n    <!-- # FIRST STAR -->\n    <show ifTrue=\"{{ template.rating < 0.5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.empty }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 0.5 and template.rating < 1 }}\">\n      <component id=\"star\" ref=\"{{ data.star.half }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 1 }}\">\n      <component id=\"star\" ref=\"{{ data.star.full }}\"/>\n    </show>\n\n    <!-- # SECOND STAR -->\n    <show ifTrue=\"{{ template.rating < 1.5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.empty }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 1.5 and template.rating < 2 }}\">\n      <component id=\"star\" ref=\"{{ data.star.half }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 2 }}\">\n      <component id=\"star\" ref=\"{{ data.star.full }}\"/>\n    </show>\n\n    <!-- # THIRD STAR -->\n    <show ifTrue=\"{{ template.rating < 2.5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.empty }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 2.5 and template.rating < 3 }}\">\n      <component id=\"star\" ref=\"{{ data.star.half }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 3 }}\">\n      <component id=\"star\" ref=\"{{ data.star.full }}\"/>\n    </show>\n\n    <!-- # FOURTH STAR -->\n    <show ifTrue=\"{{ template.rating < 3.5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.empty }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 3.5 and template.rating < 4 }}\">\n      <component id=\"star\" ref=\"{{ data.star.half }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 4 }}\">\n      <component id=\"star\" ref=\"{{ data.star.full }}\"/>\n    </show>\n\n    <!-- # FIFTH STAR -->\n    <show ifTrue=\"{{ template.rating < 4.5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.empty }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 4.5 and template.rating < 5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.half }}\"/>\n    </show>\n    <show ifTrue=\"{{ template.rating >= 5 }}\">\n      <component id=\"star\" ref=\"{{ data.star.full }}\"/>\n    </show>\n  </row>\n</template>\n\n<template id=\"electronicsCard\">\n  <aspectRatio ratio=\"0.65\">\n    <stack>\n      <container>\n        <prop:decoration>\n          <prop:border color=\"{{ data.colors.quaternaryLighten }}\" width=\"1.6\"/>\n          <prop:borderRadius all=\"8\"/>\n        </prop:decoration>\n        <column crossAxisAlignment=\"start\">\n          <expanded>\n            <center>\n              <padding top=\"4\" bottom=\"4\">\n                <image ref=\"{{ template.image }}\" blurHash=\"{{ template.blurHash }}\"/>\n              </padding>\n            </center>\n          </expanded>\n          <expanded>\n            <column crossAxisAlignment=\"start\">\n              <padding left=\"{{ data.gap.x2 }}\" right=\"{{ data.gap.x2 }}\" bottom=\"{{ data.gap.x2 }}\">\n                <column crossAxisAlignment=\"start\">\n                  <component id=\"smallBody\" text=\"{{ template.subtitle }}\"/>\n                  <component id=\"middleBody\" text=\"{{ template.title }}\"/>\n                  <sizedBox height=\"{{ data.gap.x2 }}\"/>\n                  <richText>\n                    <textSpan text=\"{{ template.pricePerMonth }}\">\n                      <prop:textStyle color=\"{{ data.colors.text.basic }}\" size=\"14\"/>\n                    </textSpan>\n                    <textSpan text=\"  {{ template.price }}\">\n                      <prop:textStyle color=\"{{ data.colors.text.light }}\" size=\"14\"/>\n                    </textSpan>\n                  </richText>\n                </column>\n              </padding>\n              <container height=\"1.6\" width=\"500\" color=\"{{ data.colors.quaternaryLighten }}\"/>\n              <expanded>\n                <center>\n                  <padding left=\"{{ data.gap.x2 }}\" right=\"{{ data.gap.x2 }}\">\n                    <row>\n                      <component id=\"rating\" rating=\"{{ template.rating }}\"/>\n                      <sizedBox width=\"{{ data.gap.x1 }}\"/>\n                      <component id=\"smallBody\" text=\"({{ template.count }})\" color=\"{{ data.colors.text.light }}\"/>\n                    </row>\n                  </padding>\n                </center>\n              </expanded>\n            </column>\n          </expanded>\n        </column>\n      </container>\n      <positioned all=\"0\">\n        <material type=\"transparency\">\n          <prop:borderRadius all=\"8\"/>\n          <inkWell onPressed=\"{{ template.onPressed }}\" splashColor=\"{{ template.splashColor }}\" highlightColor=\"#00FFFFFF\">\n            <prop:borderRadius all=\"8\"/>\n            <container color=\"#00FFFFFF\"/>\n          </inkWell>\n        </material>\n      </positioned>\n      <positioned top=\"8\" right=\"8\">\n        <component id=\"roundButton\" text=\"Add\" color=\"{{ data.colors.primary }}\" textColor=\"{{ data.colors.secondary }}\"\n                   prefix=\"https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg\" onPressed=\"addToCart\"/>\n      </positioned>\n    </stack>\n  </aspectRatio>\n</template>\n\n<template id=\"brand\">\n  <padding right=\"{{ data.gap.x3 }}\">\n    <stack>\n      <sizedBox size=\"72\">\n        <svg ref=\"{{ template.image }}\"/>\n      </sizedBox>\n      <positioned all=\"0\">\n        <material type=\"transparency\">\n          <prop:borderRadius all=\"100\"/>\n          <inkWell onPressed=\"snackbar: Brand!\">\n            <prop:borderRadius all=\"100\"/>\n            <container color=\"#00FFFFFF\"/>\n          </inkWell>\n        </material>\n      </positioned>\n    </stack>\n  </padding>\n</template>\n\n<!-- # HEADER-->\n<sliverPersistentHeader maxExtent=\"{{ data.header.height }}\" minExtent=\"{{ data.header.height }}\" floating=\"true\">\n  <container color=\"{{ data.colors.primary }}\" height=\"{{ data.header.height }}\">\n    <column>\n      <sizedBox height=\"44\"/>\n      <padding left=\"{{ data.gap.x3 }}\" top=\"{{ data.gap.x2 }}\" right=\"{{ data.gap.x3 }}\" bottom=\"{{ data.gap.x2 }}\">\n        <row>\n          <expanded>\n            <row mainAxisSize=\"min\">\n              <sizedBox size=\"32\">\n                <image ref=\"{{ page.header.avatar_image }}\"/>\n              </sizedBox>\n              <sizedBox width=\"{{ data.gap.x2 }}\"/>\n              <text text=\"{{ page.header.greetings }}\">\n                <prop:textStyle color=\"{{ data.colors.secondary }}\" size=\"14\" font=\"{{ data.font.main }}\"/>\n              </text>\n            </row>\n          </expanded>\n          <expanded>\n            <sizedBox size=\"39\">\n              <svg ref=\"{{ page.header.logo_image }}\"/>\n            </sizedBox>\n          </expanded>\n          <expanded>\n            <row mainAxisAlignment=\"end\">\n              <text text=\"{{ page.header.cart_amount }}\">\n                <prop:textStyle color=\"{{ data.colors.secondaryDarken }}\"/>\n              </text>\n              <sizedBox width=\"{{ data.gap.x2 }}\"/>\n              <stack>\n                <padding top=\"4\" right=\"4\">\n                  <sizedBox size=\"24\">\n                    <svg ref=\"{{ page.icons.cart }}\"/>\n                  </sizedBox>\n                </padding>\n                <positioned top=\"0\" right=\"0\">\n                  <container size=\"14\">\n                    <prop:decoration color=\"{{ data.colors.tertiary }}\">\n                      <prop:borderRadius all=\"14\"/>\n                    </prop:decoration>\n                    <center>\n                      <dataBuilder buildWhen=\"cart.count\">\n                        <text text=\"{{ data.cart.count }}\" size=\"9\"/>\n                      </dataBuilder>\n                    </center>\n                  </container>\n                </positioned>\n              </stack>\n            </row>\n          </expanded>\n        </row>\n      </padding>\n      <padding all=\"{{ data.gap.x3 }}\">\n        <textField maxLines=\"1\" onChanged=\"emit:search\">\n          <prop:inputDecoration filled=\"true\" simpleBorders=\"true\" fillColor=\"{{ data.colors.secondary }}\" dense=\"false\"\n                                hint=\"{{ page.search.search_field_hint }}\">\n            <prop:inputBorder type=\"outline\">\n              <prop:borderRadius all=\"60\"/>\n              <prop:borderSide color=\"#00FFFFFF\" width=\"0\"/>\n            </prop:inputBorder>\n            <prop:contentPadding left=\"30\"/>\n            <alias name=\"prefixIcon\">\n              <padding left=\"8\" top=\"3\">\n                <sizedBox size=\"21\">\n                  <center>\n                    <svg ref=\"{{ page.icons.search }}\" size=\"21\"/>\n                  </center>\n                </sizedBox>\n              </padding>\n            </alias>\n            <prop:hintStyle color=\"{{ data.colors.quaternary }}\" size=\"14\" font=\"{{ data.font.main }}\"/>\n            <alias name=\"suffixIcon\">\n              <padding right=\"8\">\n                <sizedBox size=\"21\">\n                  <center>\n                    <material type=\"transparent\">\n                      <prop:borderRadius all=\"3\"/>\n                      <inkWell onPressed=\"snackbar: Let's go scan!\">\n                        <prop:borderRadius all=\"3\"/>\n                        <svg ref=\"{{ page.icons.barcode }}\" size=\"21\"/>\n                      </inkWell>\n                    </material>\n                  </center>\n                </sizedBox>\n              </padding>\n            </alias>\n          </prop:inputDecoration>\n        </textField>\n      </padding>\n      <row>\n        <expanded>\n          <container height=\"36\" color=\"{{ data.colors.primaryDarken }}\">\n            <row mainAxisSize=\"min\">\n              <padding left=\"{{ data.gap.x3 }}\" right=\"{{ data.gap.x1 }}\">\n                <sizedBox size=\"20\">\n                  <svg ref=\"{{ page.icons.home }}\"/>\n                </sizedBox>\n              </padding>\n              <text text=\"{{ page.address.shop_name }}\" color=\"{{ data.colors.secondary }}\" overflow=\"ellipsis\" maxLines=\"1\">\n                <prop:textStyle color=\"{{ data.colors.secondary }}\" size=\"12\" font=\"{{ data.font.main }}\"/>\n              </text>\n            </row>\n          </container>\n        </expanded>\n        <expanded>\n          <container height=\"36\" color=\"{{ data.colors.primaryDarkest }}\">\n            <row mainAxisSize=\"min\">\n              <padding left=\"{{ data.gap.x3 }}\" right=\"{{ data.gap.x1 }}\">\n                <sizedBox size=\"20\">\n                  <svg ref=\"{{ page.icons.geo }}\"/>\n                </sizedBox>\n              </padding>\n              <text text=\"{{ page.address.shop_address }}\" color=\"{{ data.colors.secondary }}\">\n                <prop:textStyle color=\"{{ data.colors.secondary }}\" size=\"12\" font=\"{{ data.font.main }}\"/>\n              </text>\n            </row>\n          </container>\n        </expanded>\n      </row>\n    </column>\n  </container>\n</sliverPersistentHeader>\n\n<sizedBox height=\"{{ data.gap.x1 }}\"/>\n\n<!-- # AD CARDS-->\n<sizedBox height=\"280\">\n  <listView axis=\"horizontal\">\n    <for in=\"{{ page.ads }}\">\n      <component id=\"adCard\" image=\"{{ cycle.value.image }}\"\n                 title=\"{{ cycle.value.title }}\" noPrefix=\"{{ cycle.index }}\" subtitle=\"{{ cycle.value.description }}\" blurHash=\"{{ cycle.value.blur_hash }}\"/>\n    </for>\n  </listView>\n</sizedBox>\n\n<!-- # DELIVERY INFO-->\n<padding left=\"{{ data.gap.x3 }}\" top=\"{{ data.gap.x5 }}\" right=\"{{ data.gap.x3 }}\">\n  <column mainAxisSize=\"min\" crossAxisAlignment=\"start\">\n    <row>\n      <column mainAxisSize=\"min\" crossAxisAlignment=\"start\">\n        <component id=\"subtitle\" text=\"{{ page.order.title }}\"/>\n        <component id=\"smallBody\" text=\"{{ page.order.arrival_time }}\"/>\n      </column>\n      <spacer/>\n      <component id=\"roundButton\" text=\"{{ page.buttons.track.title }}\" prefix=\"{{ page.icons.geo }}\"\n                 color=\"{{ data.colors.primary }}\" textColor=\"{{ data.colors.secondary }}\" onPressed=\"snackbar: Go to track!\"/>\n    </row>\n    <sizedBox height=\"{{ data.gap.x4 }}\"/>\n    <row>\n      <component id=\"leftDot\"\n                 active=\"{{ page.order.statuses.placed.is_active }}\"\n                 current=\"{{ page.order.statuses.placed.is_current }}\"\n                 title=\"{{ page.order.statuses.placed.title }}\"/>\n      <expanded>\n        <component id=\"lineSpacer\" active=\"{{ page.order.statuses.preparing.is_active }}\"/>\n      </expanded>\n\n      <component id=\"dot\"\n                 leftActive=\"{{ page.order.statuses.placed.is_active }}\"\n                 active=\"{{ page.order.statuses.preparing.is_active }}\"\n                 current=\"{{ page.order.statuses.preparing.is_current }}\"\n                 rightActive=\"{{ page.order.statuses.on_the_way.is_active }}\"\n                 title=\"{{ page.order.statuses.preparing.title }}\"/>\n      <expanded>\n        <component id=\"lineSpacer\" active=\"{{ page.order.statuses.on_the_way.is_active }}\"/>\n      </expanded>\n\n      <component id=\"dot\"\n                 leftActive=\"{{ page.order.statuses.placed.is_active }}\"\n                 active=\"{{ page.order.statuses.on_the_way.is_active }}\"\n                 current=\"{{ page.order.statuses.on_the_way.is_current }}\"\n                 rightActive=\"{{ page.order.statuses.delivered.is_active }}\"\n                 title=\"{{ page.order.statuses.on_the_way.title }}\"/>\n      <expanded>\n        <component id=\"lineSpacer\" active=\"{{ page.order.statuses.delivered.is_active }}\"/>\n      </expanded>\n\n      <component id=\"rightDot\"\n                 active=\"{{ page.order.statuses.delivered.is_active }}\"\n                 current=\"{{ page.order.statuses.delivered.is_current }}\"\n                 title=\"{{ page.order.statuses.delivered.title }}\"/>\n    </row>\n  </column>\n</padding>\n\n<sizedBox height=\"{{ data.gap.x4 }}\"/>\n\n<!-- # FILTER CHIPS -->\n<sizedBox height=\"34\">\n  <listView axis=\"horizontal\">\n    <sizedBox width=\"{{ data.gap.x3 }}\"/>\n    <for in=\"{{ page.filter_buttons }}\">\n      <component id=\"roundButton\" color=\"{{ data.colors.secondaryAccent }}\" text=\"{{ cycle.value.title }}\" onPressed=\"{{ cycle.value.action }}\"\n                 prefix=\"{{ cycle.value.prefix_icon }}\" suffix=\"{{ cycle.value.postfix_icon }}\"/>\n      <show ifFalse=\"{{ cycle.isLast }}\">\n        <sizedBox width=\"{{ data.gap.x2 }}\"/>\n      </show>\n      <show ifTrue=\"{{ cycle.isLast }}\">\n        <sizedBox width=\"{{ data.gap.x3 }}\"/>\n      </show>\n    </for>\n  </listView>\n</sizedBox>\n\n<sizedBox height=\"{{ data.gap.x4 }}\"/>\n\n<!-- # GROCERIES -->\n<padding left=\"{{ data.gap.x3 }}\" right=\"{{ data.gap.x3 }}\">\n  <richText>\n    <textSpan text=\"{{ page.groceries_header.title }}\" size=\"18\" color=\"{{ data.colors.text.basic }}\">\n      <prop:textStyle weight=\"w500\" height=\"1.25\" font=\"{{ data.font.main }}\"/>\n    </textSpan>\n    <textSpan text=\"{{ page.groceries_header.amount }}\" size=\"18\" color=\"{{ data.colors.text.light }}\">\n      <prop:textStyle weight=\"w500\" height=\"1.25\" font=\"{{ data.font.main }}\"/>\n    </textSpan>\n  </richText>\n</padding>\n\n<sizedBox height=\"{{ data.gap.x3 }}\"/>\n\n<sizedBox height=\"252\">\n  <listView axis=\"horizontal\">\n    <for in=\"{{ page.groceries_list }}\">\n      <sizedBox width=\"{{ data.gap.x3 }}\"/>\n      <component id=\"groceryCard\" image=\"{{ cycle.value.image }}\" subtitle=\"{{ cycle.value.subtitle }}\" title=\"{{ cycle.value.title }}\" price=\"{{ cycle.value.price }}\"\n                 pricePerUnit=\"{{ cycle.value.price_per_unit }}\" inStock=\"{{ cycle.value.is_in_stock }}\" onPressed=\"{{ cycle.value.action }}\" splashColor=\"{{ cycle.value.color }}\"/>\n    </for>\n    <sizedBox width=\"{{ data.gap.x3 }}\"/>\n  </listView>\n</sizedBox>\n\n<sizedBox height=\"{{ data.gap.x5 }}\"/>\n\n<!-- # BRANDS -->\n<padding left=\"{{ data.gap.x3 }}\" right=\"{{ data.gap.x3 }}\" bottom=\"{{ data.gap.x4 }}\">\n  <component id=\"subtitle\" text=\"{{ page.brands_header.title }}\"/>\n</padding>\n\n<sizedBox height=\"72\">\n  <listView axis=\"horizontal\">\n    <sizedBox width=\"{{ data.gap.x3 }}\"/>\n    <for in=\"{{ page.brands_list }}\">\n      <component id=\"brand\" image=\"{{ cycle.value.image }}\"/>\n    </for>\n  </listView>\n</sizedBox>\n\n<sizedBox height=\"{{ data.gap.x6 }}\"/>\n\n<!-- # ELECTRONICS -->\n<padding left=\"{{ data.gap.x3 }}\" right=\"{{ data.gap.x3 }}\">\n  <richText>\n    <textSpan text=\"{{ page.electronics_header.title }}\" size=\"18\" color=\"{{ data.colors.text.basic }}\">\n      <prop:textStyle weight=\"w500\" height=\"1.25\" font=\"{{ data.font.main }}\"/>\n    </textSpan>\n    <textSpan text=\"{{ page.electronics_header.amount }}\" size=\"18\" color=\"{{ data.colors.text.light }}\">\n      <prop:textStyle weight=\"w500\" height=\"1.25\" font=\"{{ data.font.main }}\"/>\n    </textSpan>\n  </richText>\n</padding>\n\n<sizedBox height=\"{{ data.gap.x3 }}\"/>\n\n<sizedBox height=\"252\">\n  <listView axis=\"horizontal\">\n    <sizedBox width=\"{{ data.gap.x3 }}\"/>\n    <for in=\"{{ page.electronics_list }}\">\n      <component id=\"electronicsCard\" image=\"{{ cycle.value.image }}\" subtitle=\"{{ cycle.value.subtitle }}\" title=\"{{ cycle.value.title }}\" price=\"{{ cycle.value.price }}\"\n                 pricePerMonth=\"{{ cycle.value.price_per_month }}\" onPressed=\"{{ cycle.value.action }}\" splashColor=\"{{ cycle.value.color }}\" rating=\"{{ cycle.value.rating }}\"\n                 count=\"{{ cycle.value.reviews_count }}\"/>\n      <sizedBox width=\"{{ data.gap.x3 }}\"/>\n    </for>\n    <component id=\"electronicsCard\" image=\"https://raw.githubusercontent.com/alphamikle/assets/master/images/watch.png\" subtitle=\"Apple\" title=\"Apple Watch SE GPS\" price=\"$279.00\"\n               pricePerMonth=\"$26/mo\" onPressed=\"snackbar: Apple!\" splashColor=\"#1FCABEB4\" rating=\"4.5\" count=\"135\"/>\n  </listView>\n</sizedBox>\n\n<sizedBox height=\"{{ data.gap.x5 }}\"/>\n\n<sizedBox height=\"100\"/>",
+   "contentType": "scrollable"
+  },
+  "fonts": {
+   "primary_font": "Blazeface"
+  },
+  "colors": {
+   "primary_color": "#FF2F4C98"
+  },
+  "icons": {
+   "cart": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/cart.svg",
+   "search": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/search.svg",
+   "barcode": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/barcode.svg",
+   "home": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/home.svg",
+   "geo": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/location.svg",
+   "sort": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/menu.svg",
+   "chevron_down": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+   "add": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/plus.svg",
+   "star": {
+    "empty": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_empty.svg",
+    "half": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_half.svg",
+    "full": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/star_filled.svg"
+   }
+  },
+  "buttons": {
+   "track": {
+    "title": "Track"
+   },
+   "add": {
+    "title": "Add"
+   }
+  },
+  "header": {
+   "avatar_image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/avatar.png",
+   "greetings": "Hi, John",
+   "logo_image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/logo.svg",
+   "cart_amount": "$499.60",
+   "items_in_cart": 7
+  },
+  "search": {
+   "search_field_hint": "Search everything at Balmart",
+   "search_prefix_icon": "123",
+   "search_postfix_icon": "123"
+  },
+  "address": {
+   "shop_name": "Carrollton Supercenter",
+   "shop_address": "Dallas 75220"
+  },
+  "ads": [
+   {
+    "title": "Best water",
+    "description": "Very tasty and healthy",
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_1.jpeg",
+    "blur_hash": "LQK^scRP%%%0pe%LnMSj.8W=Rkxt",
+    "action": "snackbar:Hello!"
+   },
+   {
+    "title": "Delicious coffe",
+    "description": "Made by our hands",
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_2.jpeg",
+    "blur_hash": "LQK^scRP%%%0pe%LnMSj.8W=Rkxt",
+    "action": "snackbar:Hello!"
+   },
+   {
+    "title": "Great power",
+    "description": "Best gym in the history",
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_3.jpeg",
+    "blur_hash": "LQK^scRP%%%0pe%LnMSj.8W=Rkxt",
+    "action": "snackbar:Hello!"
+   }
+  ],
+  "order": {
+   "title": "Your order is on the way",
+   "arrival_time": "Arrives today, 3pm – 4pm",
+   "track_button_icon": null,
+   "track_button_title": null,
+   "statuses": {
+    "placed": {
+     "title": "Placed",
+     "is_active": true,
+     "is_current": false
+    },
+    "preparing": {
+     "title": "Preparing",
+     "is_active": true,
+     "is_current": false
+    },
+    "on_the_way": {
+     "title": "On the way",
+     "is_active": true,
+     "is_current": true
+    },
+    "delivered": {
+     "title": "Delivered",
+     "is_active": false,
+     "is_current": false
+    }
+   }
+  },
+  "filter_buttons": [
+   {
+    "prefix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/menu.svg",
+    "title": "Sort & Filter",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: Sort & Filter!"
+   },
+   {
+    "prefix_icon": null,
+    "title": "In store",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: In store!"
+   },
+   {
+    "prefix_icon": null,
+    "title": "Price",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: Price!"
+   },
+   {
+    "prefix_icon": null,
+    "title": "Brand",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: Brand!"
+   },
+   {
+    "prefix_icon": null,
+    "title": "Size",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: Size!"
+   },
+   {
+    "prefix_icon": null,
+    "title": "Color",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: Color!"
+   },
+   {
+    "prefix_icon": null,
+    "title": "Weight",
+    "postfix_icon": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/chevron_bottom.svg",
+    "action": "snackbar: Weight!"
+   }
+  ],
+  "groceries_header": {
+   "title": "Groceries",
+   "amount": " (12.3k)"
+  },
+  "groceries_list": [
+   {
+    "title": "Gala Apples, 3lb Bag",
+    "subtitle": "Final cost by weight",
+    "price": "$4.62",
+    "price_per_unit": "$2.27/lb",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/apple.png",
+    "color": "#1FCF011F"
+   },
+   {
+    "title": "Wonder Bread Classic",
+    "subtitle": "Wonder",
+    "price": "$2.39",
+    "price_per_unit": "11.9 ¢/oz",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/bread.png",
+    "color": "#1FD38B4E"
+   },
+   {
+    "title": "Ultra-Filtered Milk",
+    "subtitle": "Fairlife 2%",
+    "price": "$3.98",
+    "price_per_unit": "7.7 ¢/fl oz",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/milk.png",
+    "color": "#1F66BEEC"
+   },
+   {
+    "title": "Bananas, Each",
+    "subtitle": "Fresh Produce",
+    "price": "$0.21",
+    "price_per_unit": "each",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/bananas.png",
+    "color": "#1FF5E673"
+   },
+   {
+    "title": "Creamy Peanut Butter",
+    "subtitle": "18 oz, Great Value",
+    "price": "$1.72",
+    "price_per_unit": "9.6 ¢/oz",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/peanut_cream.png",
+    "color": "#1F35221F"
+   },
+   {
+    "title": "Ben & Jerry's",
+    "subtitle": "Strawberry Cheesecake",
+    "price": "$4.62",
+    "price_per_unit": "28.0 ¢/oz",
+    "is_in_stock": false,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ice_cream.png",
+    "color": "#1F2A388F"
+   },
+   {
+    "title": "Hass Avocados",
+    "subtitle": "Fresh Produce",
+    "price": "$3.78",
+    "price_per_unit": "$2.27/lb",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/avocados.png",
+    "color": "#1F5D7428"
+   },
+   {
+    "title": "Fresh Spinach, 10 oz",
+    "subtitle": "Marketside",
+    "price": "$2.18",
+    "price_per_unit": "21.8 ¢/oz",
+    "is_in_stock": true,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/spinach.png",
+    "color": "#1F2E4006"
+   }
+  ],
+  "brands_header": {
+   "title": "Brands"
+  },
+  "brands_list": [
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/gap_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/apple_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/tommy_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/boss_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/levis_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/nautica_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/boots_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/ikea_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/crocodile_logo.svg"
+   },
+   {
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/nike_logo.svg"
+   }
+  ],
+  "electronics_header": {
+   "title": "Electronics",
+   "amount": " (3.5k)"
+  },
+  "electronics_list": [
+   {
+    "title": "Apple Watch SE GPS",
+    "subtitle": "Apple",
+    "price": "$279.00",
+    "price_per_month": "$26/mo",
+    "rating": 4.5,
+    "reviews_count": 135,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/watch.png",
+    "color": "#1FCABEB4"
+   },
+   {
+    "title": "Canon EOS Rebel T100",
+    "subtitle": "Canon",
+    "price": "$379.00",
+    "price_per_month": "$36/mo",
+    "rating": 3.1,
+    "reviews_count": 1400,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/camera.png",
+    "color": "#1F612E65"
+   },
+   {
+    "title": "OnePlus Nord N200",
+    "subtitle": "OnePlus",
+    "price": "$220.00",
+    "price_per_month": "$21/mo",
+    "rating": 3.6,
+    "reviews_count": 70,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/oneplus.png",
+    "color": "#1F0C2BBA"
+   },
+   {
+    "title": "Bomaker Projector",
+    "subtitle": "Bomaker",
+    "price": "$320.00",
+    "price_per_month": "$18/mo",
+    "rating": 3.2,
+    "reviews_count": 80,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/projector.png",
+    "color": "#1F30AFF3"
+   },
+   {
+    "title": "QuietComfort 45",
+    "subtitle": "Bose",
+    "price": "$279.00",
+    "price_per_month": "$24/mo",
+    "rating": 4.15,
+    "reviews_count": 250,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/headphones.png",
+    "color": "#1F363636"
+   },
+   {
+    "title": "Contixo F16 FPV",
+    "subtitle": "Contixo",
+    "price": "$180.00",
+    "price_per_month": "$10/mo",
+    "rating": 5.0,
+    "reviews_count": 49,
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/drone.png",
+    "color": "#1F4F565D"
+   }
+  ]
+ }
+]
