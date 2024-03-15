@@ -46,7 +46,17 @@ Future<void> main() async {
       ),
       imageBuilderDelegate: const ImageBuilderDelegate(imageFrameBuilder: imageFrameBuilder),
       adminWrapperBuilder: (BuildContext context, GlobalKey<NavigatorState> navigatorKey, Widget adminPanel) {
-        return MultiBlocProvider(
+        const double minWidth = 1280;
+        final MediaQueryData data = MediaQuery.of(context);
+        double multiplier = 1;
+
+        if (data.size.width < minWidth) {
+          multiplier = minWidth / data.size.width;
+        }
+
+        logInfo('DM: $multiplier, Width: ${data.size.width}');
+
+        final Widget cms = MultiBlocProvider(
           providers: [
             BlocProvider<ConnectionManagerBloc>.value(value: connectionManagerBloc),
           ],
@@ -57,6 +67,21 @@ Future<void> main() async {
                 child: adminPanel,
               );
             },
+          ),
+        );
+
+        if (multiplier == 1) {
+          return cms;
+        }
+
+        return InteractiveViewer(
+          constrained: false,
+          maxScale: 1,
+          minScale: 0.1,
+          child: SizedBox(
+            width: minWidth,
+            height: minWidth,
+            child: cms,
           ),
         );
       },
