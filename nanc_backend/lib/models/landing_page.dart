@@ -134,8 +134,6 @@ final Model landingPage = Model(
         singleObject: true,
         structure: [
           StringField(name: 'Search Field Hint', maxLines: 1, isRequired: true),
-          StringField(name: 'Search Prefix Icon', maxLines: 1, isRequired: true),
-          StringField(name: 'Search Postfix Icon', maxLines: 1, isRequired: true),
         ],
       ),
     ],
@@ -174,8 +172,6 @@ final Model landingPage = Model(
         structure: [
           StringField(name: 'Title', maxLines: 1),
           StringField(name: 'Arrival time', maxLines: 1),
-          StringField(name: 'Track Button Icon', maxLines: 1),
-          StringField(name: 'Track Button Title', maxLines: 1),
           StructuredField(
             name: 'Statuses',
             singleObject: true,

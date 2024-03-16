@@ -17,21 +17,21 @@ flutter build web \
 
 # ? Need to precompile shaders before each build!
 # ? https://docs.flutter.dev/perf/shader
-flutter build apk \
---no-pub \
---target-platform="android-arm64" \
+#flutter build apk \
+#--no-pub \
+#--target-platform="android-arm64" \
 #--bundle-sksl-path flutter_01.sksl.json \
 
-flutter build appbundle \
---no-pub \
---target-platform="android-arm64" \
---dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
---dart-define=ANALYTICS_PROJECT=client_android \
+#flutter build appbundle \
+#--no-pub \
+#--target-platform="android-arm64" \
+#--dart-define=ANALYTICS_KEY="$NANC_ANALYTICS_KEY" \
+#--dart-define=ANALYTICS_PROJECT=client_android \
 #--bundle-sksl-path flutter_01.sksl.json \
 
 # ? Copy Android build
-mv ./build/app/outputs/flutter-apk/app-release.apk "$APPS_BUILDS_DIR/$name.apk"
-mv ./build/app/outputs/bundle/release/app-release.aab "$APPS_BUILDS_DIR/nanc_client_bundle_v${version}.aab"
+#mv ./build/app/outputs/flutter-apk/app-release.apk "$APPS_BUILDS_DIR/$name.apk"
+#mv ./build/app/outputs/bundle/release/app-release.aab "$APPS_BUILDS_DIR/nanc_client_bundle_v${version}.aab"
 
 # ? Copy Web build
 cp -R ./build/web/ "$NANC_MOBILE"

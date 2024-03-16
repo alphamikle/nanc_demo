@@ -36,15 +36,13 @@
   },
   "header": {
    "avatar_image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/avatar.png",
-   "greetings": "Hi, John",
+   "greetings": "Hi, Mike",
    "logo_image": "https://raw.githubusercontent.com/alphamikle/assets/master/svg/logo.svg",
    "cart_amount": "$499.60",
    "items_in_cart": 7
   },
   "search": {
-   "search_field_hint": "Search everything at Balmart",
-   "search_prefix_icon": "123",
-   "search_postfix_icon": "123"
+   "search_field_hint": "Search everything at Balmart"
   },
   "address": {
    "shop_name": "Carrollton Supercenter",
@@ -54,21 +52,21 @@
    {
     "title": "Best water",
     "description": "Very tasty and healthy",
-    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_1.jpeg",
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/info_1.jpeg",
     "blur_hash": "LQK^scRP%%%0pe%LnMSj.8W=Rkxt",
     "action": "snackbar:Hello!"
    },
    {
     "title": "Delicious coffe",
     "description": "Made by our hands",
-    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_2.jpeg",
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/info_2.jpeg",
     "blur_hash": "LQK^scRP%%%0pe%LnMSj.8W=Rkxt",
     "action": "snackbar:Hello!"
    },
    {
     "title": "Great power",
     "description": "Best gym in the history",
-    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/ad_3.jpeg",
+    "image": "https://raw.githubusercontent.com/alphamikle/assets/master/images/info_3.jpeg",
     "blur_hash": "LQK^scRP%%%0pe%LnMSj.8W=Rkxt",
     "action": "snackbar:Hello!"
    }
@@ -76,8 +74,6 @@
   "order": {
    "title": "Your order is on the way",
    "arrival_time": "Arrives today, 3pm – 4pm",
-   "track_button_icon": null,
-   "track_button_title": null,
    "statuses": {
     "placed": {
      "title": "Placed",
