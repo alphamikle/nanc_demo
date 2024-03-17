@@ -1,4 +1,4 @@
-package com.indieloper.nanc_client
+package com.indieloper.nanc_demo
 
 import io.flutter.embedding.android.FlutterActivity
 

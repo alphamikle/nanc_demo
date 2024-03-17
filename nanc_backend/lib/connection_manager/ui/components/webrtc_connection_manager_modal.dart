@@ -41,9 +41,8 @@ class _WebRTCConnectionManagerModalState extends State<WebRTCConnectionManagerMo
     if (mounted) {
       showMessageNotification(context, '''
 Client successfully connected!
-Now, you can move to the Solo → Landing Page → Screen
-And play with the client app UI
-''');
+Now, you can go to the Solo → Landing Page → Screen
+And play with the client app UI''');
     }
   }
 
