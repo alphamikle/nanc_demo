@@ -1,5 +1,5 @@
 name: nanc_backend
-description: NANC project backend demo
+description: Nanc project backend demo
 publish_to: 'none'
 version: 0.0.1
 
@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cms:
-    path: ../../nanc/cms
+  nanc:
+    path: ../../nanc/nanc
   nanc_webrtc:
     path: ../nanc_webrtc
   tools:

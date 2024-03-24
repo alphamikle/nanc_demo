@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  cms:
-    path: ../../nanc/cms
+  nanc:
+    path: ../../nanc/nanc
   config:
     path: ../../nanc/config
   nanc_api_local:

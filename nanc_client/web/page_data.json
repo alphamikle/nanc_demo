@@ -15,17 +15,17 @@
   "app_store_badge": "https://corsproxy.io/?https://nanc.b-cdn.net/apple-badge.png",
   "google_play_link": "https://play.google.com/store/apps/details?id=com.indieloper.nanc_client",
   "app_store_link": "https://client.nanc.io",
-  "main_header": "NANC - IS THE REINVENTION OF CMS",
+  "main_header": "Nanc - IS THE REINVENTION OF CMS",
   "download_apps_header": "TRY DEMO APP NOW",
-  "about_header": "ABOUT NANC",
-  "features_header": "NANC FEATURES",
+  "about_header": "ABOUT Nanc",
+  "features_header": "Nanc FEATURES",
   "interface_header": "ENDLESS UI DESIGN POSSIBILITIES",
-  "how_to_use_header": "HOW TO USE NANC",
+  "how_to_use_header": "HOW TO USE Nanc",
   "team_header": "OUR TEAM",
   "customers_header": "OUR CUSTOMERS",
   "top_block_text": "Nanc is a completely new approach to managing your data. Nanc allows you to integrate with any of your existing backends in a matter of hours with interactive documentation",
   "about_text": "Nanc allows you to manage data of any complexity. If your data can be represented as JSON - Nanc can help you. And since Nanc does not depend on a backend implementation, you can use anything as a backend: JSON file, SQLite, Firebase, Supabase and any \"classic\" backend or anything else! Hell, you can use Nanc in parallel with your current CMS to compare features and you don't have to \"rewrite\" anything",
-  "features_text": "Everything you see here can be any screen in your application. You can use NANC to create all the screens, quickly test hypotheses, and update your application in minutes. And that's just the beginning!",
+  "features_text": "Everything you see here can be any screen in your application. You can use Nanc to create all the screens, quickly test hypotheses, and update your application in minutes. And that's just the beginning!",
   "interface_text": "Nanc allows you to implement a mobile application interface in Flutter of almost any complexity (so far). Everything you're reading was done with Nanc in a little over 2 hours. This content can be completely modified to update your app without publishing to the App Store or Google Play. Website publishing experience becomes available for Flutter apps",
   "middle_download_block_text": "If you're reading this text from your desktop, look at the same Android or iOS app. (Actually, the iOS app is not available yet, I don't have an extra $100 for Apple 🤑)",
   "how_to_use_text": "All you see is a technical preview of Nanc and a demo app showing some of the features and with all that you can play with! Below is a link to a video that shows in detail how to interact with the Nanc playground",
@@ -202,7 +202,7 @@
      "id": "0185f961-3386-ba0e-29c2-0dc523389c41",
      "position": "Financial Analyst"
     },
-    "review": "Hey, have you heard of NANC? It's this amazing CMS that I've been using and it's been a game-changer for my business. We've seen 200% growth every year since we started using it. I highly recommend checking it out if you're in the market for a new CMS."
+    "review": "Hey, have you heard of Nanc? It's this amazing CMS that I've been using and it's been a game-changer for my business. We've seen 200% growth every year since we started using it. I highly recommend checking it out if you're in the market for a new CMS."
    },
    {
     "id": "01855689-71b6-f475-c8f6-43dee7358bb8",

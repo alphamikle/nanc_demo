@@ -119,14 +119,14 @@ class _MainViewState extends State<MainView> {
       ),
       floatingActionButton: BlocBuilder<PageBloc, PageState>(
         builder: (BuildContext context, PageState state) {
-          String fabText = 'Connect to NANC';
+          String fabText = 'Connect to Nanc';
           Color fabColor = context.theme.colorScheme.tertiary;
           if (state.isConnectingToTheBackend || state.isLoading) {
             fabText = 'Connecting...';
             fabColor = context.theme.colorScheme.outline;
           }
           if (state.isConnectedToTheBackend) {
-            fabText = 'Disconnect from NANC';
+            fabText = 'Disconnect from Nanc';
             fabColor = context.theme.colorScheme.error;
           }
 

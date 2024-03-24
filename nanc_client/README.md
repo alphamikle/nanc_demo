@@ -1,6 +1,6 @@
 # nanc_client
 
-NANC project demo client
+Nanc project demo client
 
 ## Getting Started
 

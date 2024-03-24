@@ -1,6 +1,6 @@
 # nanc_backend
 
-NANC project backend demo
+Nanc project backend demo
 
 ## Getting Started
 

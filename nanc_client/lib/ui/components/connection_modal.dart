@@ -76,7 +76,7 @@ class _ConnectionModalState extends State<ConnectionModal> {
                 KitTextField(
                   controller: context.read<PageBloc>().roomIdController,
                   isRequired: true,
-                  placeholder: 'Paste NANC ID from the QR-code',
+                  placeholder: 'Paste Nanc ID from the QR-code',
                   helper: 'Backend ID',
                   maxLines: 1,
                   validator: (String? roomId) {
