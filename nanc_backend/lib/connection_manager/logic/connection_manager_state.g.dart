@@ -7,9 +7,11 @@ part of 'connection_manager_state.dart';
 // **************************************************************************
 
 extension _$ConnectionManagerStateAutoequal on ConnectionManagerState {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [isLoading, freshRoomId, clients];
+  List<Object?> get _$props => [
+        isLoading,
+        freshRoomId,
+        clients,
+      ];
 }
 
 // **************************************************************************

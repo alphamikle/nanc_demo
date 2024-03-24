@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:config/config.dart';
+import 'package:fields/fields.dart';
 import 'package:model/model.dart';
 import 'package:tools/tools.dart';
 
@@ -81,8 +82,9 @@ class PageApiImplementation extends MockApi implements IDocumentApi {
 
   @override
   Future<void> saveThirdTable(ThirdTable thirdTable, String parentEntityId, List<String> childEntityIds) async {
+    final Model relationsModel = thirdTable.relationsEntity;
     await networkDelay();
-    final List<Json> thirdTableData = await fetchFullList(thirdTable.relationsEntity);
+    final List<Json> thirdTableData = await fetchFullList(relationsModel);
     thirdTableData.removeWhere((Json row) {
       return row[thirdTable.parentEntityIdName] == parentEntityId;
     });
@@ -92,7 +94,7 @@ class PageApiImplementation extends MockApi implements IDocumentApi {
         thirdTable.childEntityIdName: childId,
       });
     }
-    await saveFullList(thirdTable.relationsEntity, thirdTableData);
+    await saveFullList(relationsModel, thirdTableData);
   }
 
   Future<List<Json>> _clearFromDuplicates(Model entity, String id, List<Json> data) async {

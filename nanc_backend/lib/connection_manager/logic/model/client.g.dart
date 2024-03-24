@@ -7,9 +7,11 @@ part of 'client.dart';
 // **************************************************************************
 
 extension _$ClientAutoequal on Client {
-  @Deprecated(r'Use _$props instead')
-  List<Object?> get _autoequalProps => _$props;
-  List<Object?> get _$props => [roomId, status, serviceId];
+  List<Object?> get _$props => [
+        roomId,
+        status,
+        serviceId,
+      ];
 }
 
 // **************************************************************************
