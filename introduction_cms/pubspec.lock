@@ -190,10 +190,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.10.9"
-  code_text_field:
+  nanc_code_text_field:
     dependency: transitive
     description:
-      path: "../../nanc/code_text_field"
+      path: "../../nanc/nanc_code_text_field"
       relative: true
     source: path
     version: "0.0.1"

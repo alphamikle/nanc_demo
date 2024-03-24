@@ -1,4 +1,3 @@
-import 'package:config/config.dart';
 import 'package:fields/fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
