@@ -18,8 +18,8 @@ dependencies:
     path: ../../nanc/tools
   model:
     path: ../../nanc/model
-  fields:
-    path: ../../nanc/fields
+  nanc_fields:
+    path: ../../nanc/nanc_fields
   ui_kit:
     path: ../../nanc/ui_kit
   icons:

@@ -20,8 +20,8 @@ dependencies:
     path: ../../nanc/config
   icons:
     path: ../../nanc/icons
-  fields:
-    path: ../../nanc/fields
+  nanc_fields:
+    path: ../../nanc/nanc_fields
   model:
     path: ../../nanc/model
 

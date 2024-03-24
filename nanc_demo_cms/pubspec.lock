@@ -183,13 +183,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.10.9"
-  nanc_code_text_field:
-    dependency: transitive
-    description:
-      path: "../../nanc/nanc_code_text_field"
-      relative: true
-    source: path
-    version: "0.0.1"
   collection:
     dependency: transitive
     description:
@@ -309,13 +302,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
-  fields:
-    dependency: "direct main"
-    description:
-      path: "../../nanc/fields"
-      relative: true
-    source: path
-    version: "0.0.1"
   file:
     dependency: transitive
     description:
@@ -887,6 +873,20 @@ packages:
     dependency: "direct main"
     description:
       path: "../../nanc/nanc_api_supabase"
+      relative: true
+    source: path
+    version: "0.0.1"
+  nanc_code_text_field:
+    dependency: transitive
+    description:
+      path: "../../nanc/nanc_code_text_field"
+      relative: true
+    source: path
+    version: "0.0.1"
+  nanc_fields:
+    dependency: "direct main"
+    description:
+      path: "../../nanc/nanc_fields"
       relative: true
     source: path
     version: "0.0.1"
