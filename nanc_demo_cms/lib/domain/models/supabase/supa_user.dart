@@ -1,6 +1,6 @@
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:icons/icons.dart';
-import 'package:model/model.dart';
+import 'package:nanc_fields/nanc_fields.dart';
+import 'package:nanc_model/nanc_model.dart';
 
 import 'supa_color.dart';
 import 'supa_user_to_favorite_colors.dart';

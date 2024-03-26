@@ -1,6 +1,6 @@
-import 'package:nanc_fields/nanc_fields.dart';
 import 'package:icons/icons.dart';
-import 'package:model/model.dart';
+import 'package:nanc_fields/nanc_fields.dart';
+import 'package:nanc_model/nanc_model.dart';
 
 import 'language_model.dart';
 import 'movie_model.dart';

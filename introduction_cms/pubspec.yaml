@@ -22,8 +22,8 @@ dependencies:
     path: ../../nanc/nanc_api_supabase
   additions:
     path: ../additions
-  model:
-    path: ../../nanc/model
+  nanc_model:
+    path: ../../nanc/nanc_model
   tools:
     path: ../../nanc/tools
   nanc_fields:

@@ -16,8 +16,8 @@ dependencies:
     path: ../nanc_webrtc
   tools:
     path: ../../nanc/tools
-  model:
-    path: ../../nanc/model
+  nanc_model:
+    path: ../../nanc/nanc_model
   nanc_fields:
     path: ../../nanc/nanc_fields
   ui_kit:

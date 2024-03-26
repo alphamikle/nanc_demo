@@ -22,8 +22,8 @@ dependencies:
     path: ../../nanc/icons
   nanc_fields:
     path: ../../nanc/nanc_fields
-  model:
-    path: ../../nanc/model
+  nanc_model:
+    path: ../../nanc/nanc_model
 
 dev_dependencies:
   flutter_lints: ^2.0.1

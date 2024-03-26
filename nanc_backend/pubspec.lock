@@ -1030,13 +1030,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  model:
-    dependency: "direct main"
-    description:
-      path: "../../nanc/model"
-      relative: true
-    source: path
-    version: "0.0.1"
   nanc:
     dependency: "direct main"
     description:
@@ -1062,6 +1055,13 @@ packages:
     dependency: "direct main"
     description:
       path: "../../nanc/nanc_fields"
+      relative: true
+    source: path
+    version: "0.0.1"
+  nanc_model:
+    dependency: "direct main"
+    description:
+      path: "../../nanc/nanc_model"
       relative: true
     source: path
     version: "0.0.1"
