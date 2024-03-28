@@ -1,6 +1,6 @@
 import 'package:icons/icons.dart';
-import 'package:nanc_fields/nanc_fields.dart';
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/fields.dart';
+import 'package:nanc/model.dart';
 
 import 'age_rating_model.dart';
 

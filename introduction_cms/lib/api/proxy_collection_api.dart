@@ -1,6 +1,6 @@
 import 'package:config/config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/model.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:tools/tools.dart';
 

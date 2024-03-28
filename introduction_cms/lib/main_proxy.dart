@@ -1,9 +1,10 @@
 import 'dart:async';
 
+import 'package:nanc/model.dart';
 import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/services.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_local/nanc_api_local.dart';
 import 'package:tools/tools.dart';
