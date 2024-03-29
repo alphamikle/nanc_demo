@@ -10,12 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  nanc:
+    path: ../../nanc/nanc
   nanc_renderer:
     path: ../../nanc/nanc_renderer
   icons:
     path: ../../nanc/icons
-  ui_kit:
-    path: ../../nanc/ui_kit
   analytics:
     path: ../../nanc/analytics
   config:

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:nanc/ui_kit.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../logic/bloc/page_bloc.dart';
 import '../../logic/bloc/page_state.dart';

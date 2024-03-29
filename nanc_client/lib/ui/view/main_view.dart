@@ -5,10 +5,10 @@ import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
+import 'package:nanc/ui_kit.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:svg_renderer/svg_renderer.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../logic/bloc/page_bloc.dart';
 import '../../logic/bloc/page_state.dart';

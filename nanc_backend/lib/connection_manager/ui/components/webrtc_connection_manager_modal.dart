@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
 import 'package:nanc/services.dart';
+import 'package:nanc/ui_kit.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:tools/tools.dart';
-import 'package:ui_kit/ui_kit.dart';
 
 import '../../logic/connection_manager_bloc.dart';
 import '../../logic/connection_manager_state.dart';
