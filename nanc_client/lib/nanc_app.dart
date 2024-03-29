@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:additions/additions.dart';
 import 'package:analytics/analytics.dart';
-import 'package:nanc/nanc.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc/services.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';

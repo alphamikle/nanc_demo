@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:nanc/nanc.dart';
+import 'package:nanc/services.dart';
 
 import 'domain/cms/cms_app.dart';
 

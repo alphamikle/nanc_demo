@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:analytics/analytics.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/model.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';
 

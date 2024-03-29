@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:nanc/nanc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icons/icons.dart';
+import 'package:nanc/services.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:tools/tools.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -199,7 +199,7 @@ And play with the client app UI''');
                                               ? null
                                               : () async {
                                                   await copyTextToClipboard(state.freshRoomId);
-                                                  if (mounted) {
+                                                  if (context.mounted) {
                                                     showMessageNotification(context, 'Connection data successfully copied');
                                                   }
                                                 },

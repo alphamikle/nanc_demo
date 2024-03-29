@@ -1,5 +1,6 @@
-import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
+import 'package:nanc/nanc.dart';
+import 'package:nanc/services.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 
@@ -15,7 +16,9 @@ enum DataProvider {
   firebaseLocal;
 
   bool get isSupabase => this == DataProvider.supabase;
+
   bool get isFirebase => this == DataProvider.firebase || this == DataProvider.firebaseLocal;
+
   bool get isFirebaseLocal => this == DataProvider.firebaseLocal;
 }
 
