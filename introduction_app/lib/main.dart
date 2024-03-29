@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fonts/fonts.dart';
+import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:icons/icons.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';

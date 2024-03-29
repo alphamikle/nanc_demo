@@ -27,8 +27,8 @@ dependencies:
   analytics:
     path: ../../nanc/analytics
   cupertino_icons: ^1.0.5
-  fonts:
-    path: ../../nanc/fonts
+  nanc_fonts:
+    path: ../../nanc/nanc_fonts
   svg_renderer:
     path: ../../nanc/svg_renderer
   bloc: ^8.1.2

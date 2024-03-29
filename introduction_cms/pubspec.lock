@@ -533,13 +533,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fonts:
-    dependency: "direct main"
-    description:
-      path: "../../nanc/fonts"
-      relative: true
-    source: path
-    version: "0.0.1"
   freezed_annotation:
     dependency: transitive
     description:
@@ -897,6 +890,13 @@ packages:
     dependency: "direct main"
     description:
       path: "../../nanc/nanc_configuration"
+      relative: true
+    source: path
+    version: "0.0.1"
+  nanc_fonts:
+    dependency: "direct main"
+    description:
+      path: "../../nanc/nanc_fonts"
       relative: true
     source: path
     version: "0.0.1"

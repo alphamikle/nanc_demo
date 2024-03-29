@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fonts/fonts.dart';
+import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:tools/tools.dart';

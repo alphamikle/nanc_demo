@@ -12,8 +12,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   nanc_renderer:
     path: ../../nanc/nanc_renderer
-  fonts:
-    path: ../../nanc/fonts
+  nanc_fonts:
+    path: ../../nanc/nanc_fonts
   icons:
     path: ../../nanc/icons
   svg_renderer:

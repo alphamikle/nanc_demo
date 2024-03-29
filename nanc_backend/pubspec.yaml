@@ -25,8 +25,8 @@ dependencies:
     path: ../additions
   analytics:
     path: ../../nanc/analytics
-  fonts:
-    path: ../../nanc/fonts
+  nanc_fonts:
+    path: ../../nanc/nanc_fonts
   nanc_configuration:
     path: ../../nanc/nanc_configuration
   svg_renderer:
