@@ -662,13 +662,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-  icons:
-    dependency: "direct main"
-    description:
-      path: "../../nanc/icons"
-      relative: true
-    source: path
-    version: "0.0.1"
   js:
     dependency: transitive
     description:
@@ -867,6 +860,13 @@ packages:
     dependency: transitive
     description:
       path: "../../nanc/nanc_fonts"
+      relative: true
+    source: path
+    version: "0.0.1"
+  nanc_icons:
+    dependency: "direct main"
+    description:
+      path: "../../nanc/nanc_icons"
       relative: true
     source: path
     version: "0.0.1"

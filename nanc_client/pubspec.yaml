@@ -18,8 +18,8 @@ dependencies:
     path: ../../nanc/nanc
   nanc_renderer:
     path: ../../nanc/nanc_renderer
-  icons:
-    path: ../../nanc/icons
+  nanc_icons:
+    path: ../../nanc/nanc_icons
   additions:
     path: ../additions
   components:

@@ -24,8 +24,8 @@ dependencies:
     path: ../additions
   tools:
     path: ../../nanc/tools
-  icons:
-    path: ../../nanc/icons
+  nanc_icons:
+    path: ../../nanc/nanc_icons
   svg_renderer:
     path: ../../nanc/svg_renderer
   nanc_fonts:

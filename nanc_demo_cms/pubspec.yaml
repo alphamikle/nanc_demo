@@ -18,8 +18,8 @@ dependencies:
     path: ../../nanc/nanc_api_firebase
   nanc_configuration:
     path: ../../nanc/nanc_configuration
-  icons:
-    path: ../../nanc/icons
+  nanc_icons:
+    path: ../../nanc/nanc_icons
 
 dev_dependencies:
   flutter_lints: ^2.0.1
