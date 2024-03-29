@@ -113,13 +113,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  config:
-    dependency: transitive
-    description:
-      path: "../../nanc/config"
-      relative: true
-    source: path
-    version: "0.0.1"
   convert:
     dependency: transitive
     description:
@@ -508,6 +501,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  nanc_configuration:
+    dependency: transitive
+    description:
+      path: "../../nanc/nanc_configuration"
+      relative: true
+    source: path
+    version: "0.0.1"
   nanc_renderer:
     dependency: "direct main"
     description:

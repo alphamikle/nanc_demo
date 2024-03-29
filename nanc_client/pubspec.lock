@@ -286,13 +286,6 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  config:
-    dependency: transitive
-    description:
-      path: "../../nanc/config"
-      relative: true
-    source: path
-    version: "0.0.1"
   convert:
     dependency: transitive
     description:
@@ -904,13 +897,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
-  local_notifications:
-    dependency: transitive
-    description:
-      path: "../../nanc/local_notifications"
-      relative: true
-    source: path
-    version: "0.0.1"
   logger:
     dependency: transitive
     description:
@@ -1018,6 +1004,13 @@ packages:
     dependency: transitive
     description:
       path: "../../nanc/nanc_code_text_field"
+      relative: true
+    source: path
+    version: "0.0.1"
+  nanc_configuration:
+    dependency: transitive
+    description:
+      path: "../../nanc/nanc_configuration"
       relative: true
     source: path
     version: "0.0.1"
@@ -1469,13 +1462,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.2"
-  ui_kit:
-    dependency: "direct main"
-    description:
-      path: "../../nanc/ui_kit"
-      relative: true
-    source: path
-    version: "0.0.1"
   ulid:
     dependency: transitive
     description:

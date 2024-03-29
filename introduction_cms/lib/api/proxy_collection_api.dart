@@ -1,4 +1,4 @@
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/foundation.dart';
 import 'package:nanc/model.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';

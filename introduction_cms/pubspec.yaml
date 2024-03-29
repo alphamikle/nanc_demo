@@ -12,8 +12,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   nanc:
     path: ../../nanc/nanc
-  config:
-    path: ../../nanc/config
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
   nanc_api_local:
     path: ../../nanc/nanc_api_local
   nanc_api_firebase:
@@ -22,12 +22,8 @@ dependencies:
     path: ../../nanc/nanc_api_supabase
   additions:
     path: ../additions
-  nanc_model:
-    path: ../../nanc/nanc_model
   tools:
     path: ../../nanc/tools
-  nanc_fields:
-    path: ../../nanc/nanc_fields
   icons:
     path: ../../nanc/icons
   svg_renderer:

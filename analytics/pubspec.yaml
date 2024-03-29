@@ -11,8 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  config:
-    path: ../../nanc/config
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
   tools:
     path: ../../nanc/tools
   amplitude_flutter: ^3.14.0

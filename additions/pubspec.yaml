@@ -18,8 +18,8 @@ dependencies:
     path: ../../nanc/icons
   analytics:
     path: ../../nanc/analytics
-  config:
-    path: ../../nanc/config
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
   tools:
     path: ../../nanc/tools
   url_launcher: ^6.1.11

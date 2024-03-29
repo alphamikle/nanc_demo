@@ -16,16 +16,9 @@ dependencies:
     path: ../nanc_webrtc
   tools:
     path: ../../nanc/tools
-  nanc_model:
-    path: ../../nanc/nanc_model
-  nanc_fields:
-    path: ../../nanc/nanc_fields
-  ui_kit:
-    path: ../../nanc/ui_kit
   icons:
     path: ../../nanc/icons
-  animation_debugger:
-    path: ../../../../3_open_source_projects/animation_debugger
+  animation_debugger: ^1.0.0
   components:
     path: ../components
   additions:
@@ -34,8 +27,8 @@ dependencies:
     path: ../../nanc/analytics
   fonts:
     path: ../../nanc/fonts
-  config:
-    path: ../../nanc/config
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
   svg_renderer:
     path: ../../nanc/svg_renderer
   cupertino_icons: ^1.0.5

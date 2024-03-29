@@ -16,14 +16,10 @@ dependencies:
     path: ../../nanc/nanc_api_supabase
   nanc_api_firebase:
     path: ../../nanc/nanc_api_firebase
-  config:
-    path: ../../nanc/config
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
   icons:
     path: ../../nanc/icons
-  nanc_fields:
-    path: ../../nanc/nanc_fields
-  nanc_model:
-    path: ../../nanc/nanc_model
 
 dev_dependencies:
   flutter_lints: ^2.0.1
