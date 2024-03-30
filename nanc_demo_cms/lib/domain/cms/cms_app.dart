@@ -1,8 +1,8 @@
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc/nanc.dart';
 import 'package:nanc/services.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 
 import '../models/supabase/feature_toggles.dart';
 import '../models/supabase/supa_color.dart';

@@ -1,6 +1,6 @@
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 
 import 'supa_color.dart';
 import 'supa_user_to_favorite_colors.dart';
@@ -10,8 +10,6 @@ final Model supaUser = Model(
   name: 'Users',
   id: 'users',
   icon: IconPackNames.rmx_user_3_line,
-  isCollection: true,
-  showInMenu: true,
   fields: [
     [
       IdField(),

@@ -21,6 +21,7 @@ dependencies:
   nanc_icons:
     path: ../../nanc/nanc_icons
 
+  firebase_core: any
 dev_dependencies:
   nanc_lints:
     path: ../../nanc/nanc_lints

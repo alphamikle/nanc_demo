@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:additions/additions.dart';
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:nanc/model.dart';
 import 'package:nanc/nanc.dart';
 import 'package:nanc/services.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
+import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:svg_renderer/svg_renderer.dart';
 
 import 'firebase_key.dart';

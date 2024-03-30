@@ -1,8 +1,8 @@
 import 'package:analytics/analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc/ui_kit.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:tools/tools.dart';
 
 import '../../logic/connection_manager_bloc.dart';

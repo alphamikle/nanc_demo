@@ -1,7 +1,7 @@
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/foundation.dart';
 import 'package:nanc/model.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:tools/tools.dart';
 
 class ProxyCollectionApi implements FirebaseCollectionApi {

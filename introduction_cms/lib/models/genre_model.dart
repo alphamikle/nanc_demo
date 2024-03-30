@@ -1,6 +1,6 @@
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc/fields.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 
 final Model genreModel = Model(
   name: 'Genre',

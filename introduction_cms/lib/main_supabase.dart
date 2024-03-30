@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc/nanc.dart';
 import 'package:nanc/services.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 
 import 'supabase_key.dart';
 

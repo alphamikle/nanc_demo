@@ -1029,6 +1029,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  nui_converter:
+    dependency: transitive
+    description:
+      path: "../../nanc/nui_converter"
+      relative: true
+    source: path
+    version: "0.0.1"
   octo_image:
     dependency: transitive
     description:
@@ -1409,13 +1416,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0+1"
-  tag_converter:
-    dependency: transitive
-    description:
-      path: "../../nanc/tag_converter"
-      relative: true
-    source: path
-    version: "0.0.1"
   term_glyph:
     dependency: transitive
     description:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc/ui_kit.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 
 import 'fade_in.dart';
 
