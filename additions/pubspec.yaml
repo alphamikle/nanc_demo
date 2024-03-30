@@ -16,8 +16,8 @@ dependencies:
     path: ../../nanc/nanc_renderer
   nanc_icons:
     path: ../../nanc/nanc_icons
-  analytics:
-    path: ../../nanc/analytics
+  nanc_analytics:
+    path: ../../nanc/nanc_analytics
   nanc_configuration:
     path: ../../nanc/nanc_configuration
   nanc_tools:

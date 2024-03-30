@@ -1,4 +1,4 @@
-import 'package:analytics/analytics.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:url_launcher/url_launcher_string.dart';

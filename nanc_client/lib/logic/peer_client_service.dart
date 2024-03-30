@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:analytics/analytics.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
 import 'package:nanc_tools/nanc_tools.dart';

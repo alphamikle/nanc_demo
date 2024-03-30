@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:additions/additions.dart';
-import 'package:analytics/analytics.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -23,8 +23,8 @@ dependencies:
     path: ../components
   additions:
     path: ../additions
-  analytics:
-    path: ../../nanc/analytics
+  nanc_analytics:
+    path: ../../nanc/nanc_analytics
   nanc_fonts:
     path: ../../nanc/nanc_fonts
   nanc_configuration:

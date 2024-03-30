@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:analytics/analytics.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

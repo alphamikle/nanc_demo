@@ -24,8 +24,8 @@ dependencies:
     path: ../additions
   components:
     path: ../components
-  analytics:
-    path: ../../nanc/analytics
+  nanc_analytics:
+    path: ../../nanc/nanc_analytics
   cupertino_icons: ^1.0.5
   nanc_fonts:
     path: ../../nanc/nanc_fonts
