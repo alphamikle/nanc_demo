@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nanc/ui_kit.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nui/nui.dart';
 import 'package:nanc_svg_renderer/nanc_svg_renderer.dart';
 import 'package:nanc_tools/nanc_tools.dart';
+import 'package:nui/nui.dart';
 
 import '../../logic/bloc/page_bloc.dart';
 import '../../logic/bloc/page_state.dart';

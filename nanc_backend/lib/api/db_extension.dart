@@ -4,9 +4,9 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:nanc/model.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart' as pp;
-import 'package:nanc_tools/nanc_tools.dart';
 
 const bool kStreamDataIntoTheFiles = true;
 const String kStreamingDir = String.fromEnvironment('STREAMING_DIR');

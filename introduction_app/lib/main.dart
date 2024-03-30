@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nui/nui.dart';
 import 'package:nanc_svg_renderer/nanc_svg_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'layout.dart';
 

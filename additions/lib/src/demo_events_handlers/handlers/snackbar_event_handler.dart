@@ -1,5 +1,5 @@
-import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc_analytics/nanc_analytics.dart';
 import 'package:nui/nui.dart';
 
 final RegExp _snackBarRegExp = RegExp(r'^snackbar: ?(?<content>.*)$');
