@@ -62,8 +62,11 @@ class PageBloc extends Cubit<PageState> {
 
   Future<Json> preloadDefaultPageData() async {
     final String data = await rootBundle.loadString('assets/landing_page.json');
-    final List<dynamic> parsedData = jsonDecode(data);
-    return castToJson(parsedData.first);
+    final dynamic parsedData = jsonDecode(data);
+    if (parsedData is List<dynamic>) {
+      return castToJson(parsedData.first);
+    }
+    return castToJson(parsedData);
   }
 
   Future<void> preload(String url) async {

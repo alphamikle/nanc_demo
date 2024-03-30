@@ -21,9 +21,8 @@ dependencies:
   carousel_slider: ^4.2.1
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
-  lint:
-    path: ../../nanc/lint
+  nanc_lints:
+    path: ../../nanc/nanc_lints
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

@@ -23,9 +23,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
-  lint:
-    path: ../../nanc/lint
+  nanc_lints:
+    path: ../../nanc/nanc_lints
 
 flutter:
   uses-material-design: true

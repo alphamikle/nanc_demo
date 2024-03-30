@@ -22,9 +22,8 @@ dependencies:
     path: ../../nanc/nanc_icons
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
-  lint:
-    path: ../../nanc/lint
+  nanc_lints:
+    path: ../../nanc/nanc_lints
 
 flutter:
   uses-material-design: true
