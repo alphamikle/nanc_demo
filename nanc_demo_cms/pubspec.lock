@@ -828,13 +828,6 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  nanc_code_text_field:
-    dependency: transitive
-    description:
-      path: "../../nanc/nanc_code_text_field"
-      relative: true
-    source: path
-    version: "0.0.1"
   nanc_configuration:
     dependency: "direct main"
     description:
@@ -863,13 +856,6 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  nanc_renderer:
-    dependency: transitive
-    description:
-      path: "../../nanc/nanc_renderer"
-      relative: true
-    source: path
-    version: "0.0.1"
   nanc_tools:
     dependency: transitive
     description:
@@ -885,6 +871,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  nui:
+    dependency: transitive
+    description:
+      path: "../../nanc/nui"
+      relative: true
+    source: path
+    version: "0.0.1"
   nui_converter:
     dependency: transitive
     description:

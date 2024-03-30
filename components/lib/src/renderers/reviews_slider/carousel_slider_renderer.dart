@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import '../../../components.dart';
 import 'carousel_slider_arguments.dart';

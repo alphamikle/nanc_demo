@@ -30,8 +30,8 @@ dependencies:
     path: ../../nanc/svg_renderer
   nanc_fonts:
     path: ../../nanc/nanc_fonts
-  nanc_renderer:
-    path: ../../nanc/nanc_renderer
+  nui:
+    path: ../../nanc/nui
   ionicons: ^0.2.2
 
 dev_dependencies:

@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
   nanc:
     path: ../../nanc/nanc
-  nanc_renderer:
-    path: ../../nanc/nanc_renderer
+  nui:
+    path: ../../nanc/nui
   nanc_icons:
     path: ../../nanc/nanc_icons
   nanc_analytics:

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 final EventHandler addToCartEventHandler = EventHandler(
   test: (BuildContext context, Event event) => event.event == 'addToCart',

@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  nanc_renderer:
-    path: ../../nanc/nanc_renderer
+  nui:
+    path: ../../nanc/nui
   nanc_fonts:
     path: ../../nanc/nanc_fonts
   nanc_icons:
