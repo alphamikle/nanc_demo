@@ -20,8 +20,8 @@ dependencies:
     path: ../../nanc/analytics
   nanc_configuration:
     path: ../../nanc/nanc_configuration
-  tools:
-    path: ../../nanc/tools
+  nanc_tools:
+    path: ../../nanc/nanc_tools
   url_launcher: ^6.1.11
   share_plus: ^7.0.1
 

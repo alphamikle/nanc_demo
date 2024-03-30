@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 class ReviewsSlider extends StatefulWidget {
   const ReviewsSlider({

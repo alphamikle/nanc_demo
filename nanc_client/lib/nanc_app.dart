@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:nanc/services.dart';
 import 'package:nanc/ui_kit.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 import 'package:vrouter/vrouter.dart';
 
 import 'routing/routes.dart';

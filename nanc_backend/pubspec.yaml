@@ -14,8 +14,8 @@ dependencies:
     path: ../../nanc/nanc
   nanc_webrtc:
     path: ../nanc_webrtc
-  tools:
-    path: ../../nanc/tools
+  nanc_tools:
+    path: ../../nanc/nanc_tools
   nanc_icons:
     path: ../../nanc/nanc_icons
   animation_debugger: ^1.0.0

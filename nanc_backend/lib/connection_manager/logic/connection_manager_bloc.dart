@@ -6,7 +6,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc/model.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import 'connection_manager_state.dart';
 import 'model/client.dart';

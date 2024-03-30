@@ -14,8 +14,8 @@ dependencies:
     path: ../../nanc/nanc_icons
   nanc_renderer:
     path: ../../nanc/nanc_renderer
-  tools:
-    path: ../../nanc/tools
+  nanc_tools:
+    path: ../../nanc/nanc_tools
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
   carousel_slider: ^4.2.1

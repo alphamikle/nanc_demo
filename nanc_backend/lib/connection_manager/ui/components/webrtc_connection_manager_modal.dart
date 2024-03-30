@@ -7,7 +7,7 @@ import 'package:nanc/services.dart';
 import 'package:nanc/ui_kit.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../logic/connection_manager_bloc.dart';
 import '../../logic/connection_manager_state.dart';

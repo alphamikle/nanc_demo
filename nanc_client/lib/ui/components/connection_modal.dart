@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:nanc/ui_kit.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../../logic/bloc/page_bloc.dart';
 import '../../logic/bloc/page_state.dart';

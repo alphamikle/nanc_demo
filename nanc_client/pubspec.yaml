@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
   nanc_webrtc:
     path: ../nanc_webrtc
-  tools:
-    path: ../../nanc/tools
+  nanc_tools:
+    path: ../../nanc/nanc_tools
   nanc:
     path: ../../nanc/nanc
   nanc_renderer:

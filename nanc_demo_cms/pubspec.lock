@@ -870,6 +870,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  nanc_tools:
+    dependency: transitive
+    description:
+      path: "../../nanc/nanc_tools"
+      relative: true
+    source: path
+    version: "0.0.1"
   nested:
     dependency: transitive
     description:
@@ -1306,13 +1313,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.1"
-  tools:
-    dependency: transitive
-    description:
-      path: "../../nanc/tools"
-      relative: true
-    source: path
-    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:

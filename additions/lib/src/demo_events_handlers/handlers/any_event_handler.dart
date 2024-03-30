@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 final EventHandler anyEventHandler = EventHandler(
   test: (BuildContext context, Event event) => true,

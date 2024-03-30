@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tools:
-    path: ../../nanc/tools
+  nanc_tools:
+    path: ../../nanc/nanc_tools
   dio: ^5.1.2
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2

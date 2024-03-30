@@ -7,7 +7,7 @@ import 'package:nanc/services.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 import 'package:nanc_api_local/nanc_api_local.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import 'api/proxy_collection_api.dart';
 import 'data/age_ratings.dart';

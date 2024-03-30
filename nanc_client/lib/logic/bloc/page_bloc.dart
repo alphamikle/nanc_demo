@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:nanc/ui_kit.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 import '../peer_client_service.dart';
 import 'page_state.dart';
