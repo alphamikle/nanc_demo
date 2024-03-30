@@ -29,8 +29,8 @@ dependencies:
     path: ../../nanc/nanc_fonts
   nanc_configuration:
     path: ../../nanc/nanc_configuration
-  svg_renderer:
-    path: ../../nanc/svg_renderer
+  nanc_svg_renderer:
+    path: ../../nanc/nanc_svg_renderer
   cupertino_icons: ^1.0.5
   pretty_qr_code: ^2.0.3
   bloc: ^8.1.2

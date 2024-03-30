@@ -9,7 +9,7 @@ import 'package:nanc/services.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_fonts/nanc_fonts.dart';
-import 'package:svg_renderer/svg_renderer.dart';
+import 'package:nanc_svg_renderer/nanc_svg_renderer.dart';
 
 import 'logic/add_to_cart_event_handler.dart';
 import 'models/age_rating_model.dart';

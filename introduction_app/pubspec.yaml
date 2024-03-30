@@ -16,8 +16,8 @@ dependencies:
     path: ../../nanc/nanc_fonts
   nanc_icons:
     path: ../../nanc/nanc_icons
-  svg_renderer:
-    path: ../../nanc/svg_renderer
+  nanc_svg_renderer:
+    path: ../../nanc/nanc_svg_renderer
   ionicons: ^0.2.2
 
 dev_dependencies:
