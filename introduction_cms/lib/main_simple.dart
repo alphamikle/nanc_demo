@@ -12,7 +12,6 @@ Future<void> main() async {
 
     await adminRunner(
       CmsConfig(
-        /// ? Use them here
         collectionApi: LocalCollectionApi(),
         documentApi: LocalDocumentApi(),
         modelApi: LocalModelApi(),
