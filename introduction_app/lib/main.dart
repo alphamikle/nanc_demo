@@ -18,6 +18,16 @@ void main() {
     ],
   );
 
+  /*
+  Originally, there are a map of strings, but String-value is an encoded character number from the icon font
+
+  const ioniconsMapping = {
+    "accessibility-outline": "0xea01",
+    "accessibility-sharp": "0xea02",
+    "accessibility": "0xea03",
+    ...
+  };
+   */
   final Map<String, IconData> customIcons = ioniconsMapping.map(
     (String key, String value) => MapEntry(
       'ionic_${key.replaceAll('-', '_')}',

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nanc/nanc.dart';
 import 'package:nanc/services.dart';
+import 'package:nanc_api_local/nanc_api_local.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
 
 Future<void> main() async {
@@ -11,9 +12,12 @@ Future<void> main() async {
 
     await adminRunner(
       CmsConfig(
-        collectionApi: ICollectionApi(),
-        documentApi: IDocumentApi(),
-        modelApi: IModelApi(),
+        collectionApi: LocalCollectionApi(),
+        documentApi: LocalDocumentApi(),
+        modelApi: LocalModelApi(),
+        // collectionApi: ICollectionApi(),
+        // documentApi: IDocumentApi(),
+        // modelApi: IModelApi(),
         networkConfig: NetworkConfig(
           paginationPageNumberParameterName: 'page',
           paginationLimitParameterName: 'limit',
