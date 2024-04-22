@@ -886,10 +886,10 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  nanc_svg_renderer:
+  nui_svg_renderer:
     dependency: "direct main"
     description:
-      path: "../../nanc/nanc_svg_renderer"
+      path: "../../nanc/nui_svg_renderer"
       relative: true
     source: path
     version: "0.0.1"

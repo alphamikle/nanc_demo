@@ -8,9 +8,9 @@ import 'package:nanc/nanc.dart';
 import 'package:nanc/services.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_fonts/nanc_fonts.dart';
-import 'package:nanc_svg_renderer/nanc_svg_renderer.dart';
 import 'package:nanc_tools/nanc_tools.dart';
 import 'package:nanc_webrtc/nanc_webrtc.dart';
+import 'package:nui_svg_renderer/nui_svg_renderer.dart';
 
 import 'api/page_api_implementation.dart';
 import 'api/page_list_api_implementation.dart';
