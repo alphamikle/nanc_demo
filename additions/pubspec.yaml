@@ -10,23 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc:
-    path: ../../nanc/nanc
-  nui:
-    path: ../../nanc/nui
-  nanc_icons:
-    path: ../../nanc/nanc_icons
-  nanc_analytics:
-    path: ../../nanc/nanc_analytics
-  nanc_configuration:
-    path: ../../nanc/nanc_configuration
-  nanc_tools:
-    path: ../../nanc/nanc_tools
+  nanc: ^0.0.3
+  nui: ^0.0.2
+  nanc_icons: ^0.0.1
+  nanc_analytics: ^0.0.1
+  nanc_configuration: ^0.0.1
+  nanc_tools: ^0.0.2
   url_launcher: ^6.1.11
   share_plus: ^7.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../../nanc/nanc_lints
+  nanc_lints: ^1.0.0

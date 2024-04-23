@@ -3,7 +3,7 @@ description: This package add you ability to easily create any md-tags and conve
 version: 1.0.0
 verified publisher:
   - alphamikle@gmail.com
-homepage: client.nanc.io
+homepage: mobile.nanc.io
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -18,8 +18,6 @@ dev_dependencies:
     sdk: flutter
   args: ^2.3.2
   path: ^1.8.2
-  flutter_lints: ^2.0.1
-  nanc_lints:
-    path: ../nanc/nanc_lints
+  nanc_lints: ^1.0.0
 
 flutter:

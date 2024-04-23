@@ -10,19 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_icons:
-    path: ../../nanc/nanc_icons
-  nui:
-    path: ../../nanc/nui
-  nanc_tools:
-    path: ../../nanc/nanc_tools
+  nanc_icons: ^0.0.1
+  nui: ^0.0.2
+  nanc_tools: ^0.0.2
   json_annotation: ^4.8.1
   copy_with_extension: ^5.0.2
   carousel_slider: ^4.2.1
 
 dev_dependencies:
-  nanc_lints:
-    path: ../../nanc/nanc_lints
+  nanc_lints: ^1.0.0
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

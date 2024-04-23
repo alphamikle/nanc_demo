@@ -10,27 +10,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc:
-    path: ../../nanc/nanc
+  nanc: ^0.0.3
   nanc_webrtc:
     path: ../nanc_webrtc
-  nanc_tools:
-    path: ../../nanc/nanc_tools
-  nanc_icons:
-    path: ../../nanc/nanc_icons
+  nanc_tools: ^0.0.2
+  nanc_icons: ^0.0.1
   animation_debugger: ^1.0.0
   components:
     path: ../components
   additions:
     path: ../additions
-  nanc_analytics:
-    path: ../../nanc/nanc_analytics
-  nanc_fonts:
-    path: ../../nanc/nanc_fonts
-  nanc_configuration:
-    path: ../../nanc/nanc_configuration
-  nui_svg_renderer:
-    path: ../../nanc/nui_svg_renderer
+  nanc_analytics: ^0.0.1
+  nanc_fonts: ^0.0.1
+  nanc_configuration: ^0.0.1
+  nui_svg_renderer: ^1.0.0
   cupertino_icons: ^1.0.5
   pretty_qr_code: ^2.0.3
   bloc: ^8.1.2
@@ -45,8 +38,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../../nanc/nanc_lints
+  nanc_lints: ^1.0.0
   json_serializable: ^6.7.0
   copy_with_extension_gen: ^5.0.2
   build_runner: ^2.4.4

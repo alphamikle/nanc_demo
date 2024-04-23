@@ -10,35 +10,24 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  nanc:
-    path: ../../nanc/nanc
-  nanc_configuration:
-    path: ../../nanc/nanc_configuration
-  nanc_api_local:
-    path: ../../nanc/nanc_api_local
-  nanc_api_firebase:
-    path: ../../nanc/nanc_api_firebase
-  nanc_api_supabase:
-    path: ../../nanc/nanc_api_supabase
+  nanc: ^0.0.3
+  nanc_configuration: ^0.0.1
+  nanc_api_local: ^1.0.1
+  nanc_api_firebase: ^1.0.0
+  nanc_api_supabase: ^1.0.0
   additions:
     path: ../additions
-  nanc_tools:
-    path: ../../nanc/nanc_tools
-  nanc_icons:
-    path: ../../nanc/nanc_icons
-  nui_svg_renderer:
-    path: ../../nanc/nui_svg_renderer
-  nanc_fonts:
-    path: ../../nanc/nanc_fonts
-  nui:
-    path: ../../nanc/nui
+  nanc_tools: ^0.0.2
+  nanc_icons: ^0.0.1
+  nui_svg_renderer: ^1.0.0
+  nanc_fonts: ^0.0.1
+  nui: ^0.0.2
   ionicons: ^0.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../../nanc/nanc_lints
+  nanc_lints: ^1.0.0
 
 flutter:
   uses-material-design: true

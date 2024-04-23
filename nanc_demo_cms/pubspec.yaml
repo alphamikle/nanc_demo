@@ -10,21 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc:
-    path: ../../nanc/nanc
-  nanc_api_supabase:
-    path: ../../nanc/nanc_api_supabase
-  nanc_api_firebase:
-    path: ../../nanc/nanc_api_firebase
-  nanc_configuration:
-    path: ../../nanc/nanc_configuration
-  nanc_icons:
-    path: ../../nanc/nanc_icons
-
+  nanc: ^0.0.3
+  nanc_api_supabase: ^1.0.0
+  nanc_api_firebase: ^1.0.0
+  nanc_configuration: ^0.0.1
+  nanc_icons: ^0.0.1
   firebase_core: any
+
 dev_dependencies:
-  nanc_lints:
-    path: ../../nanc/nanc_lints
+  nanc_lints: ^1.0.0
 
 flutter:
   uses-material-design: true

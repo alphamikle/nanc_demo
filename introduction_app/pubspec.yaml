@@ -10,21 +10,16 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  nui:
-    path: ../../nanc/nui
-  nanc_fonts:
-    path: ../../nanc/nanc_fonts
-  nanc_icons:
-    path: ../../nanc/nanc_icons
-  nui_svg_renderer:
-    path: ../../nanc/nui_svg_renderer
+  nui: ^0.0.2
+  nanc_fonts: ^0.0.1
+  nanc_icons: ^0.0.1
+  nui_svg_renderer: ^1.0.0
   ionicons: ^0.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  nanc_lints:
-    path: ../../nanc/nanc_lints
+  nanc_lints: ^1.0.0
 
 flutter:
   uses-material-design: true
