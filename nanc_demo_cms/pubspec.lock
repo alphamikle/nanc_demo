@@ -795,74 +795,65 @@ packages:
   nanc:
     dependency: "direct main"
     description:
-      name: nanc
-      sha256: "2760154c6ce99e7f5028960b7189f122f0f45ec3ff19c62ee41af3acbd78020e"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc"
+      relative: true
+    source: path
     version: "0.0.3"
   nanc_analytics:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nanc_analytics
-      sha256: "6f97a1c922f8bf54fd29a721ed4f2ea0c0db034f0d3db8177ac335d57951474d"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_analytics"
+      relative: true
+    source: path
     version: "0.0.1"
   nanc_api_firebase:
     dependency: "direct main"
     description:
-      name: nanc_api_firebase
-      sha256: "7886f75e68cea7bc72cb0ca5ac213751ada61d831d283d4491ab0d6ccd2d0f82"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_api_firebase"
+      relative: true
+    source: path
     version: "1.0.0"
   nanc_api_supabase:
     dependency: "direct main"
     description:
-      name: nanc_api_supabase
-      sha256: "7489b0899b4a46fb11b1b4e6fd0deff78874b1c156ff3f64b6bb9f32640506c5"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_api_supabase"
+      relative: true
+    source: path
     version: "1.0.0"
   nanc_configuration:
     dependency: "direct main"
     description:
-      name: nanc_configuration
-      sha256: "6e59dd238b3a6e9389bd21b6765f82b1d3b79927c6b4e005af39bd9ce3c98f54"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_configuration"
+      relative: true
+    source: path
     version: "0.0.1"
   nanc_fonts:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nanc_fonts
-      sha256: "6f6d3458f8c97cb68c53cf06150cd0f31c6e92b397d52369bf4a9ca908b42d55"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_fonts"
+      relative: true
+    source: path
     version: "0.0.1"
   nanc_icons:
     dependency: "direct main"
     description:
-      name: nanc_icons
-      sha256: "58341d250bfd5c7fc86103797422e046cccf4cff5fbc14ae603195a08499eb42"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_icons"
+      relative: true
+    source: path
     version: "0.0.1"
   nanc_lints:
     dependency: "direct dev"
     description:
-      name: nanc_lints
-      sha256: "591047ee10c145beff4f2e4e5a9c34657e1a0b3c84e349b269cf165d656afb46"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_lints"
+      relative: true
+    source: path
     version: "1.0.0"
   nanc_tools:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nanc_tools
-      sha256: "8564e60ab6e8568f727d44c9f0006b201d3197675c351193a8ca9adf44e28911"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nanc_tools"
+      relative: true
+    source: path
     version: "0.0.2"
   nested:
     dependency: transitive
@@ -873,20 +864,18 @@ packages:
     source: hosted
     version: "1.0.0"
   nui:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nui
-      sha256: e58bb6cfcd31372afc4a1328c041523f32f96764f4d104e3a949dc01e3870761
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nui"
+      relative: true
+    source: path
     version: "0.0.2"
   nui_converter:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: nui_converter
-      sha256: e8a46138d16cd491993bcf257340697555c1509edd2b51c0b9cb82e03d1cd260
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../nanc/nui_converter"
+      relative: true
+    source: path
     version: "0.0.1"
   octo_image:
     dependency: transitive
