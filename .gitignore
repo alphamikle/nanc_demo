@@ -4,3 +4,4 @@
 .flutter-plugins-dependencies
 Podfile
 Podfile.lock
+pubspec.lock

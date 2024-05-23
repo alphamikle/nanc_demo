@@ -1,39 +1,25 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 import 'package:nanc_fonts/nanc_fonts.dart';
 import 'package:nanc_tools/nanc_tools.dart';
 import 'package:nui/nui.dart';
 import 'package:nui_svg_renderer/nui_svg_renderer.dart';
 
-import 'src/nalmart_ui/nalmart_native_short_widget.dart';
-import 'src/nalmart_ui/nalmart_native_widget.dart';
-import 'src/nalmart_ui/native_grid.dart';
-import 'src/nalmart_ui/nui_grid.dart';
-import 'test_tools.dart';
-
-const int iterations = 50;
-
-bool get noCacheExtent => false;
-
-const String xmlId = 'Time to handle XML';
-const String jsonId = 'Time to handle JSON';
-const String protoId = 'Time to handle Protobuf';
-
-Stopwatch stopwatch = Stopwatch();
-Completer<int>? uiTimeCompleter;
-
-void visibilityHandler(BuildContext context, Event event) {
-  // print('Time to show: ${stopwatch.elapsedMicroseconds} microseconds');
-  if (uiTimeCompleter != null) {
-    uiTimeCompleter!.complete(stopwatch.elapsedMicroseconds);
-    uiTimeCompleter = null;
-  }
-  stopwatch.stop();
-  stopwatch.reset();
-}
+import 'src/domain/nalmart/logic/bloc/native_bloc.dart';
+import 'src/domain/nalmart/logic/data/page_data.dart';
+import 'src/domain/nalmart/logic/service/serialization_tests.dart';
+import 'src/domain/nalmart/logic/service/test_config.dart';
+import 'src/domain/nalmart/logic/service/ui_tests.dart';
+import 'src/domain/nalmart/ui/component/header_text.dart';
+import 'src/domain/nalmart/ui/component/test_case.dart';
+import 'src/domain/nalmart/ui/view/nalmart_native_short_view.dart';
+import 'src/domain/nalmart/ui/view/nalmart_native_view.dart';
+import 'src/service/test_tools.dart';
+import 'src/service/tools.dart';
 
 void main() {
   FontsStorage.registerCustomFonts(
@@ -43,7 +29,22 @@ void main() {
       const CustomFont(font: 'Helvetica Neue'),
     ],
   );
-  runApp(const MyApp());
+  final DataStorage dataStorage = DataStorage(
+    data: {
+      'ads': [...ads],
+      'order': castToJson(deepClone(pageContext.find<Json>('order'))),
+    },
+  );
+
+  runApp(
+    DataStorageProvider(
+      dataStorage: dataStorage,
+      child: BlocProvider<NativeBloc>(
+        create: (BuildContext context) => NativeBloc(dataStorage: dataStorage),
+        child: const MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -51,21 +52,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EventDelegate(
-      handlers: [
-        EventHandler(
-          test: (BuildContext context, Event event) => event.event == 'created',
-          handler: visibilityHandler,
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Nui App - Performance test',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const MyHomePage(title: 'Nui Demo App'),
+    return MaterialApp(
+      title: 'Nui App - Performance test',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      home: const MyHomePage(title: 'Nui Demo App'),
     );
   }
 }
@@ -83,68 +76,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Widget? nuiWidget;
+  late final SerializationTests serializationTests = SerializationTests();
+  late final UiTests uiTests = UiTests(context: context, onWidgetUpdate: onTestViewCreated);
 
-  /// All tests were made on the Galaxy S24 Ultra
-  /// Average time: 883 microseconds
-  /// Median time: 825 microseconds
-  /// 95 percentile time: 997 microseconds
-  Future<void> runXmlTests() async {
-    final String xmlSource = await readFileAsString('nalmart_ui_code.html');
-
-    final Metrics metrics = runExperiments(
-      id: xmlId,
-      iterations: iterations,
-      action: ([_]) => TagsConverter.fromXml(xmlSource),
-    );
-
-    printMetrics(xmlId, metrics);
-  }
-
-  /// Average time: 393 microseconds
-  /// Median time: 373 microseconds
-  /// 95 percentile time: 500 microseconds
-  Future<void> runJsonTests() async {
-    final String jsonSource = await readFileAsString('nalmart_ui_code.json');
-    final dynamic parsedJson = jsonDecode(jsonSource);
-
-    final Metrics metrics = runExperiments(
-      id: jsonId,
-      iterations: iterations,
-      action: ([_]) => TagsConverter.fromJson(parsedJson),
-    );
-
-    printMetrics(jsonId, metrics);
-  }
-
-  /// Average time: 704 microseconds
-  /// Median time: 648 microseconds
-  /// 95 percentile time: 851 microseconds
-  Future<void> runJsonRawTests() async {
-    final String jsonSource = await readFileAsString('nalmart_ui_code.json');
-
-    final Metrics metrics = runExperiments(
-      id: jsonId,
-      iterations: iterations,
-      action: ([_]) => TagsConverter.fromJson(jsonDecode(jsonSource)),
-    );
-
-    printMetrics(jsonId, metrics);
-  }
-
-  /// Average time: 599 microseconds
-  /// Median time: 559 microseconds
-  /// 95 percentile time: 772 microseconds
-  Future<void> runProtobufTests() async {
-    final Uint8List protobufSource = await readFileAsBytes('nalmart_ui_code.pb');
-
-    final Metrics metrics = runExperiments(
-      id: protoId,
-      iterations: iterations,
-      action: ([_]) => TagsConverter.fromBinary(protobufSource),
-    );
-
-    printMetrics(protoId, metrics);
+  void onTestViewCreated(Widget? child) {
+    final NavigatorState navigator = context.navigator;
+    if (child == null) {
+      navigator.pop();
+    } else {
+      unawaited(
+        navigator.push(
+          CupertinoPageRoute<void>(
+            builder: (BuildContext context) => Scaffold(body: child),
+          ),
+        ),
+      );
+    }
   }
 
   Future<void> showUI({required BuildContext context, bool showNativeUi = false, bool short = false, bool long = false}) async {
@@ -157,287 +104,158 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (context.mounted) {
       if (showNativeUi) {
-        nuiWidget = short
-            ? NalmartNativeShortWidget(
-                onShow: () => visibilityHandler(context, Event(event: 'created')),
-              )
-            : NalmartNativeWidget(
-                isLong: long,
-                noCacheExtent: noCacheExtent,
-                onShow: () => visibilityHandler(context, Event(event: 'created')),
-              );
+        onTestViewCreated(short ? const NalmartNativeShortWidget() : NalmartNativeView(isLong: long));
       } else {
-        nuiWidget = NuiListWidget.nodes(
-          cacheExtent: noCacheExtent ? 0 : null,
-          nodes: nodes,
-          renderers: [
-            svgRenderer(),
-          ],
-          pageData: contextJson,
+        onTestViewCreated(
+          NuiListWidget.nodes(
+            nodes: nodes,
+            renderers: [
+              svgRenderer(),
+            ],
+            pageData: contextJson,
+          ),
         );
       }
     }
 
     setState(() {});
-    stopwatch.reset();
-    stopwatch.start();
 
-    unawaited(Future<void>.delayed(const Duration(seconds: 30), () => setState(() => nuiWidget = null)));
+    unawaited(Future<void>.delayed(realTimeTestDuration, () => onTestViewCreated(null)));
   }
 
-  Future<Metrics> runUITest<T>({required String id, required WidgetBuilder builder}) async {
-    final List<int> timings = [];
+  Future<void> runAllTestCases() async {
+    final (String, String) parsingMetrics = await runTestActions(context, [
+      serializationTests.runXmlTests,
+      serializationTests.runJsonTests,
+      serializationTests.runJsonRawTests,
+      serializationTests.runProtobufTests,
+    ]);
 
-    for (int i = 0; i < iterations; i++) {
-      print('$id Iteration: ${i + 1} of $iterations');
-      uiTimeCompleter = Completer();
-      stopwatch.start();
-      setState(() {
-        nuiWidget = builder(context);
-      });
-      final int time = await uiTimeCompleter!.future;
-      timings.add(time);
-      await wait(duration: const Duration(milliseconds: 800));
-      setState(() {
-        nuiWidget = null;
-      });
-      await wait(duration: const Duration(milliseconds: 800));
-    }
+    final (String, String) initialRenderingMetrics = await runTestActions(context, [
+      uiTests.runNuiInitialRenderingPerformanceTest,
+      uiTests.runNativeInitialRenderingPerformanceTest,
+      uiTests.runNuiNoCacheInitialRenderingPerformanceTest,
+      uiTests.runNativeNoCacheInitialRenderingPerformanceTest,
+      uiTests.runNuiShortViewInitialRenderingPerformanceTest,
+      uiTests.runNativeShortViewInitialRenderingPerformanceTest,
+      uiTests.runNuiLargeViewRenderingPerformanceTest,
+      uiTests.runNativeLargeViewRenderingPerformanceTest,
+      uiTests.runNuiAltPerformanceTest,
+      uiTests.runNativeAltPerformanceTest,
+    ]);
 
-    return calculateMetrics(timings);
-  }
+    final (String, String) changingUiRenderingMetrics = await runTestActions(context, [
+      uiTests.runNativeBlocPerformanceTest,
+      uiTests.runHybridBlocPerformanceTest,
+      uiTests.runNuiBlocPerformanceTest,
+    ]);
 
-  /// ? Full layout:
-  /// Nui:
-  /// Average time: 77601 microseconds
-  /// Median time: 79527 microseconds
-  /// 95 percentile time: 86733 microseconds
-  ///
-  /// Native:
-  /// Average time: 34853 microseconds
-  /// Median time: 38069 microseconds
-  /// 95 percentile time: 43318 microseconds
-  ///
-  /// ? Short layout:
-  /// Nui:
-  /// Average time: 41278 microseconds
-  /// Median time: 40591 microseconds
-  /// 95 percentile time: 48907 microseconds
-  ///
-  /// Native:
-  /// Average time: 21674 microseconds
-  /// Median time: 22146 microseconds
-  /// 95 percentile time: 27990 microseconds
-  ///
-  /// ? Full layout, cacheExtent = 0:
-  /// Nui:
-  /// Average time: 54829 microseconds
-  /// Median time: 54490 microseconds
-  /// 95 percentile time: 63474 microseconds
-  ///
-  /// Native:
-  /// Average time: 21518 microseconds
-  /// Median time: 22014 microseconds
-  /// 95 percentile time: 27241 microseconds
-  ///
-  /// ? Long layout
-  /// Nui:
-  /// Average time: 105502 microseconds
-  /// Median time: 105821 microseconds
-  /// 95 percentile time: 111697 microseconds
-  ///
-  /// Native:
-  /// Average time: 34484 microseconds
-  /// Median time: 33841 microseconds
-  /// 95 percentile time: 43760 microseconds
-  Future<void> runUITests({bool short = false, bool long = false}) async {
-    assert(short == false || long == false);
-
-    final String xmlSource = await readFileAsString('nalmart_ui_code${short ? '_short' : ''}${long ? '_long' : ''}.html');
-    final String rawContextJson = await readFileAsString('nalmart_context_data.json');
-    final Json contextJson = castToJson(jsonDecode(rawContextJson));
-    final List<TagNode> nodes = TagsConverter.fromXml(xmlSource);
-
-    final Metrics nuiMetrics = await runUITest<void>(
-      id: 'Nui',
-      builder: (BuildContext context) => NuiListWidget.nodes(
-        cacheExtent: noCacheExtent ? 0 : null,
-        nodes: nodes,
-        renderers: [
-          svgRenderer(),
-        ],
-        pageData: contextJson,
-      ),
-    );
-
-    final Metrics nativeMetrics = await runUITest<void>(
-      id: 'Native',
-      builder: (BuildContext context) => short
-          ? NalmartNativeShortWidget(
-              onShow: () => visibilityHandler(context, Event(event: 'created')),
-            )
-          : NalmartNativeWidget(
-              isLong: long,
-              noCacheExtent: noCacheExtent,
-              onShow: () => visibilityHandler(context, Event(event: 'created')),
-            ),
-    );
-
-    printMetrics('Nui', nuiMetrics);
-    printMetrics('Native', nativeMetrics);
-  }
-
-  /// ? Nui:
-  /// All:
-  /// Average time: 29366 microseconds
-  /// Median time: 29353 microseconds
-  /// 95 percentile time: 35388 microseconds
-  ///
-  /// -1:
-  /// Average time: 27867 microseconds
-  /// Median time: 28057 microseconds
-  /// 95 percentile time: 35731 microseconds
-  ///
-  /// -2:
-  /// Average time: 26119 microseconds
-  /// Median time: 26843 microseconds
-  /// 95 percentile time: 32489 microseconds
-  ///
-  /// -3:
-  /// Average time: 25473 microseconds
-  /// Median time: 26722 microseconds
-  /// 95 percentile time: 28563 microseconds
-  ///
-  /// -4:
-  /// Average time: 23651 microseconds
-  /// Median time: 24195 microseconds
-  /// 95 percentile time: 29623 microseconds
-  ///
-  /// -5:
-  /// Average time: 22973 microseconds
-  /// Median time: 22336 microseconds
-  /// 95 percentile time: 30151 microseconds
-  ///
-  /// -6:
-  /// Average time: 22745 microseconds
-  /// Median time: 21373 microseconds
-  /// 95 percentile time: 30100 microseconds
-  ///
-  /// ? Native:
-  /// Average time: 19553 microseconds
-  /// Median time: 19915 microseconds
-  /// 95 percentile time: 24993 microseconds
-  Future<void> runUITestsAlt() async {
-    final Set<int> nativeIndexes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-    for (int i = 11; i < 20; i++) {
-      nativeIndexes.add(i);
-      final Metrics nuiMetrics = await runUITest<void>(
-        id: 'Nui',
-        builder: (BuildContext context) => NuiGrid(
-          onShow: () => visibilityHandler(
-            context,
-            Event(event: 'created'),
-          ),
-        ),
-      );
-
-      setState(() {
-        nuiWidget = null;
-      });
-
-      printMetrics('Nui with ${i + 1} first native elements', nuiMetrics);
-    }
-
-    await wait(duration: const Duration(seconds: 1));
-
-    final Metrics nativeMetrics = await runUITest<void>(
-      id: 'Native',
-      builder: (BuildContext context) => NativeGrid(
-        onShow: () => visibilityHandler(
-          context,
-          Event(event: 'created'),
-        ),
-      ),
-    );
-
-    setState(() {
-      nuiWidget = null;
-    });
-
-    printMetrics('Native', nativeMetrics);
+    copy([
+      parsingMetrics.$1,
+      initialRenderingMetrics.$1,
+      changingUiRenderingMetrics.$1,
+      '\n\n\n',
+      parsingMetrics.$2,
+      initialRenderingMetrics.$2,
+      changingUiRenderingMetrics.$2,
+    ].join('\n\n\n'));
   }
 
   @override
   Widget build(BuildContext context) {
-    if (nuiWidget != null) {
-      return DataStorageProvider(
-        dataStorage: DataStorage(),
-        child: Scaffold(
-          body: nuiWidget,
+    return PopScope(
+      canPop: context.navigator.canPop(),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
         ),
-      );
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextButton(
-              onPressed: runXmlTests,
-              child: const Text('Run XML Tests'),
-            ),
-            TextButton(
-              onPressed: runJsonTests,
-              child: const Text('Run JSON Tests'),
-            ),
-            TextButton(
-              onPressed: runJsonRawTests,
-              child: const Text('Run JSON (raw) Tests'),
-            ),
-            TextButton(
-              onPressed: runProtobufTests,
-              child: const Text('Run Protobuf Tests'),
-            ),
-            TextButton(
-              onPressed: () async => showUI(context: context),
-              child: const Text('Show Nui'),
-            ),
-            TextButton(
-              onPressed: () async => showUI(context: context, showNativeUi: true),
-              child: const Text('Show Native UI'),
-            ),
-            TextButton(
-              onPressed: () async => showUI(context: context, long: true),
-              child: const Text('Show Nui (long)'),
-            ),
-            TextButton(
-              onPressed: () async => showUI(context: context, showNativeUi: true, long: true),
-              child: const Text('Show Native UI (long)'),
-            ),
-            TextButton(
-              onPressed: () async => runUITests(),
-              child: const Text('Run UI Tests'),
-            ),
-            TextButton(
-              onPressed: () async => runUITests(short: true),
-              child: const Text('Run UI Tests (short)'),
-            ),
-            TextButton(
-              onPressed: () async => runUITests(long: true),
-              child: const Text('Run UI Tests (long)'),
-            ),
-            TextButton(
-              onPressed: () async => runUITestsAlt(),
-              child: const Text('Run UI Tests (Alt)'),
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.only(left: 4, right: 4),
+          child: ListView(
+            children: [
+              const HeaderText(text: 'All test cases'),
+              TestCase(title: 'Run all test cases', onPressed: runAllTestCases),
+              const HeaderText(text: 'Serialization'),
+              TestCase(title: 'XML', onPressed: serializationTests.runXmlTests),
+              TestCase(title: 'JSON', onPressed: serializationTests.runJsonTests),
+              TestCase(title: 'RAW JSON', onPressed: serializationTests.runJsonRawTests),
+              TestCase(title: 'Protobuf', onPressed: serializationTests.runProtobufTests),
+              const Divider(),
+              const HeaderText(text: 'Demonstration'),
+              TestCase(title: 'Screens comparison', onPressed: uiTests.compareScreens),
+              TestCases(
+                cases: [
+                  ('Nui View', () async => showUI(context: context)),
+                  ('Native View', () async => showUI(context: context, showNativeUi: true)),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('Long Nui View', () async => showUI(context: context, long: true)),
+                  ('Long Native View', () async => showUI(context: context, showNativeUi: true, long: true)),
+                ],
+              ),
+              const Divider(),
+              const HeaderText(text: 'Simple UI tests'),
+              TestCases(
+                cases: [
+                  ('Default render Nui', uiTests.runNuiInitialRenderingPerformanceTest),
+                  ('Default render Native', uiTests.runNativeInitialRenderingPerformanceTest),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('No cache render Nui', uiTests.runNuiNoCacheInitialRenderingPerformanceTest),
+                  ('No cache render Native', uiTests.runNativeNoCacheInitialRenderingPerformanceTest),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('Short render Nui', uiTests.runNuiShortViewInitialRenderingPerformanceTest),
+                  ('Short render Native', uiTests.runNativeShortViewInitialRenderingPerformanceTest),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('Long render Nui', uiTests.runNuiLargeViewRenderingPerformanceTest),
+                  ('Long render Native', uiTests.runNativeLargeViewRenderingPerformanceTest),
+                ],
+              ),
+              const Divider(),
+              const HeaderText(text: 'Hybrid vs Native Cards'),
+              TestCases(
+                cases: [
+                  ('Hybrid Cards: 0', () async => uiTests.runNuiAltPerformanceTest()),
+                  ('Hybrid Cards: 1', () async => uiTests.runNuiAltPerformanceTest(nativeCount: 1)),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('Hybrid Cards: 2', () async => uiTests.runNuiAltPerformanceTest(nativeCount: 2)),
+                  ('Hybrid Cards: 3', () async => uiTests.runNuiAltPerformanceTest(nativeCount: 3)),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('Hybrid Cards: 4', () async => uiTests.runNuiAltPerformanceTest(nativeCount: 4)),
+                  ('Hybrid Cards: 5', () async => uiTests.runNuiAltPerformanceTest(nativeCount: 5)),
+                ],
+              ),
+              TestCases(
+                cases: [
+                  ('Hybrid Cards: 6', () async => uiTests.runNuiAltPerformanceTest(nativeCount: 6)),
+                  ('Native Cards', () async => uiTests.runNativeAltPerformanceTest()),
+                ],
+              ),
+              const Divider(),
+              const HeaderText(text: 'Bloc UI tests'),
+              TestCase(title: 'Bloc Tests: Native', onPressed: uiTests.runNativeBlocPerformanceTest),
+              TestCase(title: 'Bloc Tests: Hybrid', onPressed: uiTests.runHybridBlocPerformanceTest),
+              TestCase(title: 'Bloc Tests: Nui', onPressed: uiTests.runNuiBlocPerformanceTest),
+            ],
+          ),
         ),
       ),
     );

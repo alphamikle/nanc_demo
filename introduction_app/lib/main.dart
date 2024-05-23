@@ -6,7 +6,7 @@ import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nui/nui.dart';
 import 'package:nui_svg_renderer/nui_svg_renderer.dart';
 
-import 'layout.dart';
+import 'src/domain/nalmart/logic/data/layout.dart';
 
 void main() {
   FontsStorage.registerCustomFonts(
