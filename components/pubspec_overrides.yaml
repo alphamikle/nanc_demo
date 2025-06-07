@@ -1,0 +1,16 @@
+# melos_managed_dependency_overrides: nanc_configuration,nanc_fonts,nanc_icons,nanc_lints,nanc_tools,nui,nui_converter
+dependency_overrides:
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
+  nanc_fonts:
+    path: ../../nanc/nanc_fonts
+  nanc_icons:
+    path: ../../nanc/nanc_icons
+  nanc_lints:
+    path: ../../nanc/nanc_lints
+  nanc_tools:
+    path: ../../nanc/nanc_tools
+  nui:
+    path: ../../nanc/nui
+  nui_converter:
+    path: ../../nanc/nui_converter

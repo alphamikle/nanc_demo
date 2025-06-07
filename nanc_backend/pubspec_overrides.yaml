@@ -1,0 +1,28 @@
+# melos_managed_dependency_overrides: additions,components,nanc,nanc_analytics,nanc_configuration,nanc_fonts,nanc_icons,nanc_lints,nanc_tools,nanc_webrtc,nui,nui_converter,nui_svg_renderer
+dependency_overrides:
+  additions:
+    path: ../additions
+  components:
+    path: ../components
+  nanc:
+    path: ../../nanc/nanc
+  nanc_analytics:
+    path: ../../nanc/nanc_analytics
+  nanc_configuration:
+    path: ../../nanc/nanc_configuration
+  nanc_fonts:
+    path: ../../nanc/nanc_fonts
+  nanc_icons:
+    path: ../../nanc/nanc_icons
+  nanc_lints:
+    path: ../../nanc/nanc_lints
+  nanc_tools:
+    path: ../../nanc/nanc_tools
+  nanc_webrtc:
+    path: ../nanc_webrtc
+  nui:
+    path: ../../nanc/nui
+  nui_converter:
+    path: ../../nanc/nui_converter
+  nui_svg_renderer:
+    path: ../../nanc/nui_svg_renderer

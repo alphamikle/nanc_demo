@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: nanc_lints,nanc_tools
+dependency_overrides:
+  nanc_lints:
+    path: ../../nanc/nanc_lints
+  nanc_tools:
+    path: ../../nanc/nanc_tools
