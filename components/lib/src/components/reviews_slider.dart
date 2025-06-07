@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel;
 import 'package:flutter/material.dart';
 import 'package:nanc_tools/nanc_tools.dart';
 
@@ -23,7 +23,7 @@ class ReviewsSlider extends StatefulWidget {
 }
 
 class _ReviewsSliderState extends State<ReviewsSlider> {
-  late final CarouselController controller = CarouselController();
+  late final carousel.CarouselController controller = carousel.CarouselController();
   int activeIndex = 0;
 
   Widget _itemBuilder(int index) {
@@ -102,14 +102,14 @@ class _ReviewsSliderState extends State<ReviewsSlider> {
       children: [
         Padding(
           padding: EdgeInsets.only(bottom: widget.sliderDotGap),
-          child: CarouselSlider(
+          child: carousel.CarouselSlider(
             carouselController: controller,
-            options: CarouselOptions(
+            options: carousel.CarouselOptions(
               height: widget.height,
               enlargeCenterPage: true,
               enlargeFactor: 0.35,
-              enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-              onPageChanged: (int index, CarouselPageChangedReason reason) => safeSetState(() => activeIndex = index),
+              enlargeStrategy: carousel.CenterPageEnlargeStrategy.zoom,
+              onPageChanged: (int index, carousel.CarouselPageChangedReason reason) => safeSetState(() => activeIndex = index),
             ),
             items: List.generate(widget.children.length, (int index) => _itemBuilder(index)),
           ),
