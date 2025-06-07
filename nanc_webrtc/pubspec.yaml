@@ -10,18 +10,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  nanc_tools: ^0.0.2
-  dio: ^5.1.2
-  json_annotation: ^4.8.1
-  copy_with_extension: ^5.0.2
+  nanc_tools: ^0.0.3
+  dio: ^5.8.0
+  json_annotation: ^4.9.0
+  copy_with_extension: ^6.0.1
   peerdart: ^0.5.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   nanc_lints: ^1.0.0
-  json_serializable: ^6.7.0
-  build_runner: ^2.4.4
-  copy_with_extension_gen: ^5.0.2
+  json_serializable: ^6.9.5
+  build_runner: ^2.4.15
+  copy_with_extension_gen: ^6.0.1
+
+dependency_overrides:
+  analyzer: ^7.0.0
 
 flutter:

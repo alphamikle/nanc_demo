@@ -11,16 +11,19 @@ dependencies:
   flutter:
     sdk: flutter
   nanc_icons: ^0.0.1
-  nui: ^0.0.2
-  nanc_tools: ^0.0.2
-  json_annotation: ^4.8.1
-  copy_with_extension: ^5.0.2
+  nui: ^0.0.3
+  nanc_tools: ^0.0.3
+  json_annotation: ^4.9.0
+  copy_with_extension: ^6.0.1
   carousel_slider: ^4.2.1
 
 dev_dependencies:
   nanc_lints: ^1.0.0
-  json_serializable: ^6.7.0
-  copy_with_extension_gen: ^5.0.2
-  build_runner: ^2.4.4
+  json_serializable: ^6.9.5
+  copy_with_extension_gen: ^6.0.1
+  build_runner: ^2.4.15
+
+dependency_overrides:
+  analyzer: ^7.0.0
 
 flutter:
