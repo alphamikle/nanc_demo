@@ -15,7 +15,7 @@ dependencies:
   nanc_tools: ^0.0.3
   json_annotation: ^4.9.0
   copy_with_extension: ^6.0.1
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   nanc_lints: ^1.0.0

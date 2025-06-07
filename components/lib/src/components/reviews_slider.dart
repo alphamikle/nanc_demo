@@ -23,7 +23,7 @@ class ReviewsSlider extends StatefulWidget {
 }
 
 class _ReviewsSliderState extends State<ReviewsSlider> {
-  late final carousel.CarouselController controller = carousel.CarouselController();
+  late final carousel.CarouselSliderController controller = carousel.CarouselSliderController();
   int activeIndex = 0;
 
   Widget _itemBuilder(int index) {
@@ -33,7 +33,7 @@ class _ReviewsSliderState extends State<ReviewsSlider> {
   }
 
   void _goToCard(int index) {
-    unawaited(controller.animateToPage(index, duration: const Duration(milliseconds: 300) * (activeIndex - index).abs()));
+    unawaited(controller.animateToPage(index, duration: const Duration(milliseconds: 300) * (activeIndex - index).abs(), curve: Curves.ease));
   }
 
   List<Widget> _buildDots() {
